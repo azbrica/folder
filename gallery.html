@@ -3,12 +3,143 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gallery</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Gallery Kamera Ulang Tahun</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Courier New', monospace;
+      background-color: black;
+      color: #00ff99;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .fireworks {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    h2 {
+      position: relative;
+      z-index: 3;
+      margin-top: 1.5rem;
+    }
+
+    .video-wrapper {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+
+    #selfieCam {
+      display: block;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #00ff99;
+      transform: scaleX(-1);
+      filter: contrast(1.2) brightness(1.1) saturate(1.5);
+    }
+
+    .filter-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -60%);
+      pointer-events: none;
+      z-index: 4;
+    }
+
+    .ears {
+      width: 120px;
+    }
+  </style>
 </head>
 <body>
-  <div class="menu">
-    <h1 style='color:white;'>Gallery Page</h1>
+  <canvas class="fireworks" id="fireworks"></canvas>
+
+  <h2>🎉 ciee...yang ulang tahun 😂</h2>
+
+  <div class="video-wrapper">
+    <video id="selfieCam" autoplay playsinline muted></video>
+    <div class="filter-overlay">
+      <img src="filters/ears.png" alt="Telinga Kucing" class="ears" />
+    </div>
   </div>
+
+  <script>
+    const canvas = document.getElementById("fireworks");
+    const ctx = canvas.getContext("2d");
+    let fireworks = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    function Firework() {
+      this.x = Math.random() * canvas.width;
+      this.y = canvas.height;
+      this.radius = Math.random() * 3 + 1;
+      this.color = "hsl(" + Math.floor(Math.random() * 360) + ", 100%, 50%)";
+      this.vx = Math.random() * 6 - 3;
+      this.vy = Math.random() * -7 - 5;
+      this.alpha = 1;
+
+      this.update = function () {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.alpha -= 0.01;
+      };
+
+      this.draw = function () {
+        ctx.globalAlpha = this.alpha;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+        ctx.globalAlpha = 1;
+      };
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (Math.random() < 0.1) fireworks.push(new Firework());
+      fireworks = fireworks.filter(f => f.alpha > 0);
+      fireworks.forEach(f => {
+        f.update();
+        f.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Kamera
+    function bukaKamera() {
+      const vid = document.getElementById("selfieCam");
+      navigator.mediaDevices.getUserMedia({
+        video: {
+          width: { ideal: 640 },
+          height: { ideal: 480 },
+          facingMode: "user"
+        }
+      })
+      .then(stream => {
+        vid.srcObject = stream;
+      })
+      .catch(() => alert("⚠️ Kamera tidak bisa diakses! Aktifkan izinnya ya."));
+    }
+
+    bukaKamera();
+  </script>
 </body>
 </html>
