@@ -3,75 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gallery Kamera Ulang Tahun</title>
+  <title>Gallery Kamera</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Courier New', monospace;
       background-color: black;
       color: #00ff99;
-      overflow: hidden;
+      font-family: 'Courier New', monospace;
       text-align: center;
+      overflow: hidden;
     }
-
-    .fireworks {
+    #fireworks {
       position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       pointer-events: none;
+      z-index: 1;
     }
-
-    h2 {
+    #cameraWrapper {
       position: relative;
-      z-index: 3;
-      margin-top: 1.5rem;
-    }
-
-    .video-wrapper {
-      position: relative;
-      z-index: 3;
+      z-index: 2;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 1.5rem;
+      height: 100vh;
     }
-
-    #selfieCam {
-      display: block;
+    #video {
       width: 90%;
       max-width: 400px;
       border-radius: 15px;
       box-shadow: 0 0 15px #00ff99;
       transform: scaleX(-1);
-      filter: contrast(1.2) brightness(1.1) saturate(1.5);
     }
-
-    .filter-overlay {
+    h2 {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -60%);
-      pointer-events: none;
-      z-index: 4;
-    }
-
-    .ears {
-      width: 120px;
+      top: 10px;
+      width: 100%;
+      z-index: 3;
+      font-size: 1.5rem;
     }
   </style>
 </head>
 <body>
-  <canvas class="fireworks" id="fireworks"></canvas>
-
+  <canvas id="fireworks"></canvas>
   <h2>🎉 ciee...yang ulang tahun 😂</h2>
-
-  <div class="video-wrapper">
-    <video id="selfieCam" autoplay playsinline muted></video>
-    </div>
+  <div id="cameraWrapper">
+    <video id="video" autoplay playsinline muted></video>
   </div>
 
   <script>
+    // Kamera
+    const video = document.getElementById("video");
+    navigator.mediaDevices.getUserMedia({
+      video: { facingMode: "user" },
+      audio: false
+    }).then(stream => {
+      video.srcObject = stream;
+    }).catch(err => {
+      alert("Gagal mengakses kamera 😢");
+      console.error(err);
+    });
+
+    // Fireworks
     const canvas = document.getElementById("fireworks");
     const ctx = canvas.getContext("2d");
     let fireworks = [];
@@ -80,7 +75,6 @@
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     }
-
     window.addEventListener("resize", resizeCanvas);
     resizeCanvas();
 
@@ -92,13 +86,11 @@
       this.vx = Math.random() * 6 - 3;
       this.vy = Math.random() * -7 - 5;
       this.alpha = 1;
-
       this.update = function () {
         this.x += this.vx;
         this.y += this.vy;
         this.alpha -= 0.01;
       };
-
       this.draw = function () {
         ctx.globalAlpha = this.alpha;
         ctx.beginPath();
@@ -119,25 +111,8 @@
       });
       requestAnimationFrame(animate);
     }
+
     animate();
-
-    // Kamera
-    function bukaKamera() {
-      const vid = document.getElementById("selfieCam");
-      navigator.mediaDevices.getUserMedia({
-        video: {
-          width: { ideal: 640 },
-          height: { ideal: 480 },
-          facingMode: "user"
-        }
-      })
-      .then(stream => {
-        vid.srcObject = stream;
-      })
-      .catch(() => alert("⚠️ Kamera tidak bisa diakses! Aktifkan izinnya ya."));
-    }
-
-    bukaKamera();
   </script>
 </body>
 </html>
