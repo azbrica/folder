@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat(2, 140px);
+  gap: 16px;
+}
+
+.btn {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 #000;
+  transition: transform 0.1s ease;
+}
+
+.btn:active {
+  transform: translateY(2px);
+  box-shadow: 2px 2px 0 #000;
+}
+
+.blue { background-color: #2196F3; }
+.red { background-color: #F44336; }
+.purple { background-color: #9C27B0; }
+.green { background-color: #4CAF50; }
