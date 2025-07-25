@@ -1,14 +1,163 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Message</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Hadiah Digital Zah</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Courier New', monospace;
+      background-color: black;
+      color: #00ff99;
+      overflow-x: hidden;
+      text-align: center;
+    }
+    .fireworks {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .title {
+      z-index: 2;
+      position: absolute;
+      top: 40%;
+      width: 100%;
+      font-size: 1.5rem;
+    }
+    .content {
+      display: none;
+      position: relative;
+      z-index: 3;
+      padding: 2rem;
+    }
+    .message-box {
+      border: 2px dotted #00ff99;
+      padding: 1rem;
+      background-color: #001f1f;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+    }
+    .audio-player {
+      border-radius: 10px;
+      padding: 1rem;
+      background-color: #111;
+      box-shadow: 0 0 20px #00ff99;
+      width: 90%;
+      max-width: 400px;
+      margin: auto;
+    }
+    .cover {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    #selfieCam {
+      display: none;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #00ff99;
+      transform: scaleX(-1);
+    }
+    .video-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2rem;
+    }
+    .btn-icon {
+      background: none;
+      border: none;
+      font-size: 2rem;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <div class="menu">
-    <h1 style='color:white;'>Message Page</h1>
+  <canvas class="fireworks" id="fireworks"></canvas>
+
+  <div class="content" id="mainContent">
+    <div class="message-box">
+      <p>barokallah fii umrik ya zah..zizah 🙏😂<br><br>
+      17 agustus ini bukan cuma hari kemerdekaan negara ygy wkwk tapi juga hari lahir org yg luar biasa..asekk 😂apasi bahasanya.. spesial limited gasi wkwk<br>
+      semoga Allah tambahin berkah umurnya.. diluaskan dan dicukupkan rezekinya.. ditenangkan pikirannya.. dibahagiakan hatinya.. Allah kabulkan semua doanya.. semua hajatnya.. dimudahkan semua urusannya..semoga makin mutqin hafalanya..tambah istiqomah murojaahnya wkwk eh iya pas itu barusan gelondong ya kan? khatamn bu mudah, aku liat status bpk lah kok wkwk batiba khataman..emang beda si bro satu ini..semoga nular dah ya Allah aamiin 😭 semoga ilmunya tambah manfaat barokah.. semoga hmm apalagi ya 😂 ya semoga tambah kuat jadi diri sendiri wkwk.. diluaskan sabarnya.. emng idup tu kan ga selalu hmm bisa dijelasin gitu kan, ga semua yg kita pendem bisa dijelasin keorg lain.. apasi ini dah dah gitu aja wkwk, ini klok ditulis semua ga cukup kyknya 🙏😂 pokonya semoga semuanya baik² aja lah ya.. trus sehat sehat dah aamiin.. 🤲</p>
+     <p style="font-family: serif; font-style: italic;">tab ygy</p>
+      <button class="btn-icon" onclick="nextPage()">🎁</button>
+    </div>
+    <div class="scroll-hint">⬇️ Gulir ke bawah biar ada musiknya :v 🎶</div>
+    <div class="audio-player">
+      <img src="cover.jpg" alt="cover lagu" class="cover" />
+      <div><strong>About You </strong></div>
+      <audio controls>
+        <source src="aboutyou.mp3" type="audio/mpeg">
+        Browsermu tidak mendukung pemutar audio.
+      </audio>
+    </div>
   </div>
-</body>
-</html>
+
+  <script>
+    const typingText = "barokallah fii umrik nilna";
+    const typingEl = document.getElementById("typing-text");
+    let index = 0;
+    function typeWriter() {
+      if (index < typingText.length) {
+        typingEl.innerHTML += typingText.charAt(index);
+        index++;
+        setTimeout(typeWriter, 100);
+      }
+    }
+    typeWriter();
+
+    // Fireworks
+    const canvas = document.getElementById("fireworks");
+    const ctx = canvas.getContext("2d");
+    let fireworks = [];
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+    function Firework() {
+      this.x = Math.random() * canvas.width;
+      this.y = canvas.height;
+      this.radius = Math.random() * 3 + 1;
+      this.color = "hsl(" + Math.floor(Math.random() * 360) + ", 100%, 50%)";
+      this.vx = Math.random() * 6 - 3;
+      this.vy = Math.random() * -7 - 5;
+      this.alpha = 1;
+      this.update = function () {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.alpha -= 0.01;
+      };
+      this.draw = function () {
+        ctx.globalAlpha = this.alpha;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+        ctx.globalAlpha = 1;
+      };
+    }
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (Math.random() < 0.1) fireworks.push(new Firework());
+      fireworks = fireworks.filter(f => f.alpha > 0);
+      fireworks.forEach(f => {
+        f.update();
+        f.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+
+    
