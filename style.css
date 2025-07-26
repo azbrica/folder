@@ -1,37 +1,111 @@
+@import url("https://fonts.googleapis.com/css?family=Space%20Grotesk:700|Space%20Grotesk:400");
+
+:root {
+  --m: 3rem;
+  --red: #ff6565;
+  --pink: #ff64f9;
+  --purple: #6b5fff;
+  --blue: #4d8aff;
+  --green: #5bff89;
+  --yellow: #ffee55;
+  --orange: #ff6d1b;
+}
+
 body {
-  margin: 0;
-  height: 100vh;
-  background-color: #111;
+  background-color: #141516;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  margin: 0;
 }
 
-.menu {
-  display: grid;
-  grid-template-columns: repeat(2, 140px);
-  gap: 16px;
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
 }
 
-.btn {
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  color: white;
-  font-weight: bold;
-  font-size: 14px;
+button {
+  border: calc(0.08 * var(--m)) solid transparent;
+  position: relative;
+  color: #f3f3f3;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: calc(0.8 * var(--m));
+  border-radius: calc(0.7 * var(--m));
+  padding: calc(0.4 * var(--m)) calc(1 * var(--m));
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  box-shadow: 4px 4px 0 #000;
-  transition: transform 0.1s ease;
+
+  background: linear-gradient(#121213, #121213),
+    linear-gradient(#121213 50%, rgba(18, 18, 19, 0.6) 80%, rgba(18, 18, 19, 0)),
+    linear-gradient(
+      90deg,
+      var(--orange),
+      var(--yellow),
+      var(--green),
+      var(--blue),
+      var(--purple),
+      var(--pink),
+      var(--red)
+    );
+  background-origin: border-box;
+  background-clip: padding-box, border-box, border-box;
+  background-size: 200%;
+  animation: animate 2s infinite linear;
 }
 
-.btn:active {
-  transform: translateY(2px);
-  box-shadow: 2px 2px 0 #000;
+button::before {
+  content: "";
+  background: linear-gradient(
+    90deg,
+    var(--orange),
+    var(--yellow),
+    var(--green),
+    var(--blue),
+    var(--purple),
+    var(--pink),
+    var(--red)
+  );
+  height: 30%;
+  width: 60%;
+  position: absolute;
+  bottom: -20%;
+  z-index: -5;
+  background-size: 200%;
+  animation: animate 2s infinite linear;
+  filter: blur(calc(0.8 * var(--m)));
 }
 
-.blue { background-color: #2196F3; }
-.red { background-color: #F44336; }
-.purple { background-color: #9C27B0; }
-.green { background-color: #4CAF50; }
+button:hover,
+button:hover::before {
+  animation: animate 0.5s infinite linear;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  :root {
+    --m: 2rem;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  button {
+    width: 80vw;
+    justify-content: center;
+  }
+}
