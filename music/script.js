@@ -273,7 +273,7 @@ let songs = [
         album: "AM",
         albumArtUrl: "https://i.ytimg.com/vi/fJLQCf4mFP0/hqdefault.jpg",
         audioSrc: "audio/I Wanna Be Yours.mp3",
-        videoBgSrc: "videos/i_wanna_be_yours_bg.mp4",
+        videoBgSrc: "videos/i wanna.mp4",
         lyrics: [
             { time: 1000, text: "I wanna be your vacuum cleaner" },
             { time: 1000, text: "Breathing in your dust" },
