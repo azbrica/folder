@@ -314,46 +314,7 @@ let songs = [
             { time: 1000, text: "I just wanna be yours (Wanna be yours)" }
         ]
     },
-    {
-        id: 7,
-        title: "123456",
-        artist: "Budi DoReMi",
-        album: "AM",
-        albumArtUrl: "https://i.ytimg.com/vi/b7cmBqicC9c/hqdefault.jpg",
-        audioSrc: "audio/Budi DoReMi 123456.mp3",
-        videoBgSrc: "videos/Budi DoReMi.mp4",
-        lyrics: [
-            { time: 1.0, text: "Ada sebuah cerita tentang aku dan dia" },
-            { time: 5.0, text: "Jumpa pertama ku dengannya di satu sore yang cerah" },
-            { time: 10.0, text: "Singkat kata singkat cerita ku berjalan dengannya" },
-            { time: 15.0, text: "Namun apa yang aku rasa mungkinkah ini cinta?" },
-            { time: 20.0, text: "Dan aku pun bayangkan dirimu" },
-            { time: 24.0, text: "Mulai ada rindu" },
-            { time: 28.0, text: "Duniaku terhenti karena kamu" },
-            { time: 32.0, text: "Mungkin bisa jadi milikku" },
-            { time: 36.0, text: "Semoga lagu cinta ini bersarang tepat di hatimu" },
-            { time: 44.0, text: "Satu kali ku bertemu, Dua lama sudah rasaku" },
-            { time: 50.0, text: "Tiga kata yang ku tahu, Aku cinta padamu" },
-            { time: 57.0, text: "Empat malam ku menunggu jawaban cinta darimu" },
-            { time: 64.0, text: "Lima tanda yang kau beri, Enam‑pakah kau cinta padaku" },
-            { time: 72.0, text: "Dan aku pun bayangkan dirimu, mulai ada rindu" },
-            { time: 80.0, text: "Duniaku terhenti karena kamu" },
-            { time: 88.0, text: "Mungkin bisa jadi milikku" },
-            { time: 96.0, text: "Semoga lagu cinta ini bersarang tepat di hatimu" },
-            { time: 104.0, text: "Satu dua tiga empat lima dan enam" },
-            { time: 112.0, text: "Rasa ku tanam dan cinta mulai berkembang" },
-            { time: 120.0, text: "Begitulah proses tangkap‑menangkap hati darimu" },
-            { time: 130.0, text: "Ya, namanya juga orang lagi usaha, mau gimana lagi" },
-            { time: 140.0, text: "Kau di sana, ku di sini, kau tersipu artinya malu" },
-            { time: 150.0, text: "Satu kali bertemu, Dua lama sudah rasaku" },
-            { time: 156.0, text: "Tiga kata yang ku tahu, Aku cinta padamu" },
-            { time: 162.0, text: "Empat malam ku menunggu jawaban cinta darimu" },
-            { time: 168.0, text: "Lima tanda yang kau beri, Enam‑pakah kau cinta padaku" },
-            { time: 176.0, text: "Enampaknya kau cinta padaku" },
-            { time: 185.0, text: "Terima kasih" }
-        ]
-    };
-  
+   
 ];
 let currentSongIndex = 0;
 let isPlaying = false;
