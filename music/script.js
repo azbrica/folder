@@ -319,7 +319,7 @@ let songs = [
         title: "123456",
         artist: "Budi DoReMi",
         album: "AM",
-        albumArtUrl: "https://i.ytimg.com/vi/fJLQCf4mFP0/hqdefault.jpg",
+        albumArtUrl: "https://i.ytimg.com/vi/b7cmBqicC9c/hqdefault.jpg",
         audioSrc: "audio/Budi DoReMi 123456.mp3",
         videoBgSrc: "videos/Budi DoReMi.mp4",
         lyrics: [
