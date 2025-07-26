@@ -356,13 +356,13 @@ let songs = [
         ]
     }, 
     {
-        id: 3,
-        title: "Bergema Selamanya",
+        id: 9,
+        title: "Bergema Sampai Selamanya",
         artist: "Nadhif Basalamah",
         album: "Single",
-        albumArtUrl: "https://i.ytimg.com/vi/YOUTUBE_ID/hqdefault.jpg",
-        audioSrc: "audio/bergema_selamanya.mp3",
-        videoBgSrc: "videos/bergema_selamanya.mp4",
+        albumArtUrl: "https://i.ytimg.com/vi/jG_I7HGVlvs/hqdefault.jpg",
+        audioSrc: "audio/bergema.mp3",
+        videoBgSrc: "videos/bergema.mp4",
         lyrics: [
             { time: 1000, text: "Waktu yang kupunya denganmu" },
             { time: 1000, text: "Kita berdansa dan tertawa, gandeng tangan" },
@@ -372,7 +372,7 @@ let songs = [
             { time: 1000, text: "Maka tenang saja, kita di sini berdua" },
             { time: 1000, text: "Nikmati sementara yang ada" }
         ]
-    }
+   }, 
     
 ];
 let currentSongIndex = 0;
