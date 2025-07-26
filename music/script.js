@@ -355,7 +355,25 @@ let songs = [
             { time: 1000, text: "Tuk selamanya" }
         ]
     }, 
-
+    {
+        id: 3,
+        title: "Bergema Selamanya",
+        artist: "Nadhif Basalamah",
+        album: "Single",
+        albumArtUrl: "https://i.ytimg.com/vi/YOUTUBE_ID/hqdefault.jpg",
+        audioSrc: "audio/bergema_selamanya.mp3",
+        videoBgSrc: "videos/bergema_selamanya.mp4",
+        lyrics: [
+            { time: 1000, text: "Waktu yang kupunya denganmu" },
+            { time: 1000, text: "Kita berdansa dan tertawa, gandeng tangan" },
+            { time: 1000, text: "Semoga bergema sampai selamanya" },
+            { time: 1000, text: "Dunia pasti ada akhirnya" },
+            { time: 1000, text: "Bintang-bintang pun ada umurnya" },
+            { time: 1000, text: "Maka tenang saja, kita di sini berdua" },
+            { time: 1000, text: "Nikmati sementara yang ada" }
+        ]
+    }
+    
 ];
 let currentSongIndex = 0;
 let isPlaying = false;
