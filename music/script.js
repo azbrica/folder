@@ -364,14 +364,32 @@ let songs = [
         audioSrc: "audio/bergema.mp3",
         videoBgSrc: "videos/bergema.mp4",
         lyrics: [
+            { time: 1000, text: "Aku ingin jadi teman nyamanmu" },
+            { time: 1000, text: "Tempat kauhilangkan keluh kesahmu" },
+            { time: 1000, text: "Kita berbincang tak karuan tanpa beban" },
+            { time: 1000, text: "Dan juga khayalan tentang masa depan" },
+            { time: 1000, text: "Ku tak ingin cepat berlalu (berlalu)" },
             { time: 1000, text: "Waktu yang kupunya denganmu" },
             { time: 1000, text: "Kita berdansa dan tertawa, gandeng tangan" },
             { time: 1000, text: "Semoga bergema sampai selamanya" },
             { time: 1000, text: "Dunia pasti ada akhirnya" },
             { time: 1000, text: "Bintang-bintang pun ada umurnya" },
             { time: 1000, text: "Maka tenang saja, kita di sini berdua" },
-            { time: 1000, text: "Nikmati sementara yang ada" }
-        ]
+            { time: 1000, text: "Nikmati sementara yang ada" },
+            { time: 1000, text: "Bersandar padaku, taruh di bahuku" },
+            { time: 1000, text: "Relakan semua, bebas semaumu (bebas semaumu)" },
+            { time: 1000, text: "Percayalah, ini sayang terlewatkan (percayalah, terlewatkan)" },
+            { time: 1000, text: "Kusampaikan dalam nyanyian, bergema sampai s'lamanya" },
+            { time: 1000, text: "Dunia pasti ada akhirnya" },
+            { time: 1000, text: "Bintang-bintang pun ada umurnya" },
+            { time: 1000, text: "Maka tenang saja, kita di sini berdua" },
+            { time: 1000, text: "Nikmati sementara yang ada" },
+            { time: 1000, text: "Dunia pasti ada akhirnya" },
+            { time: 1000, text: "Bintang-bintang pun ada umurnya" },
+            { time: 1000, text: "Maka tenang saja, kita di sini berdua" },
+            { time: 1000, text: "Nikmati sementara yang ada" },
+            { time: 1000, text: "Semoga bergema selamanya" }
+       ]
    }, 
     
 ];
