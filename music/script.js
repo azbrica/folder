@@ -315,7 +315,7 @@ let songs = [
         ]
     },
     {
-        id: 2,
+        id: 7,
         title: "123456",
         artist: "Budi DoReMi",
         album: "Ok Computer",
@@ -338,7 +338,24 @@ let songs = [
             { time: 1000, text: "Lima tanda yang kau beri, Enampaknya kau cinta padaku" },
         ] 
     }, 
-    
+    {
+        id: 8,
+        title: "Penjaga Hati",
+        artist: "Nadhif Basalamah",
+        album: "Single",
+        albumArtUrl: "https://i.ytimg.com/vi/jia3fhBQ8qI/hqdefault.jpg", 
+        audioSrc: "audio/penjaga hati.mp3",
+        videoBgSrc: "videos/penjaga_hati.mp4",
+        lyrics: [
+            { time: 1000, text: "Karna bersamamu semua terasa indah" },
+            { time: 1000, text: "Gundah gulana hatiku pun hancur sirna" },
+            { time: 1000, text: "Janji ku tak kan ku lepas wahai kau bidadariku dari surga" },
+            { time: 1000, text: "Tuk selamanya" },
+            { time: 1000, text: "Tuk selamanya" },
+            { time: 1000, text: "Tuk selamanya" }
+        ]
+    }, 
+
 ];
 let currentSongIndex = 0;
 let isPlaying = false;
