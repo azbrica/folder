@@ -345,7 +345,7 @@ let songs = [
         album: "Single",
         albumArtUrl: "https://i.ytimg.com/vi/jia3fhBQ8qI/hqdefault.jpg", 
         audioSrc: "audio/penjaga hati.mp3",
-        videoBgSrc: "videos/penjaga_hati.mp4",
+        videoBgSrc: "videos/penjaga hati.mp4",
         lyrics: [
             { time: 1000, text: "Karna bersamamu semua terasa indah" },
             { time: 1000, text: "Gundah gulana hatiku pun hancur sirna" },
