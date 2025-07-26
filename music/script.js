@@ -320,7 +320,7 @@ let songs = [
         artist: "Budi DoReMi",
         album: "AM",
         albumArtUrl: "https://i.ytimg.com/vi/b7cmBqicC9c/hqdefault.jpg",
-        audioSrc: "audio/Budi DoReMi 123456.mp3",
+        audioSrc: "audio/Budi DoReMi-123456.mp3",
         videoBgSrc: "videos/Budi DoReMi.mp4",
         lyrics: [
             { time: 1.0, text: "Ada sebuah cerita tentang aku dan dia" },
