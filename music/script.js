@@ -314,7 +314,31 @@ let songs = [
             { time: 1000, text: "I just wanna be yours (Wanna be yours)" }
         ]
     },
-   
+    {
+        id: 2,
+        title: "123456",
+        artist: "Budi DoReMi",
+        album: "Ok Computer",
+        albumArtUrl: "https://i.ytimg.com/vi/b7cmBqicC9c/hqdefault.jpg",
+        audioSrc: "audio/Budi.mp3",
+        videoBgSrc: "videos/Budi.mp4",
+        lyrics: [
+            { time: 1000, text: "Ada sebuah cerita tentang aku dan dia" },
+            { time: 1000, text: "Jumpa pertama ku dengannya di satu sore yang cerah" },
+            { time: 1000, text: "Singkat kata singkat cerita ku berjalan dengannya" },
+            { time: 1000, text: "Namun apa yang aku rasa mungkinkah ini cinta?" },
+            { time: 1000, text: "Dan aku pun bayangkan dirimu" },
+            { time: 1000, text: "Mulai ada rindu" },
+            { time: 1000, text: "Duniaku terhenti karena kamu" },
+            { time: 1000, text: "Mungkin bisa jadi milikku" },
+            { time: 1000, text: "Semoga lagu cinta ini bersarang tepat di hatimu" },
+            { time: 1000, text: "Satu kali ku bertemu, Dua lama sudah rasaku" },
+            { time: 1000, text: "Tiga kata yang ku tahu, Aku cinta padamu" },
+            { time: 1000, text: "Empat malam ku menunggu jawaban cinta darimu" },
+            { time: 1000, text: "Lima tanda yang kau beri, Enampaknya kau cinta padaku" },
+        ] 
+    }, 
+    
 ];
 let currentSongIndex = 0;
 let isPlaying = false;
