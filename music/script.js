@@ -422,6 +422,21 @@ let songs = [
             { time: 1000, text: "Where we are" }
         ]
    },
+   {
+        id: 11,
+        title: "Kamado Tanjiro no Uta",
+        artist: "Go Shiina ft. Nami Nakagawa",
+        album: "Kimetsu no Yaiba OST",
+        albumArtUrl: "https://i.ytimg.com/vi/YOUTUBE_ID/hqdefault.jpg",
+        audioSrc: "audio/tanjiro.mp3",
+        videoBgSrc: "videos/tanjiro.mp4",
+        lyrics: [
+            { time: 1000, text: "Ushinattemo ushinatte mo" },
+            { time: 1000, text: "Ikite iku shika nai" },
+            { time: 1000, text: "Don'nani uchinomesarete mo" },
+            { time: 1000, text: "Mamoru mono ga aru" }
+        ]
+   }, 
     
 ];
 let currentSongIndex = 0;
