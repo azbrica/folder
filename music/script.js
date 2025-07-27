@@ -427,7 +427,7 @@ let songs = [
         title: "Kamado Tanjiro no Uta",
         artist: "Go Shiina ft. Nami Nakagawa",
         album: "Kimetsu no Yaiba OST",
-        albumArtUrl: "https://i.ytimg.com/vi/YOUTUBE_ID/hqdefault.jpg",
+        albumArtUrl: "https://i.ytimg.com/vi/EVoWz321A7M/hqdefault.jpg",
         audioSrc: "audio/tanjiro.mp3",
         videoBgSrc: "videos/tanjiro.mp4",
         lyrics: [
