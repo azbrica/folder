@@ -391,6 +391,37 @@ let songs = [
             { time: 1000, text: "Semoga bergema selamanya" }
        ]
    }, 
+   {
+        id: 10,
+        title: "Where We Are",
+        artist: "One Direction",
+        album: "Midnight Memories (Deluxe Edition)",
+        albumArtUrl: "",
+        audioSrc: "audio/where we are.mp3",
+        videoBgSrc: "videos/where we are.mp4",
+        lyrics: [
+            { time: 0, text: "Remember when we would stay out too late" },
+            { time: 5, text: "We were young, havin' fun, made mistakes" },
+            { time: 10, text: "Did we ever know? Did we ever know?" },
+            { time: 15, text: "Did we ever know? Yeah" },
+            { time: 20, text: "All the things we'd just think of and say" },
+            { time: 25, text: "Never wrong, always right, not afraid" },
+            { time: 30, text: "Did we ever know? Did we ever know?" },
+            { time: 35, text: "Did we ever know?" },
+            { time: 40, text: "Is it all inside of my head?" },
+            { time: 45, text: "Maybe you still think I don't care" },
+            { time: 50, text: "But all I need is you" },
+            { time: 54, text: "Yeah, you know it's true, yeah, you know it's true" },
+            { time: 60, text: "Forget about where we are and let go" },
+            { time: 64, text: "We're so close" },
+            { time: 67, text: "If you don't know where to start, just hold on" },
+            { time: 71, text: "And don't run, no" },
+            { time: 75, text: "We're looking back, we messed around" },
+            { time: 79, text: "But that was then and this is now" },
+            { time: 83, text: "All we need's enough love to hold us" },
+            { time: 87, text: "Where we are" }
+        ]
+   },
     
 ];
 let currentSongIndex = 0;
