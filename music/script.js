@@ -347,12 +347,12 @@ let songs = [
         audioSrc: "audio/penjaga hati.mp3",
         videoBgSrc: "videos/penjaga hati.mp4",
         lyrics: [
-            { time: 1000, text: "Karna bersamamu semua terasa indah" },
-            { time: 1000, text: "Gundah gulana hatiku pun hancur sirna" },
-            { time: 1000, text: "Janji ku tak kan ku lepas wahai kau bidadariku dari surga" },
-            { time: 1000, text: "Tuk selamanya" },
-            { time: 1000, text: "Tuk selamanya" },
-            { time: 1000, text: "Tuk selamanya" }
+            { time: 3, text: "Karna bersamamu semua terasa indah" },
+            { time: 8, text: "Gundah gulana hatiku pun hancur sirna" },
+            { time: 14, text: "Janji ku tak kan ku lepas wahai kau bidadariku dari surga" },
+            { time: 21, text: "Tuk selamanya" },
+            { time: 27, text: "Tuk selamanya" },
+            { time: 32, text: "Tuk selamanya" }
         ]
     }, 
     {
