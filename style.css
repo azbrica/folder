@@ -11,6 +11,7 @@
   --orange: #ff6d1b;
 }
 
+/* Body tetap ada fallback warna kalau video gagal load */
 body {
   background-color: #141516;
   display: flex;
@@ -18,6 +19,30 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+  overflow: hidden; /* biar gak ada scroll */
+}
+
+/* ===== VIDEO BACKGROUND ===== */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* full cover layar */
+  z-index: -2; /* di belakang overlay & tombol */
+}
+
+/* OPTIONAL: overlay gelap tipis biar tombol tetap kontras */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* gelap 30% */
+  z-index: -1;
 }
 
 .button-container {
@@ -25,6 +50,8 @@ body {
   flex-wrap: wrap;
   gap: 1.2rem;
   justify-content: center;
+  position: relative;
+  z-index: 1; /* pastikan tombol di atas video & overlay */
 }
 
 button {
