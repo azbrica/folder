@@ -13,6 +13,7 @@
       overflow-x: hidden;
       text-align: center;
     }
+
     .message-box {
       border: 2px dotted #00ff99;
       padding: 1rem;
@@ -20,6 +21,12 @@
       border-radius: 12px;
       margin: 2rem;
     }
+
+    .scroll-hint {
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+
     .audio-player {
       border-radius: 10px;
       padding: 1rem;
@@ -27,42 +34,51 @@
       box-shadow: 0 0 20px #00ff99;
       width: 90%;
       max-width: 400px;
-      margin: auto;
+      margin: 2rem auto;
     }
+
+    /* VIDEO COVER */
     .cover {
       width: 100%;
       max-height: 200px;
-      object-fit: cover;
+      object-fit: contain; /* Biar gak terpotong */
+      background-color: black; /* Untuk ruang kosong */
       border-radius: 8px;
       margin-bottom: 1rem;
-    }
-    .scroll-hint {
-      margin-top: 1rem;
-      font-size: 1rem;
+      display: block;
     }
   </style>
 </head>
 <body>
+
+  <!-- Pesan Ulang Tahun -->
   <div class="message-box">
-    <p>barokallah fii umrik ya zah..zizah 🙏😂<br><br>
-      17 agustus ini bukan cuma hari kemerdekaan negara ygy wkwk tapi juga hari lahir org yg luar biasa..asekk 😂apasi bahasanya.. spesial limited gasi wkwk<br>
-      semoga Allah tambahin berkah umurnya.. diluaskan dan dicukupkan rezekinya.. ditenangkan pikirannya.. dibahagiakan hatinya.. Allah kabulkan semua doanya.. semua hajatnya.. dimudahkan semua urusannya..semoga makin mutqin hafalanya..tambah istiqomah murojaahnya wkwk eh iya pas itu barusan gelondong ya kan? khatamn bu mudah, aku liat status bpk lah kok wkwk batiba khataman..emang beda si bro satu ini..semoga nular dah ya Allah aamiin 😭 semoga ilmunya tambah manfaat barokah.. semoga hmm apalagi ya 😂 ya semoga tambah kuat jadi diri sendiri wkwk.. diluaskan sabarnya.. emng idup tu kan ga selalu hmm bisa dijelasin gitu kan, ga semua yg kita pendem bisa dijelasin keorg lain.. apasi ini dah dah gitu aja wkwk, ini klok ditulis semua ga cukup kyknya 🙏😂 pokonya semoga semuanya baik² aja lah ya.. trus sehat sehat dah aamiin.. 🤲</p>
+    <p>
+      barokallah fii umrik ya zah..zizah 🙏😂<br><br>
+      17 agustus ini bukan cuma hari kemerdekaan negara ygy wkwk tapi juga hari lahir org yg luar biasa..asekk 😂 apasi bahasanya.. spesial limited gasi wkwk<br>
+      semoga Allah tambahin berkah umurnya.. diluaskan dan dicukupkan rezekinya.. ditenangkan pikirannya.. dibahagiakan hatinya.. Allah kabulkan semua doanya.. semua hajatnya.. dimudahkan semua urusannya.. semoga makin mutqin hafalanya.. tambah istiqomah murojaahnya wkwk eh iya pas itu barusan gelondong ya kan? khatam bu mudah, aku liat status bpk lah kok wkwk batiba khataman.. emang beda si bro satu ini.. semoga nular dah ya Allah aamiin 😭 semoga ilmunya tambah manfaat barokah.. semoga hmm apalagi ya 😂 ya semoga tambah kuat jadi diri sendiri wkwk.. diluaskan sabarnya.. emng idup tu kan ga selalu hmm bisa dijelasin gitu kan, ga semua yg kita pendem bisa dijelasin keorg lain.. apasi ini dah dah gitu aja wkwk, ini klok ditulis semua ga cukup kyknya 🙏😂 pokonya semoga semuanya baik² aja lah ya.. trus sehat sehat dah aamiin.. 🤲
+    </p>
   </div>
 
+  <!-- Info Musik -->
   <div class="scroll-hint">⬇️ Gulir ke bawah biar ada musiknya :v 🎶</div>
 
+  <!-- Video Cover + Audio Player -->
   <div class="audio-player">
-    <!-- Ganti img jadi video -->
+    <!-- Video sebagai cover -->
     <video class="cover" autoplay muted loop playsinline>
       <source src="cover.mp4" type="video/mp4">
       Browsermu tidak mendukung video.
     </video>
 
     <div><strong>About You</strong></div>
+
+    <!-- Audio lagu -->
     <audio controls>
       <source src="bergema sampai selamanya.mp3" type="audio/mpeg">
       Browsermu tidak mendukung pemutar audio.
     </audio>
   </div>
+
 </body>
 </html>
