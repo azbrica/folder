@@ -20,6 +20,8 @@
       background-color: #001f1f;
       border-radius: 12px;
       margin: 2rem;
+      min-height: 200px;
+      position: relative;
     }
 
     .scroll-hint {
@@ -37,27 +39,35 @@
       margin: 2rem auto;
     }
 
-    /* VIDEO COVER */
     .cover {
       width: 100%;
       max-height: 200px;
-      object-fit: contain; /* Biar gak terpotong */
-      background-color: black; /* Untuk ruang kosong */
+      object-fit: contain;
+      background-color: black;
       border-radius: 8px;
       margin-bottom: 1rem;
       display: block;
+    }
+
+    #skip-btn {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #00ff99;
+      color: black;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: inherit;
     }
   </style>
 </head>
 <body>
 
   <!-- Pesan Ulang Tahun -->
-  <div class="message-box">
-    <p>
-      barokallah fii umrik ya zah..zizah 🙏😂<br><br>
-      17 agustus ini bukan cuma hari kemerdekaan negara ygy wkwk tapi juga hari lahir org yg luar biasa..asekk 😂 apasi bahasanya.. spesial limited gasi wkwk<br>
-      semoga Allah tambahin berkah umurnya.. diluaskan dan dicukupkan rezekinya.. ditenangkan pikirannya.. dibahagiakan hatinya.. Allah kabulkan semua doanya.. semua hajatnya.. dimudahkan semua urusannya.. semoga makin mutqin hafalanya.. tambah istiqomah murojaahnya wkwk eh iya pas itu barusan gelondong ya kan? khatam bu mudah, aku liat status bpk lah kok wkwk batiba khataman.. emang beda si bro satu ini.. semoga nular dah ya Allah aamiin 😭 semoga ilmunya tambah manfaat barokah.. semoga hmm apalagi ya 😂 ya semoga tambah kuat jadi diri sendiri wkwk.. diluaskan sabarnya.. emng idup tu kan ga selalu hmm bisa dijelasin gitu kan, ga semua yg kita pendem bisa dijelasin keorg lain.. apasi ini dah dah gitu aja wkwk, ini klok ditulis semua ga cukup kyknya 🙏😂 pokonya semoga semuanya baik² aja lah ya.. trus sehat sehat dah aamiin.. 🤲
-    </p>
+  <div class="message-box" id="message-box">
+    <p id="typed-message"></p>
+    <button id="skip-btn">SKIP</button>
   </div>
 
   <!-- Info Musik -->
@@ -65,7 +75,6 @@
 
   <!-- Video Cover + Audio Player -->
   <div class="audio-player">
-    <!-- Video sebagai cover -->
     <video class="cover" autoplay muted loop playsinline>
       <source src="cover.mp4" type="video/mp4">
       Browsermu tidak mendukung video.
@@ -73,12 +82,62 @@
 
     <div><strong>About You</strong></div>
 
-    <!-- Audio lagu -->
     <audio controls>
       <source src="bergema sampai selamanya.mp3" type="audio/mpeg">
       Browsermu tidak mendukung pemutar audio.
     </audio>
   </div>
 
+  <script>
+    const text = `Barokallah fii umrik ya zah..zizah 🙏😂
+
+17 agustus ini bukan cuma hari kemerdekaan negara ygy wkwk
+tapi juga hari lahir org yg luar biasa..asekk 😂 apasi bahasanya..
+spesial limited gasi wkwk
+
+Semoga Allah tambahin berkah umurnya.. diluaskan dan dicukupkan rezekinya..
+ditenangkan pikirannya.. dibahagiakan hatinya..
+Allah kabulkan semua doanya.. semua hajatnya.. dimudahkan semua urusannya..
+
+Semoga makin mutqin hafalanya.. tambah istiqomah murojaahnya
+wkwk eh iya pas itu barusan gelondong ya kan? khatam bu mudah,
+aku liat status bpk lah kok wkwk batiba khataman..
+
+Emang beda si bro satu ini.. semoga nular dah ya Allah aamiin 😭
+Semoga ilmunya tambah manfaat barokah..
+Semoga hmm apalagi ya 😂 ya semoga tambah kuat jadi diri sendiri wkwk..
+diluaskan sabarnya..
+
+Emng idup tu kan ga selalu hmm bisa dijelasin gitu kan,
+ga semua yg kita pendem bisa dijelasin ke org lain..
+apasi ini dah dah gitu aja wkwk,
+ini klok ditulis semua ga cukup kyknya 🙏😂
+
+Pokonya semoga semuanya baik² aja lah ya.. trus sehat sehat dah aamiin.. 🤲`;
+
+    const messageElem = document.getElementById("typed-message");
+    const skipBtn = document.getElementById("skip-btn");
+
+    let index = 0;
+    let speed = 30;
+    let isSkipping = false;
+
+    function typeText() {
+      if (index < text.length && !isSkipping) {
+        messageElem.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeText, speed);
+      } else if (isSkipping) {
+        messageElem.innerHTML = text.replace(/\n/g, "<br>");
+      }
+    }
+
+    skipBtn.addEventListener("click", () => {
+      isSkipping = true;
+      messageElem.innerHTML = text.replace(/\n/g, "<br>");
+    });
+
+    typeText();
+  </script>
 </body>
 </html>
