@@ -424,18 +424,27 @@ let songs = [
    },
    {
         id: 11,
-        title: "Kamado Tanjiro no Uta",
-        artist: "Go Shiina ft. Nami Nakagawa",
-        album: "Kimetsu no Yaiba OST",
-        albumArtUrl: "https://i.ytimg.com/vi/EVoWz321A7M/hqdefault.jpg",
-        audioSrc: "audio/tanjiro.mp3",
-        videoBgSrc: "videos/tanjiro.mp4",
+        title: "Masa Lalu",
+        artist: "Chaeroel",
+        album: "Single",
+        albumArtUrl: "https://i.ytimg.com/vi/YOUTUBE_ID/hqdefault.jpg",
+        audioSrc: "audio/masa lalu.mp3",
+        videoBgSrc: "videos/masa lalu.mp4",
         lyrics: [
-            { time: 1000, text: "Ushinattemo ushinatte mo" },
-            { time: 1000, text: "Ikite iku shika nai" },
-            { time: 1000, text: "Don'nani uchinomesarete mo" },
-            { time: 1000, text: "Mamoru mono ga aru" }
-        ]
+            { time: 1000, text: "Kau bahagia dengannya" },
+            { time: 1000, text: "Memang ku siapa?" },
+            { time: 1000, text: "Dan dia pemenangnya" },
+            { time: 1000, text: "Buang jauh masa lalumu" },
+            { time: 1000, text: "Dan juga lihat aku karna diriku masa depanmu" },
+            { time: 1000, text: "Now he’s gone, you should move on" },
+            { time: 1000, text: "Here with me, you’re not alone" },
+            { time: 1000, text: "Break my heart, but you can’t because I’m strong" },
+            { time: 1000, text: "Kau tak pernah katakan" },
+            { time: 1000, text: "Apa kurangnya ku untukmu" },
+            { time: 1000, text: "Namun ku tak sebanding" },
+            { time: 1000, text: "Meskipun aku di sampingmu" },
+            { time: 1000, text: "Dan kau masih cinta yang lalu" }
+       ]       
    }, 
     
 ];
