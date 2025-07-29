@@ -62,7 +62,7 @@ button#spin:hover {
 /* Jarum penunjuk di atas */
 .pointer-arrow {
   position: absolute;
-  top: calc(50% - 160px);
+  top: calc(50% - 50px);
   left: 50%;
   width: 0;
   height: 0;
