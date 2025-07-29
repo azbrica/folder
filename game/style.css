@@ -62,8 +62,8 @@ button#spin:hover {
 /* Penunjuk di atas */
 .pointer-arrow {
   position: absolute;
-  top: calc(50% - 80px); /* Atur agar berada di atas roda */
-  left: calc(50% - 16px);
+  top: calc(50% - 76px); /* Atur agar berada di atas roda */
+  left: calc(50% - 10px);
   transform: translateX(-50%);
   font-size: 32px;
   color: white;
