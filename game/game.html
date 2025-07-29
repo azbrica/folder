@@ -3,28 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gacha Hadiah</title>
+  <title>Gacha Game</title>
   <link rel="stylesheet" href="game.css" />
 </head>
 <body>
 
   <!-- Background Video -->
   <video autoplay muted loop id="bg-video">
-    <source src="videogame.mp4" type="video/mp4" />
+    <source src="assets/bg.mp4" type="video/mp4" />
   </video>
 
-  <!-- Spin Wheel Container -->
   <div class="container">
-    <div class="arrow"></div>
+    <div class="pointer"></div>
     <div class="wheel" id="wheel">
-      <div class="slice"><span>1</span></div>
-      <div class="slice"><span>2</span></div>
-      <div class="slice"><span>3</span></div>
-      <div class="slice"><span>4</span></div>
-      <div class="slice"><span>5</span></div>
-      <div class="slice"><span>6</span></div>
-      <div class="slice"><span>7</span></div>
-      <div class="slice"><span>8</span></div>
+      <div class="label" style="--i: 0">🎁</div>
+      <div class="label" style="--i: 1">🍭</div>
+      <div class="label" style="--i: 2">🎉</div>
+      <div class="label" style="--i: 3">💌</div>
+      <div class="label" style="--i: 4">🌈</div>
+      <div class="label" style="--i: 5">🍫</div>
+      <div class="label" style="--i: 6">🌟</div>
+      <div class="label" style="--i: 7">💖</div>
     </div>
     <button id="spin">SPIN</button>
   </div>
