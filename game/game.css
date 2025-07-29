@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+#bg-video {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wheel {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 10px solid white;
+  position: relative;
+  box-shadow: 0 0 20px #000;
+  transition: transform 5s ease-out;
+}
+
+.slice {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform-origin: 0% 100%;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  background: hsl(calc(45 * var(--i)), 90%, 60%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.slice span {
+  transform: rotate(calc(-45deg * var(--i) + 22.5deg));
+  display: block;
+}
+
+.slice:nth-child(1) { --i: 0; }
+.slice:nth-child(2) { --i: 1; }
+.slice:nth-child(3) { --i: 2; }
+.slice:nth-child(4) { --i: 3; }
+.slice:nth-child(5) { --i: 4; }
+.slice:nth-child(6) { --i: 5; }
+.slice:nth-child(7) { --i: 6; }
+.slice:nth-child(8) { --i: 7; }
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 30px solid white;
+  position: absolute;
+  top: calc(50% - 170px);
+  z-index: 2;
+}
+  
+button#spin {
+  margin-top: 30px;
+  padding: 10px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 0 10px #000;
+}
