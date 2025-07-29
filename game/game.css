@@ -14,67 +14,56 @@ body {
 }
 
 .container {
-  position: relative;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .wheel {
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  border: 10px solid white;
-  position: relative;
   box-shadow: 0 0 20px #000;
+  background: conic-gradient(
+    #f44336 0deg 45deg,
+    #e91e63 45deg 90deg,
+    #9c27b0 90deg 135deg,
+    #3f51b5 135deg 180deg,
+    #03a9f4 180deg 225deg,
+    #009688 225deg 270deg,
+    #8bc34a 270deg 315deg,
+    #ffc107 315deg 360deg
+  );
+  position: relative;
   transition: transform 5s ease-out;
 }
 
-.slice {
-  width: 50%;
-  height: 50%;
+.label {
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 50%;
-  transform-origin: 0% 100%;
-  clip-path: polygon(0 0, 100% 0, 0 100%);
-  background: hsl(calc(45 * var(--i)), 90%, 60%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transform: rotate(calc(45deg * var(--i))) translateY(-130px) rotate(calc(-45deg * var(--i)));
   font-size: 24px;
   font-weight: bold;
   color: white;
+  text-shadow: 1px 1px 3px black;
 }
 
-.slice span {
-  transform: rotate(calc(-45deg * var(--i) + 22.5deg));
-  display: block;
-}
-
-.slice:nth-child(1) { --i: 0; }
-.slice:nth-child(2) { --i: 1; }
-.slice:nth-child(3) { --i: 2; }
-.slice:nth-child(4) { --i: 3; }
-.slice:nth-child(5) { --i: 4; }
-.slice:nth-child(6) { --i: 5; }
-.slice:nth-child(7) { --i: 6; }
-.slice:nth-child(8) { --i: 7; }
-
-.arrow {
+.pointer {
   width: 0;
   height: 0;
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
   border-bottom: 30px solid white;
   position: absolute;
-  top: calc(50% - 170px);
+  top: calc(50% - 180px);
   z-index: 2;
 }
-  
-button#spin {
+
+#spin {
   margin-top: 30px;
   padding: 10px 30px;
   font-size: 18px;
