@@ -13,8 +13,8 @@
   </video>
 
   <div class="wheel-container">
-    <!-- Penunjuk di atas -->
-    <div class="pointer-arrow"></div>
+    <!-- Penunjuk di atas (⬆ emoji) -->
+    <div class="pointer-arrow">⬆</div>
 
     <!-- Canvas Roda -->
     <canvas id="wheel" width="300" height="300"></canvas>
@@ -53,7 +53,7 @@
     let angle = 0;
     let isSpinning = false;
     let velocity = 0;
-    let friction = 0.985;
+    let friction = 0.98; // lebih kecil = lebih lama putarannya
 
     function drawWheel() {
       ctx.clearRect(0, 0, width, height);
@@ -61,7 +61,7 @@
         const start = angle + i * arc;
         const end = start + arc;
 
-        // Draw sektor
+        // Gambar sektor
         ctx.beginPath();
         ctx.moveTo(centerX, centerY);
         ctx.arc(centerX, centerY, centerX - 10, start, end);
@@ -69,7 +69,7 @@
         ctx.fill();
         ctx.closePath();
 
-        // Draw icon
+        // Gambar ikon hadiah
         ctx.save();
         ctx.translate(centerX, centerY);
         ctx.rotate(start + arc / 2);
@@ -84,7 +84,7 @@
     function spin() {
       if (isSpinning) return;
       isSpinning = true;
-      velocity = Math.random() * 0.3 + 0.35;
+      velocity = Math.random() * 0.25 + 0.3; // kecepatan awal
       animate();
     }
 
