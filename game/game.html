@@ -13,11 +13,14 @@
   </video>
 
   <div class="wheel-container">
-    <!-- Penunjuk di tengah -->
-    <div class="center-pointer"></div>
+    <!-- Penunjuk di atas -->
+    <div class="pointer-arrow"></div>
 
-    <!-- Roda -->
+    <!-- Canvas Roda -->
     <canvas id="wheel" width="300" height="300"></canvas>
+
+    <!-- Lingkaran tengah -->
+    <div class="center-pointer"></div>
 
     <!-- Tombol Spin -->
     <button id="spin">SPIN</button>
@@ -34,14 +37,14 @@
     const centerY = height / 2;
 
     const sectors = [
-      { color: "#e91e63", icon: "🎉" },
-      { color: "#3f51b5", icon: "💌" },
-      { color: "#2196f3", icon: "🌈" },
-      { color: "#00bcd4", icon: "🍫" },
-      { color: "#4caf50", icon: "🌟" },
-      { color: "#ffeb3b", icon: "🎨" },
-      { color: "#ff9800", icon: "🪙" },
-      { color: "#f44336", icon: "🍭" },
+      { color: "#e91e63", icon: "🎉", page: "hadiah1.html" },
+      { color: "#3f51b5", icon: "💌", page: "hadiah2.html" },
+      { color: "#2196f3", icon: "🌈", page: "hadiah3.html" },
+      { color: "#00bcd4", icon: "🍫", page: "hadiah4.html" },
+      { color: "#4caf50", icon: "🌟", page: "hadiah5.html" },
+      { color: "#ffeb3b", icon: "🎨", page: "hadiah6.html" },
+      { color: "#ff9800", icon: "🪙", page: "hadiah7.html" },
+      { color: "#f44336", icon: "🍭", page: "hadiah8.html" },
     ];
 
     const total = sectors.length;
@@ -58,7 +61,7 @@
         const start = angle + i * arc;
         const end = start + arc;
 
-        // Draw sector
+        // Draw sektor
         ctx.beginPath();
         ctx.moveTo(centerX, centerY);
         ctx.arc(centerX, centerY, centerX - 10, start, end);
@@ -81,8 +84,7 @@
     function spin() {
       if (isSpinning) return;
       isSpinning = true;
-      velocity = Math.random() * 0.3 + 0.25;
-
+      velocity = Math.random() * 0.3 + 0.35;
       animate();
     }
 
@@ -90,13 +92,22 @@
       angle += velocity;
       velocity *= friction;
 
-      if (velocity < 0.002) {
-        velocity = 0;
-        isSpinning = false;
-      }
-
       drawWheel();
-      requestAnimationFrame(animate);
+
+      if (velocity < 0.002) {
+        isSpinning = false;
+        velocity = 0;
+
+        const degrees = ((angle % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+        const index = total - Math.floor(degrees / arc) - 1;
+        const selected = sectors[index];
+
+        setTimeout(() => {
+          window.location.href = selected.page;
+        }, 1000);
+      } else {
+        requestAnimationFrame(animate);
+      }
     }
 
     spinBtn.addEventListener("click", spin);
