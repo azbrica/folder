@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spin Gacha Game</title>
+  <link rel="stylesheet" href="game.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+
+    video#bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+    }
+
+    .wheel {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 10px solid #fff;
+      position: relative;
+      overflow: hidden;
+      transition: transform 4s cubic-bezier(0.33, 1, 0.68, 1);
+    }
+
+    .wheel div {
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      background: #fff;
+      text-align: center;
+      line-height: 140px;
+      font-size: 24px;
+      transform-origin: 100% 100%;
+      color: #000;
+    }
+
+    .pointer {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-bottom: 30px solid red;
+      z-index: 2;
+    }
+
+    .spinBtn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      padding: 15px 30px;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video autoplay muted loop id="bg">
+    <source src="video/bg.mp4" type="video/mp4" />
+  </video>
+
+  <div class="container">
+    <div class="pointer"></div>
+    <div class="wheel" id="wheel">
+      <!-- 10 Angka -->
+      <div style="transform: rotate(0deg);     background: #f44336;">1</div>
+      <div style="transform: rotate(36deg);    background: #e91e63;">2</div>
+      <div style="transform: rotate(72deg);    background: #9c27b0;">3</div>
+      <div style="transform: rotate(108deg);   background: #3f51b5;">4</div>
+      <div style="transform: rotate(144deg);   background: #2196f3;">5</div>
+      <div style="transform: rotate(180deg);   background: #00bcd4;">6</div>
+      <div style="transform: rotate(216deg);   background: #4caf50;">7</div>
+      <div style="transform: rotate(252deg);   background: #ffeb3b;">8</div>
+      <div style="transform: rotate(288deg);   background: #ff9800;">9</div>
+      <div style="transform: rotate(324deg);   background: #795548;">10</div>
+    </div>
+    <button class="spinBtn" id="spin">SPIN!</button>
+  </div>
+
+  <script>
+    const wheel = document.getElementById("wheel");
+    const spinBtn = document.getElementById("spin");
+    let value = Math.ceil(Math.random() * 3600);
+
+    spinBtn.onclick = function () {
+      wheel.style.transform = "rotate(" + value + "deg)";
+      let result = Math.ceil((value % 360) / 36);
+      if (result === 0) result = 10;
+
+      // Delay redirect biar nunggu putaran selesai
+      setTimeout(() => {
+        window.location.href = "hadiah" + result + ".html";
+      }, 4000); // 4 detik delay sesuai durasi animasi
+      value += Math.ceil(Math.random() * 3600);
+    };
+  </script>
+</body>
+</html>
