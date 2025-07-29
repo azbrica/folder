@@ -1,98 +1,35 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="style.css"/>
   <title>Spin Wheel Gacha</title>
-  <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-      font-family: Arial, sans-serif;
-    }#bg-video {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100vw;
-  min-height: 100vh;
-  object-fit: cover;
-  z-index: -1;
-  filter: brightness(0.7);
-}
-
-.wheel-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  position: relative;
-}
-
-canvas {
-  border-radius: 50%;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-}
-
-button#spin {
-  margin-top: 20px;
-  padding: 12px 24px;
-  font-size: 18px;
-  background-color: #ffffffcc;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-  transition: background 0.3s;
-}
-
-button#spin:hover {
-  background-color: #f0f0f0;
-}
-
-.center-pointer {
-  position: absolute;
-  top: calc(50% - 14px);
-  left: calc(50% - 14px);
-  width: 28px;
-  height: 28px;
-  background-color: white;
-  border-radius: 50%;
-  border: 3px solid #444;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.pointer-needle {
-  position: absolute;
-  top: calc(50% - 180px);
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 20px solid #fff;
-  transform: translateX(-50%) rotate(0deg);
-  z-index: 3;
-  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4));
-  transition: transform 0.1s ease-out;
-}
-
-  </style>
 </head>
 <body>
+  <!-- Background Video -->
   <video autoplay muted loop id="bg-video">
     <source src="../assets/bg.mp4" type="video/mp4" />
-  </video>  <div class="wheel-container">
-    <div class="pointer-needle" id="needle"></div>
+  </video>
+
+  <div class="wheel-container">
+    <!-- Panah penunjuk (⬇ menghadap ke bawah) -->
+    <div class="pointer-arrow">⬇</div>
+
+    <!-- Canvas Roda -->
     <canvas id="wheel" width="300" height="300"></canvas>
+
+    <!-- Lingkaran tengah putih -->
     <div class="center-pointer"></div>
+
+    <!-- Tombol Spin -->
     <button id="spin">SPIN</button>
-  </div>  <script>
+  </div>
+
+  <script>
     const canvas = document.getElementById("wheel");
     const ctx = canvas.getContext("2d");
     const spinBtn = document.getElementById("spin");
-    const needle = document.getElementById("needle");
 
     const width = canvas.width;
     const height = canvas.height;
@@ -112,11 +49,11 @@ button#spin:hover {
 
     const total = sectors.length;
     const arc = (2 * Math.PI) / total;
+
     let angle = 0;
     let isSpinning = false;
     let velocity = 0;
     let friction = 0.985;
-    let prevSector = -1;
 
     function drawWheel() {
       ctx.clearRect(0, 0, width, height);
@@ -124,6 +61,7 @@ button#spin:hover {
         const start = angle + i * arc;
         const end = start + arc;
 
+        // Sektor
         ctx.beginPath();
         ctx.moveTo(centerX, centerY);
         ctx.arc(centerX, centerY, centerX - 10, start, end);
@@ -131,7 +69,7 @@ button#spin:hover {
         ctx.fill();
         ctx.closePath();
 
-        // Gambar ikon
+        // Icon hadiah
         ctx.save();
         ctx.translate(centerX, centerY);
         ctx.rotate(start + arc / 2);
@@ -140,13 +78,24 @@ button#spin:hover {
         ctx.fillStyle = "#fff";
         ctx.fillText(sector.icon, centerX - 40, 10);
         ctx.restore();
+
+        // Garis grigi (batas sektor)
+        ctx.beginPath();
+        ctx.moveTo(centerX, centerY);
+        ctx.lineTo(
+          centerX + (centerX - 10) * Math.cos(start),
+          centerY + (centerY - 10) * Math.sin(start)
+        );
+        ctx.strokeStyle = "#fff";
+        ctx.lineWidth = 2;
+        ctx.stroke();
       });
     }
 
     function spin() {
       if (isSpinning) return;
       isSpinning = true;
-      velocity = Math.random() * 0.25 + 0.3;
+      velocity = Math.random() * 0.3 + 0.35;
       animate();
     }
 
@@ -155,22 +104,14 @@ button#spin:hover {
       velocity *= friction;
 
       drawWheel();
-      
-      const currentSector = Math.floor(((2 * Math.PI - (angle % (2 * Math.PI))) % (2 * Math.PI)) / arc);
-      if (currentSector !== prevSector) {
-        // Goyang-goyangkan jarum saat kena grigi
-        needle.style.transform = `translateX(-50%) rotate(${Math.random() > 0.5 ? 5 : -5}deg)`;
-        setTimeout(() => {
-          needle.style.transform = "translateX(-50%) rotate(0deg)";
-        }, 60);
-        prevSector = currentSector;
-      }
 
       if (velocity < 0.002) {
         isSpinning = false;
         velocity = 0;
-        const degrees = ((angle % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
-        const index = total - Math.floor(degrees / arc) - 1;
+
+        // Perhitungan sektor berdasarkan arah panah ⬇
+        const corrected = (angle + Math.PI / 2) % (2 * Math.PI);
+        const index = Math.floor(total - (corrected / arc)) % total;
         const selected = sectors[index];
 
         setTimeout(() => {
@@ -183,5 +124,6 @@ button#spin:hover {
 
     spinBtn.addEventListener("click", spin);
     drawWheel();
-  </script></body>
+  </script>
+</body>
 </html>
