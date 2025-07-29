@@ -47,8 +47,8 @@ button#spin:hover {
 
 .center-pointer {
   position: absolute;
-  top: calc(50% - 14px);
-  left: calc(50% - 14px);
+  top: calc(50% - 50px);
+  left: calc(50% - 17px);
   width: 28px;
   height: 28px;
   background-color: white;
