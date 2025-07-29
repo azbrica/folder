@@ -48,7 +48,7 @@ button#spin:hover {
 /* Lingkaran tengah */
 .center-pointer {
   position: absolute;
-  top: calc(50% - 28px);
+  top: calc(50% - 35px);
   left: calc(50% - 16px);
   width: 28px;
   height: 28px;
