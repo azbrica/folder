@@ -13,7 +13,7 @@
   </video>
 
   <div class="wheel-container">
-    <!-- Panah penunjuk arah ke bawah -->
+    <!-- Panah di atas, menunjuk ke bawah -->
     <div class="pointer-arrow">⬇</div>
 
     <!-- Canvas Roda -->
@@ -53,15 +53,17 @@
     let angle = 0;
     let isSpinning = false;
     let velocity = 0;
-    let friction = 0.98;
+    let friction = 0.982;
 
     function drawWheel() {
       ctx.clearRect(0, 0, width, height);
+
+      // Gambar sektor & ikon
       sectors.forEach((sector, i) => {
         const start = angle + i * arc;
         const end = start + arc;
 
-        // Gambar sektor
+        // Sektor
         ctx.beginPath();
         ctx.moveTo(centerX, centerY);
         ctx.arc(centerX, centerY, centerX - 10, start, end);
@@ -69,7 +71,7 @@
         ctx.fill();
         ctx.closePath();
 
-        // Gambar ikon hadiah
+        // Ikon
         ctx.save();
         ctx.translate(centerX, centerY);
         ctx.rotate(start + arc / 2);
@@ -79,6 +81,28 @@
         ctx.fillText(sector.icon, centerX - 40, 10);
         ctx.restore();
       });
+
+      // Gambar grigi
+      ctx.save();
+      ctx.translate(centerX, centerY);
+      for (let i = 0; i < total * 4; i++) {
+        const angleGrigi = i * (2 * Math.PI) / (total * 4);
+        const outerRadius = centerX - 5;
+        const innerRadius = centerX - 15;
+
+        const x1 = Math.cos(angleGrigi) * outerRadius;
+        const y1 = Math.sin(angleGrigi) * outerRadius;
+        const x2 = Math.cos(angleGrigi) * innerRadius;
+        const y2 = Math.sin(angleGrigi) * innerRadius;
+
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.strokeStyle = "#fff";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      }
+      ctx.restore();
     }
 
     function spin() {
@@ -98,10 +122,9 @@
         isSpinning = false;
         velocity = 0;
 
-        // Koreksi sudut supaya cocok dengan panah ⬇ (jam 12)
-        const correctedAngle = ((angle % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
-        const index = Math.floor((2 * Math.PI - correctedAngle + arc / 2) % (2 * Math.PI) / arc);
-
+        // Koreksi karena panah ada di atas, menghadap ke bawah
+        const correctedAngle = (angle + Math.PI / 2) % (2 * Math.PI);
+        const index = Math.floor((2 * Math.PI - correctedAngle) / arc) % total;
         const selected = sectors[index];
 
         setTimeout(() => {
