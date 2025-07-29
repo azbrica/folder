@@ -48,8 +48,8 @@ button#spin:hover {
 /* Lingkaran kecil di tengah */
 .center-pointer {
   position: absolute;
-  top: calc(50% - 14px);
-  left: calc(50% - 14px);
+  top: calc(50% - 50px);
+  left: calc(50% - 16px);
   width: 28px;
   height: 28px;
   background-color: white;
@@ -62,7 +62,7 @@ button#spin:hover {
 /* Penunjuk di atas */
 .pointer-arrow {
   position: absolute;
-  top: calc(50% - 180px); /* Atur agar berada di atas roda */
+  top: calc(50% - 60px); /* Atur agar berada di atas roda */
   left: 50%;
   transform: translateX(-50%);
   font-size: 32px;
