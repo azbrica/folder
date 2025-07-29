@@ -60,11 +60,11 @@ button#spin:hover {
 
 .pointer-arrow {
   position: absolute;
-  top: calc(50% - 170px);
+  top: calc(50% - 180px); /* Geser ke atas roda */
   left: 50%;
-  font-size: 28px;
   transform: translateX(-50%);
+  font-size: 32px;
   z-index: 3;
-  color: white;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4));
+  pointer-events: none;
 }
