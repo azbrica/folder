@@ -13,8 +13,8 @@
   </video>
 
   <div class="wheel-container">
-    <!-- Penunjuk arah (⬆) -->
-    <div class="pointer-arrow">⬆</div>
+    <!-- Panah penunjuk arah ke bawah -->
+    <div class="pointer-arrow">⬇</div>
 
     <!-- Canvas Roda -->
     <canvas id="wheel" width="300" height="300"></canvas>
@@ -53,7 +53,7 @@
     let angle = 0;
     let isSpinning = false;
     let velocity = 0;
-    let friction = 0.985; // lebih kecil = lebih lama
+    let friction = 0.98;
 
     function drawWheel() {
       ctx.clearRect(0, 0, width, height);
@@ -69,7 +69,7 @@
         ctx.fill();
         ctx.closePath();
 
-        // Gambar ikon
+        // Gambar ikon hadiah
         ctx.save();
         ctx.translate(centerX, centerY);
         ctx.rotate(start + arc / 2);
@@ -84,7 +84,7 @@
     function spin() {
       if (isSpinning) return;
       isSpinning = true;
-      velocity = Math.random() * 0.25 + 0.3; // kecepatan awal
+      velocity = Math.random() * 0.25 + 0.3;
       animate();
     }
 
@@ -98,9 +98,10 @@
         isSpinning = false;
         velocity = 0;
 
-        // NORMALISASI ANGLE
-        const normalized = ((angle % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
-        const index = Math.floor((2 * Math.PI - normalized + arc / 2) % (2 * Math.PI) / arc);
+        // Koreksi sudut supaya cocok dengan panah ⬇ (jam 12)
+        const correctedAngle = ((angle % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+        const index = Math.floor((2 * Math.PI - correctedAngle + arc / 2) % (2 * Math.PI) / arc);
+
         const selected = sectors[index];
 
         setTimeout(() => {
