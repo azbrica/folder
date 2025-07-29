@@ -45,11 +45,11 @@ button#spin:hover {
   background-color: #f0f0f0;
 }
 
-/* Lingkaran tengah */
+/* Lingkaran kecil di tengah */
 .center-pointer {
   position: absolute;
-  top: calc(50% - 50px);
-  left: calc(50% - 16px);
+  top: calc(50% - 14px);
+  left: calc(50% - 14px);
   width: 28px;
   height: 28px;
   background-color: white;
@@ -59,17 +59,15 @@ button#spin:hover {
   pointer-events: none;
 }
 
-/* Jarum penunjuk di atas */
+/* Penunjuk di atas */
 .pointer-arrow {
   position: absolute;
-  top: calc(50% - 50px);
+  top: calc(50% - 180px); /* Atur agar berada di atas roda */
   left: 50%;
-  width: 0;
-  height: 0;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-bottom: 25px solid #fff;
   transform: translateX(-50%);
+  font-size: 32px;
+  color: white;
   z-index: 3;
   filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4));
+  pointer-events: none;
 }
