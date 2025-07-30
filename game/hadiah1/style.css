@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  overflow-x: hidden;
+}
+
+.carousel-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.3s ease;
+  touch-action: pan-y;
+}
+
+.carousel img {
+  min-width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
