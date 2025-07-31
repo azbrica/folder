@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Navigation Menu Emoji</title>
+    <title>Emoji Navigation</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <div class="main">
       <div class="navigation">
-        <span style="--i: 0; --x: -1; --y: 0">📷</span>
-        <span style="--i: 1; --x: 1; --y: 0">💎</span>
+        <span style="--i: 0; --x: -1; --y: 0">🥀</span>
+        <span style="--i: 1; --x: 1; --y: 0">🐈</span>
         <span style="--i: 2; --x: 0; --y: -1">💬</span>
         <span style="--i: 3; --x: 0; --y: 1">⏰</span>
         <span style="--i: 4; --x: -1; --y: 1">🎮</span>
@@ -16,18 +17,38 @@
         <span style="--i: 6; --x: 1; --y: -1">💧</span>
         <span style="--i: 7; --x: 1; --y: 1">⏳</span>
       </div>
-      <div class="close"></div>
+      <div class="close">×</div>
     </div>
 
     <script>
-      let navigation = document.querySelector(".navigation");
-      let close = document.querySelector(".close");
+      const navigation = document.querySelector(".navigation");
+      const close = document.querySelector(".close");
+
       navigation.onclick = function () {
         navigation.classList.add("active");
       };
       close.onclick = function () {
         navigation.classList.remove("active");
       };
+
+      const spans = document.querySelectorAll(".navigation span");
+      const pages = [
+        "halaman1/index.html",
+        "halaman2/index.html",
+        "halaman3/index.html",
+        "halaman4/index.html",
+        "halaman5/index.html",
+        "halaman6/index.html",
+        "halaman7/index.html",
+        "halaman8/index.html",
+      ];
+
+      spans.forEach((span, index) => {
+        span.addEventListener("click", (e) => {
+          e.stopPropagation();
+          window.location.href = pages[index];
+        });
+      });
     </script>
   </body>
 </html>
