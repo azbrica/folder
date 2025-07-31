@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rowdies:wght@300;400;700&family=Satisfy&display=swap');
+:root {
+    --black: #000; 
+    --black2: #111; 
+    --black3: #222; 
+    --black4: #333; 
+}
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url(dandadan2.png);
+    background-size: cover;
+}
+#Btn {
+    width: 300px;
+    aspect-ratio: 1;
+    position: absolute;
+    z-index: 10;
+    appearance: none;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+main {
+    width: 300px;
+    aspect-ratio: 1;
+    background: url(dandadan3.webp);
+    border-radius: 2rem;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    font-family: "Montserrat", serif;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px var(--black);
+    box-shadow: 10px 10px var(--black3);
+
+    &::before {
+        position: absolute;
+        right: 50%;
+        bottom: 80%;
+        content: "Dandadan Chapter 168";
+        padding: 4px;
+        background: linear-gradient(to right, maroon, transparent);
+        text-transform: uppercase;
+    }
+    &::after {
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        padding: 0 30px;
+        background: linear-gradient(to top, maroon, transparent);
+        content: "CLICK HERE";
+    }
+
+    div {
+        opacity: 0;
+        position: absolute;
+        z-index: var(--i);
+        width: 100%;
+        aspect-ratio: 1;
+        transition: .3s cubic-bezier(.1, 0.885, 0.92, 2.2);
+
+        &:nth-child(1) {
+            transform-origin: top;
+            background: var(--black4);
+        }
+        &:nth-child(2) {
+            transform-origin: bottom;
+            background: var(--black4);
+        }
+        &:nth-child(3) {
+            transform-origin: left;
+            background: var(--black2);
+        }
+        &:nth-child(4) {
+            transform-origin: right;
+            background: var(--black2);
+        }
+        &:nth-child(5) {
+            background: url(dandadan.webp);
+            background-size: cover;
+            transform: translateZ(0px);
+}
+    }
+}
+#Btn:checked ~ main div:nth-child(1) {
+    opacity: 1;
+    transform: translateZ(640px) rotateX(-80deg);
+}
+#Btn:checked ~ main div:nth-child(2) {
+    opacity: 1;
+    transform: translateZ(640px) rotateX(80deg);
+}
+#Btn:checked ~ main div:nth-child(3) {
+    opacity: 1;
+    transform: translateZ(640px) rotateY(80deg);
+}
+#Btn:checked ~ main div:nth-child(4) {
+    opacity: 1;
+    transform: translateZ(640px) rotateY(-80deg);
+}
+#Btn:checked ~ main div:nth-child(5) {
+    opacity: 1;
+    transform: translateZ(540px);
+}
+body:has(:checked) {
+    background: var(--black2);
+}
+
+
+figure {
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+  
+    figcaption a {
+      color: #242424;
+      text-decoration: none;
+      margin-left: .5rem;
+      font-size: 1.2rem;
+  
+      &:hover {
+        text-decoration: underline;
+      }
+      &:active {
+        font-size: 1rem;
+      }
+    }
+  }
