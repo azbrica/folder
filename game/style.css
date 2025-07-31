@@ -18,14 +18,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 300px;
-  height: 300px;
+  width: 360px;
+  height: 360px;
 }
 
 .main .navigation {
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -35,10 +35,10 @@ body {
 
 .main .navigation span {
   position: absolute;
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
   background: #fff;
-  transform: translate(calc(28px * var(--x)), calc(28px * var(--y)));
+  transform: translate(calc(36px * var(--x)), calc(36px * var(--y)));
   transition: transform 0.5s, width 0.5s, height 0.5s, background 0.5s;
   transition-delay: calc(0.1s * var(--i));
   display: flex;
@@ -48,10 +48,10 @@ body {
 }
 
 .main .navigation.active span {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   background: #1f2536;
-  transform: translate(calc(100px * var(--x)), calc(100px * var(--y)));
+  transform: translate(calc(120px * var(--x)), calc(120px * var(--y)));
 }
 
 .main .navigation span ion-icon {
@@ -61,18 +61,18 @@ body {
 }
 
 .main .navigation.active span ion-icon {
-  font-size: 2em;
+  font-size: 2.5em;
 }
 
 .main .navigation.active span:hover ion-icon {
   color: #2dfc52;
-  filter: drop-shadow(0 0 3px #2dfc52) drop-shadow(0 0 6px #2dfc52) drop-shadow(0 0 18px #2dfc52);
+  filter: drop-shadow(0 0 4px #2dfc52) drop-shadow(0 0 7px #2dfc52) drop-shadow(0 0 20px #2dfc52);
 }
 
 .close {
   position: absolute;
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
   background: #fff;
   transition: 0.5s;
   transition-delay: 0.4s;
@@ -84,15 +84,15 @@ body {
 }
 
 .main .navigation.active ~ .close {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   pointer-events: initial;
   transition-delay: 0.8s;
   background: #2dfc52;
 }
 
 .main .navigation ~ .close ion-icon {
-  font-size: 2.4em;
+  font-size: 2.8em;
   scale: 0;
   color: #10131c;
   transition: 0.5s;
