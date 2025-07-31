@@ -1,114 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery Slider</title>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery Slider</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
-    <div class="slider-container">
-        <!-- Slide 1 -->
-         <div class="slide active">
-            <div class="slide-content">
-                <div class="text-content">
-                    <h2 class="slide-title">Cloverworks</h2>
-                    <p class="slide-description">
-                        CloverWorks, Inc. (Japanese: 株式会社CloverWorks, Hepburn: Kabushiki-gaisha KurōbāWākusu) is a Japanese animation studio that was rebranded from A-1 Pictures' Kōenji Studio. It is a subsidiary of Sony Music Entertainment Japan's anime production firm Aniplex.
-                    </p>
-                </div>
-                <div class="image-content">
-                    <img src="/images/cloverworks.jpg" alt="Aniplex - Cloverworks" class="featured-image">
-                </div>
-            </div>
-         </div>
-
-        <!-- Slide 2 -->
-        <div class="slide">
-            <div class="slide-content">
-                <div class="text-content">
-                    <h2 class="slide-title">Rascal Does Not Dream<br> Of Santa Claus</h2>
-                    <p class="slide-description">
-                        Adolescence Syndrome is rumored to be a mysterious phenomenon caused by an unstable mental state. Sakuta Azusagawa has known girls who developed various adolescent syndromes during high school. He is now a university student and dating popular national actress Mai Sakurajima.
-                    </p>
-                </div>
-                <div class="image-content">
-                    <img src="/images/mai.jpg" alt="Mai Sakurajima" class="featured-image">
-                </div>
-            </div>
+  <div class="slider-container">
+    <!-- Slides -->
+    <div class="slide active">
+      <div class="slide-content">
+        <div class="text-content">
+          <h2 class="slide-title">Cloverworks</h2>
+          <p class="slide-description">
+            CloverWorks, Inc. is a Japanese animation studio under Aniplex.
+          </p>
         </div>
-
-        <!-- Slide 3 -->
-        <div class="slide">
-            <div class="slide-content">
-                <div class="text-content">
-                    <h2 class="slide-title">My Dress Up <br>Darling Season 2</h2>
-                    <p class="slide-description">
-                        High school student Wakana Gojou spends his days perfecting the art of making hina dolls, hoping to eventually reach his grandfather's level of expertise. While his fellow teenagers busy themselves with pop culture, Gojou finds bliss in sewing clothes for his dolls. 
-                    </p>
-                </div>
-                <div class="image-content">
-                    <img src="/images/marin.webp" alt="Marin Kitagawa" class="featured-image">
-                </div>
-            </div>
+        <div class="image-content">
+          <img src="images/cloverworks.jpg" alt="Cloverworks" class="featured-image" />
         </div>
-
-        <!-- Slide 4 -->
-        <div class="slide">
-            <div class="slide-content">
-                <div class="text-content">
-                    <h2 class="slide-title">The Fragrant Flower <br>Blooms with Dignity</h2>
-                    <p class="slide-description">
-                        Despite being adjacent to one another, Chidori Public High School and the all-girls Kikyo Private Academy seem to exist in two different worlds. While the latter boasts an immaculate reputation and favors students from wealthy backgrounds, the former is a nest for dim-witted delinquents.
-                    </p>
-                </div>
-                <div class="image-content">
-                    <img src="/images/kaoruko.png" alt="Kaoruko Waguri" class="featured-image">
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 5 -->
-        <div class="slide">
-            <div class="slide-content">
-                <div class="text-content">
-                    <h2 class="slide-title">Three Romance Shows</h2>
-                    <p class="slide-description">
-                        This upcoming anime season will see three CloverWorks-produced anime appear on our screens with Rascal Does Not Dream of Santa Claus, My Dress-Up Darling and The Fragrant Flower Blooms with Dignity, all airing this summer (July 5 2025). 
-                    </p>
-                </div>
-                <div class="image-content">
-                    <img src="/images/trio.jpeg" alt="Trio Cloverworks" class="featured-image">
-                </div>
-            </div>
-        </div>
-
-        <!-- Navigation Buttons -->
-        <button class="navigation nav-prev">
-            <ion-icon name="chevron-back-outline"></ion-icon>
-        </button>
-        <button class="navigation nav-next">
-            <ion-icon name="chevron-forward-outline"></ion-icon>
-        </button>
-
-        <!-- Slide Counter -->
-        <div class="slide-counter">
-          <span id="current-slide">1</span> / <span id="total-slides">5</span>  
-        </div>
-
-        <!-- Thumbnails -->
-        <div class="thumbnails">
-            <img src="/images/cloverworks.jpg" alt="Aniplex - Cloverworks" class="thumbnail active" data-slide="0">
-            <img src="/images/mai.jpg" alt="Mai Sakurajima" class="thumbnail" data-slide="1">
-            <img src="/images/marin.webp" alt="Marin Kitagawa" class="thumbnail" data-slide="2">
-            <img src="/images/kaoruko.png" alt="Kaoruko Waguri" class="thumbnail" data-slide="3">
-            <img src="/images/trio.jpeg" alt="Trio Cloverworks" class="thumbnail" data-slide="4">
-        </div>
-
+      </div>
     </div>
 
-    <script src="script.js"></script>
+    <div class="slide">
+      <div class="slide-content">
+        <div class="text-content">
+          <h2 class="slide-title">Rascal Does Not Dream</h2>
+          <p class="slide-description">
+            Sakuta Azusagawa faces mysterious adolescent syndromes.
+          </p>
+        </div>
+        <div class="image-content">
+          <img src="images/mai.jpg" alt="Mai" class="featured-image" />
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-content">
+        <div class="text-content">
+          <h2 class="slide-title">My Dress-Up Darling</h2>
+          <p class="slide-description">
+            Wakana Gojou finds joy in sewing clothes for his dolls.
+          </p>
+        </div>
+        <div class="image-content">
+          <img src="images/marin.webp" alt="Marin" class="featured-image" />
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-content">
+        <div class="text-content">
+          <h2 class="slide-title">The Fragrant Flower</h2>
+          <p class="slide-description">
+            Two schools. Two worlds. One unlikely romance.
+          </p>
+        </div>
+        <div class="image-content">
+          <img src="images/kaoruko.png" alt="Kaoruko" class="featured-image" />
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="slide-content">
+        <div class="text-content">
+          <h2 class="slide-title">Three Romance Shows</h2>
+          <p class="slide-description">
+            All three CloverWorks anime air this summer!
+          </p>
+        </div>
+        <div class="image-content">
+          <img src="images/trio.jpeg" alt="Trio" class="featured-image" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <button class="navigation nav-prev">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </button>
+    <button class="navigation nav-next">
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </button>
+
+    <!-- Counter -->
+    <div class="slide-counter">
+      <span id="current-slide">1</span> / <span id="total-slides">5</span>
+    </div>
+
+    <!-- Thumbnails -->
+    <div class="thumbnails">
+      <img src="images/cloverworks.jpg" alt="Cloverworks" class="thumbnail active" data-slide="0" />
+      <img src="images/mai.jpg" alt="Mai" class="thumbnail" data-slide="1" />
+      <img src="images/marin.webp" alt="Marin" class="thumbnail" data-slide="2" />
+      <img src="images/kaoruko.png" alt="Kaoruko" class="thumbnail" data-slide="3" />
+      <img src="images/trio.jpeg" alt="Trio" class="thumbnail" data-slide="4" />
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
