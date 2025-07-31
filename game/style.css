@@ -45,6 +45,7 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  font-size: 0em; /* Untuk emoji */
 }
 
 .main .navigation.active span {
@@ -52,6 +53,7 @@ body {
   height: 100px;
   background: #1f2536;
   transform: translate(calc(120px * var(--x)), calc(120px * var(--y)));
+  font-size: 2.5em; /* Tampilkan emoji besar */
 }
 
 .main .navigation span ion-icon {
@@ -64,9 +66,17 @@ body {
   font-size: 2.5em;
 }
 
+/* Neon effect untuk icon saat hover */
 .main .navigation.active span:hover ion-icon {
   color: #2dfc52;
   filter: drop-shadow(0 0 4px #2dfc52) drop-shadow(0 0 7px #2dfc52) drop-shadow(0 0 20px #2dfc52);
+}
+
+/* Neon effect untuk emoji saat hover */
+.main .navigation.active span:hover {
+  font-size: 2.7em;
+  filter: drop-shadow(0 0 4px #2dfc52) drop-shadow(0 0 7px #2dfc52) drop-shadow(0 0 20px #2dfc52);
+  transform: scale(1.1) translate(calc(120px * var(--x)), calc(120px * var(--y)));
 }
 
 .close {
