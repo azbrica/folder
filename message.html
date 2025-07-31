@@ -75,14 +75,14 @@
 
   <!-- Video Cover + Audio Player -->
   <div class="audio-player">
-    <video class="cover" autoplay muted loop playsinline>
+    <video id="video" class="cover" muted loop playsinline>
       <source src="breathe.mp4" type="video/mp4">
       Browsermu tidak mendukung video.
     </video>
 
     <div><strong>breathe</strong></div>
 
-    <audio controls>
+    <audio id="audio" controls>
       <source src="lagu.mp3" type="audio/mpeg">
       Browsermu tidak mendukung pemutar audio.
     </audio>
@@ -113,6 +113,8 @@ Pokonya semuanya baik² aja lah ya..sehat sehat..🤲 makasih banyak nilna 🥀`
 
     const messageElem = document.getElementById("typed-message");
     const skipBtn = document.getElementById("skip-btn");
+    const video = document.getElementById("video");
+    const audio = document.getElementById("audio");
 
     let index = 0;
     let speed = 70;
@@ -131,6 +133,20 @@ Pokonya semuanya baik² aja lah ya..sehat sehat..🤲 makasih banyak nilna 🥀`
     skipBtn.addEventListener("click", () => {
       isSkipping = true;
       messageElem.innerHTML = text.replace(/\n/g, "<br>");
+    });
+
+    // Sinkronisasi video dengan audio
+    audio.addEventListener("play", () => {
+      video.play();
+    });
+
+    audio.addEventListener("pause", () => {
+      video.pause();
+    });
+
+    audio.addEventListener("ended", () => {
+      video.pause();
+      video.currentTime = 0;
     });
 
     typeText();
