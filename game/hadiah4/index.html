@@ -126,6 +126,8 @@
 
     var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
     var recognition = new SpeechRecognition();
+    recognition.interimResults = true;
+    recognition.continuous = false;
 
     const recognizedExpressions = videoFiles.map(v =>
       v.substring(v.lastIndexOf('/') + 1, v.lastIndexOf('.mp4'))
@@ -146,10 +148,14 @@
       } else {
         const matchedExpressionIndex = recognizedExpressions.findIndex(r => transcript.includes(r));
         if (matchedExpressionIndex !== -1) {
-          videoPlayer.src = videoFiles[matchedExpressionIndex];
+          const chosenVideo = videoFiles[matchedExpressionIndex];
+          videoPlayer.loop = false;
+          videoPlayer.src = chosenVideo;
           videoPlayer.play();
           videoPlayer.onended = () => {
-            playNextVideo();
+            videoPlayer.src = 'assets/videos/smile.mp4';
+            videoPlayer.loop = true;
+            videoPlayer.play();
           };
         }
       }
@@ -244,7 +250,9 @@
     };
 
     if (videoFiles.length > 0) {
-      shuffleVideos();
+      videoPlayer.src = 'assets/videos/smile.mp4';
+      videoPlayer.loop = true;
+      videoPlayer.play();
     } else {
       console.error('No videos found in the assets folder.');
     }
