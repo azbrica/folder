@@ -70,7 +70,7 @@ $("#tembak").on("click", function () {
       transform: "translateY(1000px)"
     });
 
-    const hasil = `${kataTanggal[tanggal]} ${kataBulan[bulan]}`;
+    const hasil = `${kataBulan[bulan]} ${kataTanggal[tanggal]}`;
     $(".result").text(hasil);
   }, 2000);
 });
