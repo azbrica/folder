@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Emote Buddy</title>
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
@@ -99,7 +99,6 @@
       'assets/videos/uwu.mp4'
     ];
 
-    // 🔥 Mapping Bahasa Indonesia ke nama file
     const indonesianMap = {
       "senang": "smile",
       "bahagia": "smile",
@@ -136,7 +135,6 @@
     recognition.onresult = function (event) {
       let transcript = event.results[0][0].transcript.toLowerCase().trim();
 
-      // Cek mapping bahasa Indonesia
       Object.keys(indonesianMap).forEach(key => {
         if (transcript.includes(key)) {
           transcript = indonesianMap[key];
@@ -152,10 +150,15 @@
           videoPlayer.loop = false;
           videoPlayer.src = chosenVideo;
           videoPlayer.play();
+
           videoPlayer.onended = () => {
             videoPlayer.src = 'assets/videos/smile.mp4';
-            videoPlayer.loop = true;
+            videoPlayer.loop = false;
             videoPlayer.play();
+
+            videoPlayer.onended = () => {
+              shuffleVideos(); // lanjut loop semua
+            };
           };
         }
       }
@@ -165,7 +168,6 @@
       recognition.start();
     };
 
-    // Clear cache if query parameter ?clearCache=true is present
     async function clearCacheIfRequested() {
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.get('clearCache') === 'true') {
@@ -251,8 +253,11 @@
 
     if (videoFiles.length > 0) {
       videoPlayer.src = 'assets/videos/smile.mp4';
-      videoPlayer.loop = true;
+      videoPlayer.loop = false;
       videoPlayer.play();
+      videoPlayer.onended = () => {
+        shuffleVideos();
+      };
     } else {
       console.error('No videos found in the assets folder.');
     }
