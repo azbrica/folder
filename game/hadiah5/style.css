@@ -283,17 +283,15 @@ body {
     opacity: 0;
     transform: scale(0);
   }
-  25% {
+  20% {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) translateX(0px);
   }
-  35% {
-    opacity: 1;
-    transform: scale(1) translateX(158px);
+  40% {
+    transform: translateX(250px);
   }
   70%, 100% {
-    transform-origin: right bottom;
-    transform: rotate(-10deg) translate(80px, 370px) scale(1);
+    transform: translate(250px, -60px) rotate(20deg); /* naik 60px */
   }
 }
 
