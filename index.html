@@ -13,6 +13,11 @@
       <source src="video.mp4" type="video/mp4" />
     </video>
 
+    <!-- MUSIK BACKGROUND -->
+    <audio id="bgm" autoplay loop muted>
+      <source src="aboutyou.mp3" type="audio/mpeg" />
+    </audio>
+
     <!-- KONTEN TOMBOL -->
     <div class="button-container">
       <button onclick="location.href='message.html'">MESSAGE</button>
@@ -20,6 +25,15 @@
       <button onclick="location.href='music/index.html'">MUSIC</button>
       <button onclick="location.href='game/index.html'">GAME</button>
     </div>
-    
+
+    <!-- AKTIFKAN AUDIO SAAT USER INTERAKSI -->
+    <script>
+      window.addEventListener("click", function () {
+        const audio = document.getElementById("bgm");
+        audio.muted = false;
+        audio.play();
+      });
+    </script>
+
   </body>
 </html>
