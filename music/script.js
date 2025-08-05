@@ -424,27 +424,23 @@ let songs = [
    },
    {
         id: 11,
-        title: "Masa Lalu",
-        artist: "Chaeroel",
+        title: "Karena kamu",
+        artist: "Unknown",
         album: "Single",
         albumArtUrl: "https://i.ytimg.com/vi/YOUTUBE_ID/hqdefault.jpg",
-        audioSrc: "audio/masa lalu.mp3",
-        videoBgSrc: "videos/masa lalu.mp4",
+        audioSrc: "audio/karnamu.mp3",
+        videoBgSrc: "videos/karnamu.mp4",
         lyrics: [
-            { time: 1000, text: "Kau bahagia dengannya" },
-            { time: 1000, text: "Memang ku siapa?" },
-            { time: 1000, text: "Dan dia pemenangnya" },
-            { time: 1000, text: "Buang jauh masa lalumu" },
-            { time: 1000, text: "Dan juga lihat aku karna diriku masa depanmu" },
-            { time: 1000, text: "Now he’s gone, you should move on" },
-            { time: 1000, text: "Here with me, you’re not alone" },
-            { time: 1000, text: "Break my heart, but you can’t because I’m strong" },
-            { time: 1000, text: "Kau tak pernah katakan" },
-            { time: 1000, text: "Apa kurangnya ku untukmu" },
-            { time: 1000, text: "Namun ku tak sebanding" },
-            { time: 1000, text: "Meskipun aku di sampingmu" },
-            { time: 1000, text: "Dan kau masih cinta yang lalu" }
-       ]       
+            { time: 1000, text: "Karena kamu, aku rela menunggu semua" },
+            { time: 1000, text: "Sungguh berat yang kurasa" },
+            { time: 1000, text: "Kar'na kamu, aku tetap bertahan" },
+            { time: 1000, text: "Meskipun kini engkau di peluknya" },
+            { time: 1000, text: "Masih mungkinkah semua" },
+            { time: 1000, text: "Abadi seperti dahulu?" },
+            { time: 1000, text: "Kar'namu, selalu kar'namu" },
+            { time: 1000, text: "Ku cemburu" }
+        ]
+
    }, 
     
 ];
