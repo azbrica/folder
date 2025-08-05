@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,7 +10,8 @@
       align-items: center;
       justify-content: center;
       min-height: 100vh;
-      background-color: rgb(0, 0, 0);
+      background-color: #000;
+      margin: 0;
     }
 
     .main {
@@ -36,8 +36,9 @@
       padding: 10px;
       width: 60px;
       height: 60px;
-      font-size: 28px;
+      font-size: 30px;
       z-index: 10;
+      user-select: none;
     }
 
     .share-btn:hover {
@@ -61,7 +62,7 @@
       box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
                   rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
       transition: 300ms cubic-bezier(0.73, -0.18, 0.02, 1.46);
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: center;
       font-size: 30px;
@@ -71,6 +72,13 @@
     .card2 { border-radius: 5px 90px 5px 5px; }
     .card3 { border-radius: 5px 5px 5px 90px; }
     .card4 { border-radius: 5px 5px 90px 5px; }
+
+    .card1[data-toggle1="true"],
+    .card2[data-toggle2="true"],
+    .card3[data-toggle3="true"],
+    .card4[data-toggle4="true"] {
+      display: flex;
+    }
 
     .card1[data-toggle1="true"] {
       transform: translateY(50px) translateX(60px) scale(1);
@@ -92,25 +100,11 @@
     .card2:hover { background-color: #03A9F4; color: white; scale: 1.1; }
     .card3:hover { background-color: #333;     color: white; scale: 1.1; }
     .card4:hover { background-color: #8c9eff;  color: white; scale: 1.1; }
-
-    /* sembunyikan awalnya */
-    .card1, .card2, .card3, .card4 {
-      display: none;
-      transform: scale(0);
-    }
-
-    .card1[data-toggle1="true"],
-    .card2[data-toggle2="true"],
-    .card3[data-toggle3="true"],
-    .card4[data-toggle4="true"] {
-      display: flex;
-    }
   </style>
 </head>
-
 <body>
   <div class="main">
-    <div class="share-btn" id="toggleButton">🔗</div>
+    <div class="share-btn" id="toggleButton">🎯</div>
 
     <div class="up">
       <button data-toggle1="false" class="card1" onclick="location.href='page1.html'">❤️</button>
@@ -140,5 +134,4 @@
     });
   </script>
 </body>
-
 </html>
