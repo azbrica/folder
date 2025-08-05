@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,6 +13,7 @@
       justify-content: center;
       min-height: 100vh;
       background-color: rgb(0, 0, 0);
+      overflow: hidden;
     }
 
     .main {
@@ -23,31 +25,32 @@
     }
 
     .share-btn {
-      position: absolute;
+      position: relative;
       display: flex;
       cursor: pointer;
       align-items: center;
       background-color: #fff;
       border: 1px solid rgba(128, 128, 128, 0.705);
       border-radius: 50%;
-      transition: .2s ease-in-out;
-      scale: .8;
+      transition: 0.2s ease-in-out;
+      scale: 0.8;
       padding: 10px;
-      width: 30px;
-      height: 30px;
+      width: 60px;
+      height: 60px;
       z-index: 10;
-      font-size: 20px;
+      font-size: 24px;
       justify-content: center;
+      box-shadow: 0 0 20px #e095fea1;
     }
 
     .share-btn:hover {
       background: #f1f1f1;
-      scale: .9;
+      scale: 0.9;
     }
 
     .up,
     .down {
-      display: none; /* awalnya disembunyikan */
+      display: flex;
       flex-direction: row;
       gap: 0.5em;
     }
@@ -64,27 +67,45 @@
       background: white;
       border-radius: 90px 5px 5px 5px;
       box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-                  rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
       transition: 300ms cubic-bezier(0.73, -0.18, 0.02, 1.46);
     }
 
-    .card2 { border-radius: 5px 90px 5px 5px; }
-    .card3 { border-radius: 5px 5px 5px 90px; }
-    .card4 { border-radius: 5px 5px 90px 5px; }
+    .card2 {
+      border-radius: 5px 90px 5px 5px;
+      transition: 300ms cubic-bezier(0.76, -0.19, 0.15, 1.17);
+    }
 
-    .card1[data-toggle1="true"] {
+    .card3 {
+      border-radius: 5px 5px 5px 90px;
+      transition: 300ms cubic-bezier(0.72, -0.26, 0.02, 1.46);
+    }
+
+    .card4 {
+      border-radius: 5px 5px 90px 5px;
+      transition: 300ms cubic-bezier(1, -0.31, 0.02, 1.46);
+    }
+
+    .card1[data-toggle1="true"],
+    .card2[data-toggle2="true"],
+    .card3[data-toggle3="true"],
+    .card4[data-toggle4="true"] {
+      transform: translateY(0) translateX(0) scale(1);
+    }
+
+    .card1[data-toggle1="false"] {
       transform: translateY(50px) translateX(60px) scale(0);
     }
 
-    .card2[data-toggle2="true"] {
+    .card2[data-toggle2="false"] {
       transform: translateY(50px) translateX(-60px) scale(0);
     }
 
-    .card3[data-toggle3="true"] {
+    .card3[data-toggle3="false"] {
       transform: translateY(-50px) translateX(60px) scale(0);
     }
 
-    .card4[data-toggle4="true"] {
+    .card4[data-toggle4="false"] {
       transform: translateY(-50px) translateX(-60px) scale(0);
     }
 
@@ -96,22 +117,43 @@
       scale: 1.1;
     }
 
-    /* Neon effect when clicked */
-    .clicked {
-      animation: neonClick 0.4s ease-in-out;
+    .stars img {
+      position: absolute;
+      transition: all 1s cubic-bezier(0.05, 0.83, 0.43, 0.96);
+      z-index: 1;
+      height: auto;
+      pointer-events: none;
+      filter: drop-shadow(0 0 8px #ffefff);
+      opacity: 0;
+      width: 0;
     }
 
-    @keyframes neonClick {
-      0%   { box-shadow: 0 0 0px #ff00ff; }
-      50%  { box-shadow: 0 0 25px #ff00ff; }
-      100% { box-shadow: 0 0 0px #ff00ff; }
+    .s1 img { top: -50%; left: -50%; width: 30px; }
+    .s2 img { top: -70%; left: 0%; width: 20px; }
+    .s3 img { top: -40%; left: 60%; width: 15px; }
+    .s4 img { top: 80%; left: -10%; width: 10px; }
+    .s5 img { top: 90%; left: 80%; width: 25px; }
+    .s6 img { top: 0%; left: 120%; width: 15px; }
+    .s7 img { top: 30%; left: -80%; width: 10px; }
+
+    .share-btn.clicked .stars img {
+      opacity: 1;
+      width: 100%;
     }
   </style>
 </head>
 
 <body>
   <div class="main">
-    <div class="share-btn">🎮</div>
+    <div class="share-btn" id="shareBtn">🔄
+      <div class="stars s1"><img src="https://i.ibb.co/r2Ys6q3s/star.png" alt="star"></div>
+      <div class="stars s2"><img src="https://i.ibb.co/r2Ys6q3s/star.png" alt="star"></div>
+      <div class="stars s3"><img src="https://i.ibb.co/r2Ys6q3s/star.png" alt="star"></div>
+      <div class="stars s4"><img src="https://i.ibb.co/r2Ys6q3s/star.png" alt="star"></div>
+      <div class="stars s5"><img src="https://i.ibb.co/r2Ys6q3s/star.png" alt="star"></div>
+      <div class="stars s6"><img src="https://i.ibb.co/r2Ys6q3s/star.png" alt="star"></div>
+      <div class="stars s7"><img src="https://i.ibb.co/r2Ys6q3s/star.png" alt="star"></div>
+    </div>
 
     <div class="up">
       <button data-toggle1="false" class="card1">📸</button>
@@ -125,66 +167,33 @@
   </div>
 
   <script>
-    const shareBtn = document.querySelector(".share-btn");
+    const shareBtn = document.getElementById("shareBtn");
     const card1 = document.querySelector(".card1");
     const card2 = document.querySelector(".card2");
     const card3 = document.querySelector(".card3");
     const card4 = document.querySelector(".card4");
-    const up = document.querySelector(".up");
-    const down = document.querySelector(".down");
 
-    let isOpen = false;
+    let isActive = false;
 
     shareBtn.addEventListener("click", () => {
-      if (!isOpen) {
-        up.style.display = "flex";
-        down.style.display = "flex";
-        setTimeout(() => {
-          card1.setAttribute("data-toggle1", true);
-          card2.setAttribute("data-toggle2", true);
-          card3.setAttribute("data-toggle3", true);
-          card4.setAttribute("data-toggle4", true);
-        }, 100); // animasi muncul sedikit delay
-        isOpen = true;
-      } else {
-        card1.setAttribute("data-toggle1", false);
-        card2.setAttribute("data-toggle2", false);
-        card3.setAttribute("data-toggle3", false);
-        card4.setAttribute("data-toggle4", false);
-        setTimeout(() => {
-          up.style.display = "none";
-          down.style.display = "none";
-        }, 300); // tunggu animasi tutup dulu
-        isOpen = false;
-      }
-    });
+      isActive = !isActive;
 
-    function addClickEffect(el) {
-      el.classList.add("clicked");
+      card1.setAttribute("data-toggle1", isActive);
+      card2.setAttribute("data-toggle2", isActive);
+      card3.setAttribute("data-toggle3", isActive);
+      card4.setAttribute("data-toggle4", isActive);
+
+      shareBtn.classList.add("clicked");
       setTimeout(() => {
-        el.classList.remove("clicked");
-      }, 400);
-    }
-
-    card1.addEventListener("click", () => {
-      addClickEffect(card1);
-      setTimeout(() => window.location.href = "halaman1.html", 200);
+        shareBtn.classList.remove("clicked");
+      }, 500);
     });
 
-    card2.addEventListener("click", () => {
-      addClickEffect(card2);
-      setTimeout(() => window.location.href = "halaman2.html", 200);
-    });
-
-    card3.addEventListener("click", () => {
-      addClickEffect(card3);
-      setTimeout(() => window.location.href = "halaman3.html", 200);
-    });
-
-    card4.addEventListener("click", () => {
-      addClickEffect(card4);
-      setTimeout(() => window.location.href = "halaman4.html", 200);
-    });
+    card1.addEventListener("click", () => window.location.href = "halaman1.html");
+    card2.addEventListener("click", () => window.location.href = "halaman2.html");
+    card3.addEventListener("click", () => window.location.href = "halaman3.html");
+    card4.addEventListener("click", () => window.location.href = "halaman4.html");
   </script>
 </body>
+
 </html>
