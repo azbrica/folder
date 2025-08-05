@@ -12,6 +12,7 @@
       justify-content: center;
       min-height: 100vh;
       background-color: #000;
+      margin: 0;
     }
 
     .main {
@@ -19,28 +20,29 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 0.5em;
+      gap: 1.5em;
     }
 
     .share-btn {
-      position: absolute;
       display: flex;
       cursor: pointer;
       align-items: center;
+      justify-content: center;
       background-color: #fff;
       border: 1px solid rgba(128, 128, 128, 0.705);
       border-radius: 50%;
       transition: 0.2s ease-in-out;
-      scale: 0.8;
+      font-size: 1.8rem;
       padding: 10px;
-      width: 30px;
-      height: 30px;
+      width: 50px;
+      height: 50px;
       z-index: 10;
+      margin-bottom: 1.5em;
     }
 
     .share-btn:hover {
       background: #f1f1f1;
-      scale: 0.9;
+      scale: 0.95;
     }
 
     .up,
@@ -68,6 +70,7 @@
         rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
       transition: 300ms cubic-bezier(0.73, -0.18, 0.02, 1.46);
       transform: scale(0);
+      cursor: pointer;
     }
 
     .card1 {
@@ -107,42 +110,38 @@
     }
 
     .card1:hover {
-      cursor: pointer;
       scale: 1.1;
-      background-color: #ffb6c1; /* pink */
+      background-color: #ffb6c1;
     }
 
     .card2:hover {
-      cursor: pointer;
       scale: 1.1;
-      background-color: #ff4444; /* red */
+      background-color: #ff4444;
     }
 
     .card3:hover {
-      cursor: pointer;
       scale: 1.1;
-      background-color: #8bc34a; /* green */
+      background-color: #8bc34a;
     }
 
     .card4:hover {
-      cursor: pointer;
       scale: 1.1;
-      background-color: #7e57c2; /* purple */
+      background-color: #7e57c2;
     }
   </style>
 </head>
 
 <body>
   <div class="main">
-  <div class="share-btn">📤</div>
-  <div class="up">
-    <button data-toggle1="false" class="card1">🌷</button>
-    <button data-toggle2="false" class="card2">💥</button>
-  </div>
-  <div class="down">
-    <button data-toggle3="false" class="card3">🐸</button>
-    <button data-toggle4="false" class="card4">🎮</button>
-  </div>
+    <div class="share-btn">📤</div>
+    <div class="up">
+      <button id="btn1" data-toggle1="false" class="card1">🌷</button>
+      <button id="btn2" data-toggle2="false" class="card2">💥</button>
+    </div>
+    <div class="down">
+      <button id="btn3" data-toggle3="false" class="card3">🐸</button>
+      <button id="btn4" data-toggle4="false" class="card4">🎮</button>
+    </div>
   </div>
 
   <script>
@@ -159,8 +158,24 @@
       card3.setAttribute("data-toggle3", !active);
       card4.setAttribute("data-toggle4", !active);
     });
+
+    // Redirect ke halaman
+    document.getElementById("btn1").addEventListener("click", () => {
+      window.location.href = "hadiah1.html";
+    });
+
+    document.getElementById("btn2").addEventListener("click", () => {
+      window.location.href = "hadiah2.html";
+    });
+
+    document.getElementById("btn3").addEventListener("click", () => {
+      window.location.href = "hadiah3.html";
+    });
+
+    document.getElementById("btn4").addEventListener("click", () => {
+      window.location.href = "hadiah4.html";
+    });
   </script>
 </body>
 
 </html>
-
