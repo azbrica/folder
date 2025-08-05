@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -64,24 +63,14 @@
       border: none;
       background: white;
       border-radius: 90px 5px 5px 5px;
-      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+                  rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
       transition: 300ms cubic-bezier(0.73, -0.18, 0.02, 1.46);
     }
 
-    .card2 {
-      border-radius: 5px 90px 5px 5px;
-      transition: 300ms cubic-bezier(0.76, -0.19, 0.15, 1.17);
-    }
-
-    .card3 {
-      border-radius: 5px 5px 5px 90px;
-      transition: 300ms cubic-bezier(0.72, -0.26, 0.02, 1.46);
-    }
-
-    .card4 {
-      border-radius: 5px 5px 90px 5px;
-      transition: 300ms cubic-bezier(1, -0.31, 0.02, 1.46);
-    }
+    .card2 { border-radius: 5px 90px 5px 5px; }
+    .card3 { border-radius: 5px 5px 5px 90px; }
+    .card4 { border-radius: 5px 5px 90px 5px; }
 
     .card1[data-toggle1="true"] {
       transform: translateY(50px) translateX(60px) scale(0);
@@ -105,6 +94,23 @@
     .card4:hover {
       cursor: pointer;
       scale: 1.1;
+    }
+
+    /* Neon effect when clicked */
+    .clicked {
+      animation: neonClick 0.4s ease-in-out;
+    }
+
+    @keyframes neonClick {
+      0% {
+        box-shadow: 0 0 0px #ff00ff;
+      }
+      50% {
+        box-shadow: 0 0 25px #ff00ff;
+      }
+      100% {
+        box-shadow: 0 0 0px #ff00ff;
+      }
     }
   </style>
 </head>
@@ -139,11 +145,32 @@
       card4.setAttribute("data-toggle4", !toggle);
     });
 
-    card1.addEventListener("click", () => window.location.href = "halaman1.html");
-    card2.addEventListener("click", () => window.location.href = "halaman2.html");
-    card3.addEventListener("click", () => window.location.href = "halaman3.html");
-    card4.addEventListener("click", () => window.location.href = "halaman4.html");
+    function addClickEffect(el) {
+      el.classList.add("clicked");
+      setTimeout(() => {
+        el.classList.remove("clicked");
+      }, 400);
+    }
+
+    card1.addEventListener("click", () => {
+      addClickEffect(card1);
+      setTimeout(() => window.location.href = "halaman1.html", 200);
+    });
+
+    card2.addEventListener("click", () => {
+      addClickEffect(card2);
+      setTimeout(() => window.location.href = "halaman2.html", 200);
+    });
+
+    card3.addEventListener("click", () => {
+      addClickEffect(card3);
+      setTimeout(() => window.location.href = "halaman3.html", 200);
+    });
+
+    card4.addEventListener("click", () => {
+      addClickEffect(card4);
+      setTimeout(() => window.location.href = "halaman4.html", 200);
+    });
   </script>
 </body>
-
 </html>
