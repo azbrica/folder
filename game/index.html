@@ -47,7 +47,7 @@
 
     .up,
     .down {
-      display: flex;
+      display: none; /* awalnya disembunyikan */
       flex-direction: row;
       gap: 0.5em;
     }
@@ -102,22 +102,16 @@
     }
 
     @keyframes neonClick {
-      0% {
-        box-shadow: 0 0 0px #ff00ff;
-      }
-      50% {
-        box-shadow: 0 0 25px #ff00ff;
-      }
-      100% {
-        box-shadow: 0 0 0px #ff00ff;
-      }
+      0%   { box-shadow: 0 0 0px #ff00ff; }
+      50%  { box-shadow: 0 0 25px #ff00ff; }
+      100% { box-shadow: 0 0 0px #ff00ff; }
     }
   </style>
 </head>
 
 <body>
   <div class="main">
-    <div class="share-btn">🔄</div>
+    <div class="share-btn">🎮</div>
 
     <div class="up">
       <button data-toggle1="false" class="card1">📸</button>
@@ -136,13 +130,33 @@
     const card2 = document.querySelector(".card2");
     const card3 = document.querySelector(".card3");
     const card4 = document.querySelector(".card4");
+    const up = document.querySelector(".up");
+    const down = document.querySelector(".down");
+
+    let isOpen = false;
 
     shareBtn.addEventListener("click", () => {
-      const toggle = card1.getAttribute("data-toggle1") === "true";
-      card1.setAttribute("data-toggle1", !toggle);
-      card2.setAttribute("data-toggle2", !toggle);
-      card3.setAttribute("data-toggle3", !toggle);
-      card4.setAttribute("data-toggle4", !toggle);
+      if (!isOpen) {
+        up.style.display = "flex";
+        down.style.display = "flex";
+        setTimeout(() => {
+          card1.setAttribute("data-toggle1", true);
+          card2.setAttribute("data-toggle2", true);
+          card3.setAttribute("data-toggle3", true);
+          card4.setAttribute("data-toggle4", true);
+        }, 100); // animasi muncul sedikit delay
+        isOpen = true;
+      } else {
+        card1.setAttribute("data-toggle1", false);
+        card2.setAttribute("data-toggle2", false);
+        card3.setAttribute("data-toggle3", false);
+        card4.setAttribute("data-toggle4", false);
+        setTimeout(() => {
+          up.style.display = "none";
+          down.style.display = "none";
+        }, 300); // tunggu animasi tutup dulu
+        isOpen = false;
+      }
     });
 
     function addClickEffect(el) {
