@@ -431,14 +431,14 @@ let songs = [
         audioSrc: "audio/karenakamu.mp3",
         videoBgSrc: "videos/karenakamu.mp4",
         lyrics: [
-            { time: 1000, text: "Karena kamu, aku rela menunggu semua" },
-            { time: 1000, text: "Sungguh berat yang kurasa" },
-            { time: 1000, text: "Kar'na kamu, aku tetap bertahan" },
-            { time: 1000, text: "Meskipun kini engkau di peluknya" },
-            { time: 1000, text: "Masih mungkinkah semua" },
-            { time: 1000, text: "Abadi seperti dahulu?" },
-            { time: 1000, text: "Kar'namu, selalu kar'namu" },
-            { time: 1000, text: "Ku cemburu" }
+            { time: 0, text: "Karena kamu, aku rela menunggu semua" },
+            { time: 6, text: "Sungguh berat yang kurasa" },
+            { time: 9, text: "Karena kamu, aku tetap bertahan" },
+            { time: 13, text: "Meskipun kini engkau di peluknya" },
+            { time: 17, text: "Masih mungkinkah semua" },
+            { time: 21, text: "Abadi seperti dahulu?" },
+            { time: 25, text: "Kar'namu, selalu kar'namu" },
+            { time: 29, text: "Ku cemburu" }
         ]
 
    }, 
