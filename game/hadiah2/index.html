@@ -123,6 +123,19 @@
         </div>
         </div>
 
+<!-- Emoji trigger 😸 -->
+<div style="text-align: center; font-size: 30px; margin-top: -30px; cursor: pointer;" id="emojiTrigger">😸</div>
+
+<script>
+    const card = document.querySelector('.card');
+    const inner = card.querySelector('.inner');
+    const emoji = document.getElementById('emojiTrigger');
+    let flipped = false;
+
+    emoji.addEventListener('click', () => {
+        flipped = !flipped;
+        inner.style.transform = flipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
+       });
     <script>
         const canvas = document.getElementById('myCanvas');
         const ctx = canvas.getContext('2d');
