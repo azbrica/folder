@@ -425,11 +425,11 @@ let songs = [
    {
         id: 11,
         title: "Karena kamu",
-        artist: "Unknown",
+        artist: "Geisha",
         album: "Single",
-        albumArtUrl: "https://i.ytimg.com/vi/YOUTUBE_ID/hqdefault.jpg",
-        audioSrc: "audio/karnamu.mp3",
-        videoBgSrc: "videos/karnamu.mp4",
+        albumArtUrl: "https://i.ytimg.com/vi/aGSggATnKp0/hqdefault.jpg",
+        audioSrc: "audio/karenakamu.mp3",
+        videoBgSrc: "videos/karenakamu.mp4",
         lyrics: [
             { time: 1000, text: "Karena kamu, aku rela menunggu semua" },
             { time: 1000, text: "Sungguh berat yang kurasa" },
