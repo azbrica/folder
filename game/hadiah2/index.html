@@ -1,100 +1,237 @@
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Game</title>
-    <link rel="stylesheet" href="main.css">
+    <title>Interactive Canvas with Navbar</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle, #1b1f27, #0d1117);
+            overflow: hidden;
+        }
+
+
+        .card {
+           
+            position: relative;
+            width: 300px;
+            height: 400px;
+            margin: 50px auto;
+            background: linear-gradient(145deg, #1e2430, #181c24);
+            border-radius: 20px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7), -10px -10px 20px rgba(255, 255, 255, 0.1);
+            perspective: 1000px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .card:hover .inner {
+            transform: rotateY(180deg);
+        }
+
+        .inner {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .front, .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+        }
+
+        .front {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #00ffcc, #0099ff);
+            overflow: hidden;
+        }
+        .front h1{
+        position: absolute;
+        top: 1px;
+        color: #313336;
+        }
+        .front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .back {
+            background: linear-gradient(135deg, #0a93e2, #ff758c);
+            color: #fff;
+            font-size: 18px;
+         
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: rotateY(180deg);
+            text-align: center;
+            padding: 20px;
+        }
+      
+    .back h2 {
+        margin: 10px 0;
+        font-size: 22px;
+        position: relative;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 2px;
+        transition: transform 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .back h2:hover {
+        transform: translateZ(20px) scale(1.1);
+        text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5), 0px 0px 15px rgba(255, 255, 255, 0.7);
+    }
+
+    .back p {
+        margin-left: 25px;
+        font-size: 16px;
+        line-height: 1.5;
+        transition: transform 0.3s ease;
+    }
+
+    .back p:hover {
+        transform: translateZ(10px) scale(1.05);
+    }
+
+    </style>
 </head>
 <body>
 
-<div class="container">
-    <h2>Memory Game</h2>
-    <div class="game"></div>
-    <button class="reset" onclick="resetGame()">Reset</button>
-    <p>Attempts: <span id="attempts">0</span></p>
-</div>
+    <div class="card">
+    <div class="inner">
+        <div class="front">
+            <img src="kucing.jpg" alt="Depan">
+        </div>
+        <div class="back">
+            <img src="kucing.jpg" alt="Belakang">
+        </div>
+        </div>
+        </div>
 
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let isDrawing = false;
 
-<script>
-    const emojis = [
-        "😋",
-        "😋",
-        "🤕",
-        "🤕",
-        "🙃",
-        "🙃",
-        "😉",
-        "😉",
-        "😢",
-        "😢",
-        "😳",
-        "😳",
-        "🫤",
-        "🫤",
-        "😆",
-        "😆",
-    ];
-    var attempts = 0;
-    var shuf_emojis = emojis.sort(() => (Math.random() > 0.5 ? 2 : -1));
-    for (var i = 0; i < emojis.length; i++) {
-        let box = document.createElement("div");
-        box.className = "item";
-        box.innerHTML = shuf_emojis[i];
-
-        box.onclick = function () {
-            if (!this.classList.contains("boxOpen")){
-                attempts += 1;
-                document.getElementById("attempts").innerHTML = attempts;
+        class Particle {
+            constructor(x, y, radius, color, velocity) {
+                this.x = x;
+                this.y = y;
+                this.radius = radius;
+                this.color = color;
+                this.velocity = velocity;
+                this.alpha = 1;
             }
 
-            this.classList.add("boxOpen");
-            setTimeout(function () {
-                if (document.querySelectorAll(".boxOpen").length > 1) {
-                    if (
-                        document.querySelectorAll(".boxOpen")[0].innerHTML ==
-                        document.querySelectorAll(".boxOpen")[1].innerHTML
-                    ) {
-                      document
-                        .querySelectorAll(".boxOpen")[0]
-                        .classList.add("boxMatch");
-                      document
-                        .querySelectorAll(".boxOpen")[1]
-                        .classList.add("boxMatch");
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.alpha;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+                ctx.closePath();
+                ctx.restore();
+            }
 
-                      document
-                        .querySelectorAll(".boxOpen")[1]
-                        .classList.remove("boxOpen");
-                      document
-                        .querySelectorAll(".boxOpen")[0]
-                        .classList.remove("boxOpen");
-                      if (
-                        document.querySelectorAll(".boxMatch").length ==
-                        emojis.length
-                      ) {
-                        alert("You win!");
-                      }
-                    } else {
-                        document
-                        .querySelectorAll(".boxOpen")[1]
-                        .classList.remove("boxOpen");
-                        document
-                        .querySelectorAll(".boxOpen")[0]
-                        .classList.remove("boxOpen");
-                    }
-                }
-            }, 500);
-        };
-        document.querySelector(".game").appendChild(box);
-    }
+            update() {
+                this.draw();
+                this.x += this.velocity.x;
+                this.y += this.velocity.y;
+                this.alpha -= 0.01;
+            }
+        }
 
-    function resetGame() {
-        attempts = 0;
-        document.getElementById("attempts").innerText = attempts;
-        var shuf_emojis = emojis.sort(() => (Math.random() > 0.5 ? 2 : -1));
-        var boxes = document.querySelectorAll(".item");
-        boxes.forEach(function (box, index) {
-            box.innerHTML = shuf_emojis[index];
-            box.classList.remove("boxOpen", "boxMatch");
+        function spawnFirework(x, y) {
+            const particleCount = 50;
+            const angleIncrement = (Math.PI * 2) / particleCount;
+
+            for (let i = 0; i < particleCount; i++) {
+                const angle = i * angleIncrement;
+                const velocity = {
+                    x: Math.cos(angle) * (Math.random() * 3 + 2),
+                    y: Math.sin(angle) * (Math.random() * 3 + 2),
+                };
+                const color = `hsl(${Math.random() * 360}, 70%, 60%)`;
+                particles.push(new Particle(x, y, Math.random() * 3 + 2, color, velocity));
+            }
+        }
+
+        function drawTrail(x, y) {
+            const radius = Math.random() * 5 + 3;
+            const color = `hsl(${Math.random() * 360}, 80%, 70%)`;
+            particles.push(new Particle(x, y, radius, color, { x: 0, y: 0 }));
+        }
+
+        function changeBackground() {
+            const colors = [
+                'radial-gradient(circle, #ff7eb3, #ff758c)',
+                'radial-gradient(circle, #5ee7df, #b490ca)',
+                'radial-gradient(circle, #6a11cb, #2575fc)',
+                'radial-gradient(circle, #fc6767, #ec008c)'
+            ];
+            document.body.style.background =
+                colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        function animate() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            particles = particles.filter(particle => particle.alpha > 0);
+            particles.forEach(particle => particle.update());
+            requestAnimationFrame(animate);
+        }
+
+        canvas.addEventListener('mousedown', () => {
+            isDrawing = true;
         });
-    }
-</script>
+
+        canvas.addEventListener('mouseup', () => {
+            isDrawing = false;
+        });
+
+        canvas.addEventListener('mousemove', (event) => {
+            if (isDrawing) {
+                const rect = canvas.getBoundingClientRect();
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+                drawTrail(x, y);
+            }
+        });
+
+        canvas.addEventListener('click', (event) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            spawnFirework(x, y);
+        });
+
+        window.addEventListener('keydown', (event) => {
+            if (event.key === 'c') {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles = [];
+            } else if (event.key === 'b') {
+                changeBackground();
+            }
+        });
+
+        animate();
+    </script>
+</body>
+</html>
