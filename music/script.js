@@ -448,7 +448,7 @@ let songs = [
         album: "Single",
         albumArtUrl: "https://i.ytimg.com/vi/c7nyleyyL6I/hqdefault.jpg",
         audioSrc: "audio/breathe2.mp3",
-        videoBgSrc: "video/breathe1.mp4",
+        videoBgSrc: "videos/breathe1.mp4",
         lyrics: [
             { time: 1000, text: "What's that supposed to be about, baby?" },
             { time: 1000, text: "Go free up your vibe, stop acting crazy" },
