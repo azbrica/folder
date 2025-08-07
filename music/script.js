@@ -440,9 +440,27 @@ let songs = [
             { time: 25, text: "Kar'namu, selalu kar'namu" },
             { time: 29, text: "Ku cemburu" }
         ]
-
    }, 
-    
+   {
+        id: 12,
+        title: "Breathe",
+        artist: "Olly Alexander",
+        album: "Single",
+        albumArtUrl: "https://i.ytimg.com/vi/c7nyleyyL6I/hqdefault.jpg",
+        audioSrc: "audio/breathe2.mp3",
+        videoBgSrc: "video/breathe2.mp4",
+        lyrics: [
+            { time: 1000, text: "What's that supposed to be about, baby?" },
+            { time: 1000, text: "Go free up your vibe, stop acting crazy" },
+            { time: 1000, text: "Reminiscing all the good times daily" },
+            { time: 1000, text: "Try and pull that, got me acting shady" },
+            { time: 1000, text: "What's that supposed to be about, baby?" },
+            { time: 1000, text: "Go free up your vibe, stop acting crazy" },
+            { time: 1000, text: "You know I give you the good loving daily" },
+            { time: 1000, text: "Try and pull that, got me actin' shady" },
+            { time: 1000, text: "Oh" }
+        ]
+    }, 
 ];
 let currentSongIndex = 0;
 let isPlaying = false;
