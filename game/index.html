@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>@codewith_muhilan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Circle 6 Cards</title>
   <style>
     body {
       display: flex;
@@ -11,160 +11,99 @@
       justify-content: center;
       min-height: 100vh;
       background-color: #000;
+      margin: 0;
     }
 
     .main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5em;
+      position: relative;
+      width: 220px;
+      height: 220px;
     }
 
     .share-btn {
       position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background: white;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #fff;
-      border: 1px solid rgba(128, 128, 128, 0.705);
-      border-radius: 50%;
-      transition: 0.2s ease-in-out;
       font-size: 1.8rem;
-      width: 60px;
-      height: 60px;
-      z-index: 999;
+      border: 1px solid rgba(128, 128, 128, 0.705);
+      z-index: 2;
       cursor: pointer;
     }
 
     .share-btn:hover {
-      background: #f1f1f1;
-      scale: 0.9;
+      box-shadow: 0 0 15px #fff, 0 0 25px #aaa;
     }
 
-    .row {
-      display: flex;
-      flex-direction: row;
-      gap: 0.5em;
-    }
-
-    .card1, .card2, .card3, .card4, .card5, .card6 {
+    .card {
+      position: absolute;
       width: 90px;
       height: 90px;
-      outline: none;
-      border: none;
       background: white;
+      border: none;
       font-size: 2rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow:
-        rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-      transition: 300ms cubic-bezier(0.73, -0.18, 0.02, 1.46);
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+                  rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+      transition: 300ms ease;
       transform: scale(0);
-      border-radius: 5px 5px 5px 5px;
+      border-radius: 50%;
     }
 
-    .card1 {
-      border-radius: 90px 5px 5px 5px;
-      transform: translateY(50px) translateX(60px) scale(0);
+    .card:hover {
+      cursor: pointer;
+      scale: 1.1;
     }
 
-    .card2 {
-      border-radius: 5px 90px 5px 5px;
-      transform: translateY(50px) translateX(-60px) scale(0);
-    }
+    .card1:hover { background-color: #ffb6c1; }
+    .card2:hover { background-color: #ff4444; }
+    .card3:hover { background-color: #8bc34a; }
+    .card4:hover { background-color: #7e57c2; }
+    .card5:hover { background-color: #81d4fa; }
+    .card6:hover { background-color: #ffcc80; }
 
-    .card3 {
-      border-radius: 5px 5px 5px 90px;
-      transform: translateY(-50px) translateX(60px) scale(0);
+    .card[data-active="true"] {
+      transform: scale(1);
     }
-
-    .card4 {
-      border-radius: 5px 5px 90px 5px;
-      transform: translateY(-50px) translateX(-60px) scale(0);
-    }
-
-    .card5 {
-      transform: translateY(50px) translateX(30px) scale(0);
-    }
-
-    .card6 {
-      transform: translateY(50px) translateX(-30px) scale(0);
-    }
-
-    .card1[data-toggle1="true"],
-    .card2[data-toggle2="true"],
-    .card3[data-toggle3="true"],
-    .card4[data-toggle4="true"],
-    .card5[data-toggle5="true"],
-    .card6[data-toggle6="true"] {
-      transform: translateY(0) translateX(0) scale(1);
-    }
-
-    .card1:hover { background-color: #ffb6c1; cursor: pointer; scale: 1.1; }
-    .card2:hover { background-color: #ff4444; cursor: pointer; scale: 1.1; }
-    .card3:hover { background-color: #8bc34a; cursor: pointer; scale: 1.1; }
-    .card4:hover { background-color: #7e57c2; cursor: pointer; scale: 1.1; }
-    .card5:hover { background-color: #00bcd4; cursor: pointer; scale: 1.1; }
-    .card6:hover { background-color: #ffc107; cursor: pointer; scale: 1.1; }
   </style>
 </head>
 <body>
   <div class="main">
     <div class="share-btn">🎮</div>
-    <div class="row">
-      <button data-toggle1="false" class="card1">🌷</button>
-      <button data-toggle2="false" class="card2">💥</button>
-    </div>
-    <div class="row">
-      <button data-toggle3="false" class="card3">🐸</button>
-      <button data-toggle4="false" class="card4">🪩</button>
-    </div>
-    <div class="row">
-      <button data-toggle5="false" class="card5">🍀</button>
-      <button data-toggle6="false" class="card6">🍰</button>
-    </div>
+    <button class="card card1" data-active="false" style="top:0%; left:50%; transform:translate(-50%, -50%) scale(0);">🌷</button>
+    <button class="card card2" data-active="false" style="top:25%; left:93%; transform:translate(-50%, -50%) scale(0);">💥</button>
+    <button class="card card3" data-active="false" style="top:75%; left:93%; transform:translate(-50%, -50%) scale(0);">🐸</button>
+    <button class="card card4" data-active="false" style="top:100%; left:50%; transform:translate(-50%, -50%) scale(0);">🪩</button>
+    <button class="card card5" data-active="false" style="top:75%; left:7%; transform:translate(-50%, -50%) scale(0);">🍀</button>
+    <button class="card card6" data-active="false" style="top:25%; left:7%; transform:translate(-50%, -50%) scale(0);">🍰</button>
   </div>
 
   <script>
     const shareBtn = document.querySelector(".share-btn");
-    const card1 = document.querySelector(".card1");
-    const card2 = document.querySelector(".card2");
-    const card3 = document.querySelector(".card3");
-    const card4 = document.querySelector(".card4");
-    const card5 = document.querySelector(".card5");
-    const card6 = document.querySelector(".card6");
+    const cards = document.querySelectorAll(".card");
 
     shareBtn.addEventListener("click", () => {
-      const active = card1.getAttribute("data-toggle1") === "true";
-      card1.setAttribute("data-toggle1", !active);
-      card2.setAttribute("data-toggle2", !active);
-      card3.setAttribute("data-toggle3", !active);
-      card4.setAttribute("data-toggle4", !active);
-      card5.setAttribute("data-toggle5", !active);
-      card6.setAttribute("data-toggle6", !active);
+      cards.forEach(card => {
+        const isActive = card.getAttribute("data-active") === "true";
+        card.setAttribute("data-active", !isActive);
+      });
     });
 
-    card1.addEventListener("click", () => {
-      window.location.href = "hadiah3/index.html";
-    });
-    card2.addEventListener("click", () => {
-      window.location.href = "https://novaa-forge.github.io/Impossible-Game/";
-    });
-    card3.addEventListener("click", () => {
-      window.location.href = "hadiah4/intro.html";
-    });
-    card4.addEventListener("click", () => {
-      window.location.href = "hadiah5/index.html";
-    });
-    card5.addEventListener("click", () => {
-      window.location.href = "hadiah6/index.html";
-    });
-    card6.addEventListener("click", () => {
-      window.location.href = "hadiah7/index.html";
-    });
+    document.querySelector(".card1").onclick = () => location.href = "hadiah3/index.html";
+    document.querySelector(".card2").onclick = () => location.href = "https://novaa-forge.github.io/Impossible-Game/";
+    document.querySelector(".card3").onclick = () => location.href = "hadiah4/intro.html";
+    document.querySelector(".card4").onclick = () => location.href = "hadiah5/index.html";
+    document.querySelector(".card5").onclick = () => location.href = "hadiah6/index.html";
+    document.querySelector(".card6").onclick = () => location.href = "hadiah7/index.html";
   </script>
 </body>
 </html>
