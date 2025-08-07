@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,38 +21,34 @@
       gap: 0.5em;
     }
 
-  .share-btn {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #fff;
-  border: 1px solid rgba(128, 128, 128, 0.705);
-  border-radius: 50%;
-  transition: 0.2s ease-in-out;
-  font-size: 1.8rem;
-  width: 60px;
-  height: 60px;
-  z-index: 999;
-  cursor: pointer;
-  }
+    .share-btn {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      border: 1px solid rgba(128, 128, 128, 0.705);
+      border-radius: 50%;
+      transition: 0.2s ease-in-out;
+      font-size: 1.8rem;
+      width: 60px;
+      height: 60px;
+      z-index: 999;
+      cursor: pointer;
+    }
 
     .share-btn:hover {
       background: #f1f1f1;
       scale: 0.9;
     }
 
-    .up,
-    .down {
+    .row {
       display: flex;
       flex-direction: row;
       gap: 0.5em;
     }
 
-    .card1,
-    .card2,
-    .card3,
-    .card4 {
+    .card1, .card2, .card3, .card4, .card5, .card6 {
       width: 90px;
       height: 90px;
       outline: none;
@@ -68,6 +63,7 @@
         rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
       transition: 300ms cubic-bezier(0.73, -0.18, 0.02, 1.46);
       transform: scale(0);
+      border-radius: 5px 5px 5px 5px;
     }
 
     .card1 {
@@ -75,17 +71,9 @@
       transform: translateY(50px) translateX(60px) scale(0);
     }
 
-    .card1[data-toggle1="true"] {
-      transform: translateY(0) translateX(0) scale(1);
-    }
-
     .card2 {
       border-radius: 5px 90px 5px 5px;
       transform: translateY(50px) translateX(-60px) scale(0);
-    }
-
-    .card2[data-toggle2="true"] {
-      transform: translateY(0) translateX(0) scale(1);
     }
 
     .card3 {
@@ -93,56 +81,51 @@
       transform: translateY(-50px) translateX(60px) scale(0);
     }
 
-    .card3[data-toggle3="true"] {
-      transform: translateY(0) translateX(0) scale(1);
-    }
-
     .card4 {
       border-radius: 5px 5px 90px 5px;
       transform: translateY(-50px) translateX(-60px) scale(0);
     }
 
-    .card4[data-toggle4="true"] {
+    .card5 {
+      transform: translateY(50px) translateX(30px) scale(0);
+    }
+
+    .card6 {
+      transform: translateY(50px) translateX(-30px) scale(0);
+    }
+
+    .card1[data-toggle1="true"],
+    .card2[data-toggle2="true"],
+    .card3[data-toggle3="true"],
+    .card4[data-toggle4="true"],
+    .card5[data-toggle5="true"],
+    .card6[data-toggle6="true"] {
       transform: translateY(0) translateX(0) scale(1);
     }
 
-    .card1:hover {
-      cursor: pointer;
-      scale: 1.1;
-      background-color: #ffb6c1; /* pink */
-    }
-
-    .card2:hover {
-      cursor: pointer;
-      scale: 1.1;
-      background-color: #ff4444; /* red */
-    }
-
-    .card3:hover {
-      cursor: pointer;
-      scale: 1.1;
-      background-color: #8bc34a; /* green */
-    }
-
-    .card4:hover {
-      cursor: pointer;
-      scale: 1.1;
-      background-color: #7e57c2; /* purple */
-    }
+    .card1:hover { background-color: #ffb6c1; cursor: pointer; scale: 1.1; }
+    .card2:hover { background-color: #ff4444; cursor: pointer; scale: 1.1; }
+    .card3:hover { background-color: #8bc34a; cursor: pointer; scale: 1.1; }
+    .card4:hover { background-color: #7e57c2; cursor: pointer; scale: 1.1; }
+    .card5:hover { background-color: #00bcd4; cursor: pointer; scale: 1.1; }
+    .card6:hover { background-color: #ffc107; cursor: pointer; scale: 1.1; }
   </style>
 </head>
-
 <body>
   <div class="main">
-  <div class="share-btn">🎮</div>
-  <div class="up">
-    <button data-toggle1="false" class="card1">🌷</button>
-    <button data-toggle2="false" class="card2">💥</button>
-  </div>
-  <div class="down">
-    <button data-toggle3="false" class="card3">🐸</button>
-    <button data-toggle4="false" class="card4">🪩</button>
-  </div>
+    <div class="share-btn">🎮</div>
+    <div class="row">
+      <button data-toggle1="false" class="card1">🌷</button>
+      <button data-toggle2="false" class="card2">💥</button>
+    </div>
+    <div class="row">
+      <button data-toggle3="false" class="card3">🐸</button>
+      <button data-toggle4="false" class="card4">🪩</button>
+    </div>
+    <div class="row">
+      <button data-toggle5="false" class="card5">🍀</button>
+      <button data-toggle6="false" class="card6">🍰</button>
+    </div>
   </div>
 
   <script>
@@ -151,6 +134,8 @@
     const card2 = document.querySelector(".card2");
     const card3 = document.querySelector(".card3");
     const card4 = document.querySelector(".card4");
+    const card5 = document.querySelector(".card5");
+    const card6 = document.querySelector(".card6");
 
     shareBtn.addEventListener("click", () => {
       const active = card1.getAttribute("data-toggle1") === "true";
@@ -158,12 +143,15 @@
       card2.setAttribute("data-toggle2", !active);
       card3.setAttribute("data-toggle3", !active);
       card4.setAttribute("data-toggle4", !active);
+      card5.setAttribute("data-toggle5", !active);
+      card6.setAttribute("data-toggle6", !active);
     });
+
     card1.addEventListener("click", () => {
       window.location.href = "hadiah3/index.html";
     });
     card2.addEventListener("click", () => {
-  window.location.href = "https://novaa-forge.github.io/Impossible-Game/";
+      window.location.href = "https://novaa-forge.github.io/Impossible-Game/";
     });
     card3.addEventListener("click", () => {
       window.location.href = "hadiah4/intro.html";
@@ -171,19 +159,12 @@
     card4.addEventListener("click", () => {
       window.location.href = "hadiah5/index.html";
     });
+    card5.addEventListener("click", () => {
+      window.location.href = "hadiah6/index.html";
+    });
+    card6.addEventListener("click", () => {
+      window.location.href = "hadiah7/index.html";
+    });
   </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
