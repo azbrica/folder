@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Blue - Timed Lyrics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Serif';
+      background: url('bluesky.gif') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-shadow: 2px 2px 5px #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    audio {
+      margin-top: 20px;
+    }
+    #lyrics {
+      font-size: 2em;
+      text-align: center;
+      width: 80%;
+    }
+  </style>
+</head>
+<body>
+  <div id="lyrics">Loading...</div>
+  <audio id="audio" controls autoplay>
+    <source src="Blue.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const lrc = `[00:00.00]Your morning eyes, I could stare like watching stars
+[00:07.00]I could walk you by, and I'll tell without a thought
+[00:12.00]You'd be mine
+[00:15.00]Would you mind if I took your hand tonight
+[00:20.00]Know you're all that I want this life
+[00:25.00]I'll imagine we fell in love
+[00:29.00]I'll nap under moonlight skies with you
+[00:34.00]I think I'll picture us, you with the waves
+[00:39.00]The oceans colors on your face
+[00:43.00]I'll leave my heart with your air
+[00:47.00]So let me fly with you
+[00:51.00]Will you be forever with me
+[00:56.00][Guitar]
+[01:25.00]My love will always stay by you
+[01:30.00]I'll keep it safe so don't you worry a thing,
+[01:35.00]I'll tell you I love you more
+[01:40.00]It's stuck with you forever so promise you won't let it go
+[01:46.00]I'll trust the universe will always bring me to you
+[01:52.00]I'll imagine we fell in love
+[01:56.00]I'll nap under moonlight skies with you
+[02:00.00]I think I'll picture us, you with the waves
+[02:05.00]The oceans colors on your face
+[02:09.00]I'll leave my heart with your air
+[02:13.00]So let me fly with you
+[02:17.00]Will you be forever with me`.trim().split('\n');
+    const lyrics = lrc.map(line => {
+      const match = line.match(/\[(\d+):(\d+\.\d+)\](.*)/);
+      if (!match) return null;
+      const minutes = parseInt(match[1]);
+      const seconds = parseFloat(match[2]);
+      const time = minutes * 60 + seconds;
+      return { time, text: match[3] };
+    }).filter(line => line);
+
+    const audio = document.getElementById('audio');
+    const lyricsDiv = document.getElementById('lyrics');
+
+    function updateLyrics() {
+      const currentTime = audio.currentTime;
+      for (let i = lyrics.length - 1; i >= 0; i--) {
+        if (currentTime >= lyrics[i].time) {
+          lyricsDiv.textContent = lyrics[i].text;
+          break;
+        }
+      }
+    }
+
+    audio.addEventListener('timeupdate', updateLyrics);
+  </script>
+</body>
+</html>
