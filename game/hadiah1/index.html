@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Blue - Timed Lyrics</title>
+  <title>love - Timed Lyrics</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <style>
     body {
@@ -37,31 +37,16 @@
   </audio>
 
   <script>
-    const lrc = `[00:00.00]Your morning eyes, I could stare like watching stars
-[00:07.00]I could walk you by, and I'll tell without a thought
-[00:12.00]You'd be mine
-[00:15.00]Would you mind if I took your hand tonight
-[00:20.00]Know you're all that I want this life
-[00:25.00]I'll imagine we fell in love
-[00:29.00]I'll nap under moonlight skies with you
-[00:34.00]I think I'll picture us, you with the waves
-[00:39.00]The oceans colors on your face
-[00:43.00]I'll leave my heart with your air
-[00:47.00]So let me fly with you
-[00:51.00]Will you be forever with me
-[00:56.00][Guitar]
-[01:25.00]My love will always stay by you
-[01:30.00]I'll keep it safe so don't you worry a thing,
-[01:35.00]I'll tell you I love you more
-[01:40.00]It's stuck with you forever so promise you won't let it go
-[01:46.00]I'll trust the universe will always bring me to you
-[01:52.00]I'll imagine we fell in love
-[01:56.00]I'll nap under moonlight skies with you
-[02:00.00]I think I'll picture us, you with the waves
-[02:05.00]The oceans colors on your face
-[02:09.00]I'll leave my heart with your air
-[02:13.00]So let me fly with you
-[02:17.00]Will you be forever with me`.trim().split('\n');
+  const lrc = `[00:00.00]Living all alone kinda forgot it's been that long
+               [00:07.00]Since someone's gone, I've been trying to be a little bit strong
+               [00:14.00]And it is not that easy to be exactly who I was
+               [00:21.00]My shit is done, now it's time for me try to moving on
+               [00:28.00]'Cuz if you think I'm such a happy person, no you are wrong
+               [00:35.00]By saying my laughter is louder than yours
+               [00:39.00]Shut your freakin' mouth
+               [00:42.00]No one knows what I feel and what I suffer, no they don't know
+               [00:49.00]So keep your thoughts and stop assuming that
+               [00:54.00]Someone is always fine`.trim().split('\n');
     const lyrics = lrc.map(line => {
       const match = line.match(/\[(\d+):(\d+\.\d+)\](.*)/);
       if (!match) return null;
