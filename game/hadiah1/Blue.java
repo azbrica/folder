@@ -4,36 +4,22 @@ import java.awt.*;
 public class Blue extends JPanel {
 
     private String[] lyrics = {
-            "Your morning eyes, I could stare like watching stars",
-            "I could walk you by, and I'll tell without a thought",
-            "You'd be mine",
-            "Would you mind if I took your hand tonight",
-            "Know you're all that I want this life",
-            "I'll imagine we fell in love",
-            "I'll nap under moonlight skies with you",
-            "I think I'll picture us, you with the waves",
-            "The oceans colors on your face",
-            "I'll leave my heart with your air",
-            "So let me fly with you",
-            "Will you be forever with me",
-            "[Guitar]",
-            "My love will always stay by you",
-            "I'll keep it safe so don't you worry a thing,",
-            "I'll tell you I love you more",
-            "It's stuck with you forever so promise you won't let it go",
-            "I'll trust the universe will always bring me to you",
-            "I'll imagine we fell in love",
-            "I'll nap under moonlight skies with you",
-            "I think I'll picture us, you with the waves",
-            "The oceans colors on your face",
-            "I'll leave my heart with your air",
-            "So let me fly with you",
-            "Will you be forever with me"
+            "Living all alone kinda forgot it's been that long",
+            "Since someone's gone, I've been trying to be a little bit strong",
+            "And it is not that easy to be exactly who I was",
+            "My shit is done, now it's time for me try to moving on",
+            "",
+            "'Cuz if you think I'm such a happy person, no you are wrong",
+            "By saying my laughter is louder than yours",
+            "Shut your freakin' mouth",
+            "No one knows what I feel and what i suffer, no they don't know",
+            "So keep your thoughts and stop assuming that",
+            "Someone is always fine"
     };
 
+    // Delay (ms) setelah selesai ketik tiap baris; aku sesuaikan supaya natural
     private int[] delays = {
-            400, 300, 300, 400, 3300, 200, 200, 200, 400, 400, 400, 400,
-            30000, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 1000
+            1500, 1800, 1500, 1500, 800, 2000, 1500, 1000, 2000, 1500, 1500
     };
 
     private int currentIndex = 0;
@@ -51,9 +37,9 @@ public class Blue extends JPanel {
                         currentLine += lyrics[currentIndex].charAt(currentCharIndex);
                         currentCharIndex++;
                         repaint();
-                        Thread.sleep(110);
+                        Thread.sleep(110); // Kecepatan ketik per karakter
                     } else {
-                        Thread.sleep(delays[currentIndex]);
+                        Thread.sleep(delays[currentIndex]); // Delay setelah baris selesai
                         currentIndex++;
                         currentLine = "";
                         currentCharIndex = 0;
@@ -75,7 +61,7 @@ public class Blue extends JPanel {
         g.setFont(new Font("Serif", Font.PLAIN, 42));
         g.setColor(Color.WHITE);
 
-        // Hitung posisi tengah vertikal
+        // Hitung posisi tengah horizontal dan vertikal
         int stringWidth = g.getFontMetrics().stringWidth(currentLine);
         int x = (getWidth() - stringWidth) / 2;
         int y = getHeight() / 2;
