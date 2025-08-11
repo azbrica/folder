@@ -552,8 +552,8 @@ header h1 {
     top: 0;
     left: 0;
     transform: none;
-    object-fit: cover; /* Tetap isi penuh */
-    object-position: center top; /* Fokus di bagian atas supaya teks di video terlihat */
+    object-fit: contain; /* Tampilkan seluruh video */
+    object-position: center center; /* pusatkan video */
   }
 }
 
