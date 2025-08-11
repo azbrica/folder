@@ -537,3 +537,17 @@ header h1 {
     color: #FFFFFF; /* Highlight: putih penuh */
     font-weight: 600; /* Opsional: buat teks lebih tebal saat di-highlight */
 }
+
+/* Fix ukuran video background di Android / layar kecil */
+@media (max-width: 768px) {
+    .video-background-container video {
+        width: 100%;
+        height: 100%;
+        min-width: unset;
+        min-height: unset;
+        object-fit: cover;
+        top: 0;
+        left: 0;
+        transform: none; /* Hilangkan translate biar posisi pas */
+    }
+}
