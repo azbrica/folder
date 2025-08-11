@@ -400,13 +400,6 @@ let songs = [
         audioSrc: "audio/where we are.mp3",
         videoBgSrc: "videos/where we are.mp4",
         lyrics: [
-            { time: 1000, text: "Remember when we would stay out too late" },
-            { time: 1000, text: "We were young, havin' fun, made mistakes" },
-            { time: 1000, text: "Did we ever know? Did we ever know?" },
-            { time: 1000, text: "Did we ever know? Yeah" },
-            { time: 1000, text: "All the things we'd just think of and say" },
-            { time: 1000, text: "Never wrong, always right, not afraid" },
-            { time: 1000, text: "Did we ever know? Did we ever know?" },
             { time: 1000, text: "Did we ever know?" },
             { time: 1000, text: "Is it all inside of my head?" },
             { time: 1000, text: "Maybe you still think I don't care" },
