@@ -100,12 +100,36 @@ button {
 .app__wrong {
     color: rgba(244, 89, 87, 1);
 }
+
+/* Tambahan khusus HP biar lebih besar */
 @media only screen and (max-width: 768px) {
   body {
-    font-size: 14px; /* 
+    font-size: 20px;
+  }
+  .app__number {
+    font-size: 50px;
+  }
+  input {
+    font-size: 24px;
+    padding: 12px;
+  }
+  button {
+    font-size: 20px;
+    padding: 12px 25px;
+  }
+  pre {
+    font-size: 1.2rem;
+  }
+}
 </style>
 </head>
 <body>
+
+<!-- Musik background loop -->
+<audio autoplay loop>
+  <source src="lagugame.mp3" type="audio/mpeg">
+</audio>
+
 <!-- partial:index.partial.html -->
 <link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link href="" rel="stylesheet">
