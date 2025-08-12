@@ -110,9 +110,8 @@
     <div class="message-box">
       <h2>Barokallah fii umrik nilnaa..</h2>
       <p>Mau liat hadiah nya apa ga ni 😂?</p>
-      <b
-      utton id="btn-yes">iyaa</button>
-      <button id="btn-no">ga usah repot²</button>
+      <button id="btn-yes">iya</button>
+      <button id="btn-no">ga</button>
     </div>
   </div>
 
@@ -158,7 +157,7 @@
         randomX = Math.floor(Math.random() * (box.width - btnNo.offsetWidth - 20));
         randomY = Math.floor(Math.random() * (box.height - btnNo.offsetHeight - 20));
         tries++;
-        if(tries > 50) break;
+        if (tries > 50) break;
       } while (
         randomX > yesBtnRect.left - box.left - btnNo.offsetWidth &&
         randomX < yesBtnRect.right - box.left &&
