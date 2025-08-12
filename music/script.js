@@ -478,8 +478,8 @@ let songs = [
             { time: 44, text: "Nae sarang be (my love)" }, 
             { time: 47, text: "My only love" }, 
             { time: 55, text: "La-la-la-la-la-la-la-la" }, 
-            { time: 60, text: "La-la-la-la-la-la-la-la" }
-            { time: 66, text: "La-la-la-la-la-la-la-la" }
+            { time: 60, text: "La-la-la-la-la-la-la-la" }, 
+            { time: 66, text: "La-la-la-la-la-la-la-la" }, 
         ]
    },
 ];
