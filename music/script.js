@@ -491,6 +491,32 @@ let songs = [
             { time: 65, text: "La-la-la-la-la-la-la-la" }, 
         ]
    },
+   {
+        id: 14,
+        title: "Bolbbalgan4",
+        artist: "You (=i)",
+        album: "Single",
+        albumArtUrl: "https://example.com/albumArt.jpg",
+        audioSrc: "audio/bol4.mp3",
+        videoBgSrc: "videos/bol4.mp4",
+        lyrics: [
+            { time: 1000, text: "baboya oneureun andoendago malhajima" },
+            { time: 1000, text: "oneulmankeumeun naegedo kkok" },
+            { time: 1000, text: "gihoereul jwo" },
+            { time: 1000, text: "sarangseureobge utneun geotto" }, 
+            { time: 1000, text: "yeppeuge malhaneun geotto" },
+            { time: 1000, text: "manhi yeonseuphaesseo" },
+            { time: 1000, text: "bogo sipeodo chameurago hajima" },
+            { time: 1000, text: "baby nan jom eokji burineun geotdo maja" },
+            { time: 1000, text: "oneuldo nae nunmul yeongiro" },
+            { time: 1000, text: "badanaen neowa-ui deiteu" },
+            { time: 1000, text: "bogo sipeodo maeil kkuk isseodo" },
+            { time: 1000, text: "naneun niga anajugiman" },
+            { time: 1000, text: "hamyeon syareureureureu noga yeah" },
+            { time: 1000, text: "baby you you you yeah yeah" }, 
+            { time: 1000, text: "you you you yeah yeah" }, 
+        ]
+   }, 
 ];
 let currentSongIndex = 0;
 let isPlaying = false;
