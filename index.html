@@ -25,7 +25,7 @@
 
     /* Pesan iya/ga */
     #message-screen {
-      display: none;
+      display: flex;  /* DIUBAH DARI none jadi flex */
       height: 100vh;
       flex-direction: column;
       justify-content: center;
@@ -100,19 +100,18 @@
   </div>
 
   <script>
-    const startScreen = document.getElementById('start-screen');
+    // const startScreen = document.getElementById('start-screen'); // DIHAPUS karena elemen tidak ada
     const messageScreen = document.getElementById('message-screen');
-    const btnStart = document.getElementById('btn-start');
+    // const btnStart = document.getElementById('btn-start'); // DIHAPUS karena elemen tidak ada
     const btnYes = document.getElementById('btn-yes');
     const btnNo = document.getElementById('btn-no');
     const buttons = document.querySelector('.button-container');
     const audio = document.getElementById('bgm');
 
-    // Saat klik tombol mulai
-    btnStart.addEventListener('click', () => {
-      startScreen.style.display = 'none';
-      messageScreen.style.display = 'flex';
-    });
+    // btnStart.addEventListener('click', () => {
+    //   startScreen.style.display = 'none';
+    //   messageScreen.style.display = 'flex';
+    // }); // DIHAPUS karena elemen tidak ada
 
     // Tombol iya
     btnYes.addEventListener('click', () => {
