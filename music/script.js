@@ -454,6 +454,34 @@ let songs = [
             { time: 1000, text: "Oh" }
         ]
     }, 
+    {
+        id: 13,
+        title: "Only",
+        artist: "Lee Hi",
+        album: "Single",
+        albumArtUrl: "",
+        audioSrc: "audio/myonlylove.mp3",
+        videoBgSrc: "videos/myonlylove.mp4",
+        lyrics: [
+            { time: 0, text: "My only love" },
+            { time: 6, text: "My only one" },
+            { time: 9, text: "Geudaereul bomyeun (when i see you)" },
+            { time: 12, text: "Gidaego sipeo (i want to lean on you)" },
+            { time: 15, text: "Gajigo sipeo (i want to have you)" },
+            { time: 18,text: "I sarangiramyeon (a love like this would make)" },
+            { time: 21, text: "Eoseolpeun kkumdo (even the most immature)" },
+            { time: 23, text: "Irwojil geot gateund (dream come true)" }, 
+            { time: 29, text: "Now i believe" }, 
+            { time: 31, text: "Georeogeoreo ganeun (every step we take)" }, 
+            { time: 37, text: "Gibun joa kkok duriseo chuneun chum gata (it's like a dance we perform together)"}, 
+            { time: 43, text: " My,oh my,oh my,oh" }, 
+            { time: 44, text: "Nae sarang be (my love)" }, 
+            { time: 47, text: "My only love" }, 
+            { time: 55, text: "La-la-la-la-la-la-la-la" }, 
+            { time: 60, text: "La-la-la-la-la-la-la-la" }
+            { time: 66, text: "La-la-la-la-la-la-la-la" }
+        ]
+   },
 ];
 let currentSongIndex = 0;
 let isPlaying = false;
