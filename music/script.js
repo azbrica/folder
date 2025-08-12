@@ -489,6 +489,7 @@ let songs = [
             { time: 54, text: "La-la-la-la-la-la-la-la" }, 
             { time: 58, text: "La-la-la-la-la-la-la-la" }, 
             { time: 65, text: "La-la-la-la-la-la-la-la" }, 
+            { time: 70, text: "My only one" }, 
         ]
    },
    {
