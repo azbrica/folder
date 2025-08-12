@@ -459,7 +459,7 @@ let songs = [
         title: "Only",
         artist: "Lee Hi",
         album: "Single",
-        albumArtUrl: "",
+        albumArtUrl: "https://i.ytimg.com/vi/Nr8xZ5fhZzQ/hqdefault.jpg",
         audioSrc: "audio/myonlylove.mp3",
         videoBgSrc: "videos/myonlylove.mp4",
         lyrics: [
