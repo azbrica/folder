@@ -101,10 +101,30 @@ button {
     color: rgba(244, 89, 87, 1);
 }
 
-/* Tambahan khusus HP biar semua tampilan lebih besar */
+/* Tampilan besar untuk HP */
 @media only screen and (max-width: 768px) {
   body {
-    zoom: 1.5; /* perbesar semua elemen 150% */
+    font-size: 24px; /* semua teks default lebih besar */
+  }
+  .content {
+    max-width: 100%; /* biar full lebar HP */
+    padding: 15px;
+  }
+  .app__number {
+    font-size: 64px; /* angka super besar */
+  }
+  input {
+    font-size: 28px;
+    padding: 16px;
+    width: 90%;
+  }
+  button {
+    font-size: 24px;
+    padding: 16px 30px;
+  }
+  pre {
+    font-size: 1.4rem;
+    white-space: pre-wrap; /* biar teks nggak kepotong di layar kecil */
   }
 }
 </style>
