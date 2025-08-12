@@ -464,22 +464,25 @@ let songs = [
         videoBgSrc: "videos/myonlylove.mp4",
         lyrics: [
             { time: 0, text: "My only love" },
-            { time: 6, text: "My only one" },
-            { time: 9, text: "Geudaereul bomyeun (when i see you)" },
-            { time: 12, text: "Gidaego sipeo (i want to lean on you)" },
-            { time: 15, text: "Gajigo sipeo (i want to have you)" },
-            { time: 18,text: "I sarangiramyeon (a love like this would make)" },
-            { time: 21, text: "Eoseolpeun kkumdo (even the most immature)" },
-            { time: 23, text: "Irwojil geot gateund (dream come true)" }, 
-            { time: 29, text: "Now i believe" }, 
-            { time: 31, text: "Georeogeoreo ganeun (every step we take)" }, 
+            { time: 5, text: "My only one" },
+            { time: 9, text: "Geudaereul bomyeun 
+                            (when i see you)" },
+            { time: 11, text: "Gidaego sipeo 
+                            (i want to lean on you)" },
+            { time: 14, text: "Gajigo sipeo 
+                            (i want to have you)" },
+            { time: 17,text: "I sarangiramyeon (a love like this would make)" },
+            { time: 20, text: "Eoseolpeun kkumdo (even the most immature)" },
+            { time: 22, text: "Irwojil geot gateund (dream come true)" }, 
+            { time: 28, text: "Now i believe" }, 
+            { time: 30, text: "Georeogeoreo ganeun (every step we take)" }, 
             { time: 37, text: "Gibun joa kkok duriseo chuneun chum gata (it's like a dance we perform together)"}, 
             { time: 43, text: " My,oh my,oh my,oh" }, 
             { time: 44, text: "Nae sarang be (my love)" }, 
             { time: 47, text: "My only love" }, 
             { time: 55, text: "La-la-la-la-la-la-la-la" }, 
-            { time: 60, text: "La-la-la-la-la-la-la-la" }, 
-            { time: 66, text: "La-la-la-la-la-la-la-la" }, 
+            { time: 58, text: "La-la-la-la-la-la-la-la" }, 
+            { time: 65, text: "La-la-la-la-la-la-la-la" }, 
         ]
    },
 ];
