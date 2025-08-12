@@ -480,7 +480,7 @@ let songs = [
             { time: 28, text: "Now i believe" }, 
             { time: 30, text: "Georeogeoreo ganeun" },
             { time: 1000, text: "(every step we take)" }, 
-            { time: 37, text: "Gibun joa kkok duriseo chuneun chum gata" }, 
+            { time: 36, text: "Gibun joa kkok duriseo chuneun chum gata" }, 
             { time: 1000, text: "(it's like a dance we perform together)" }, 
             { time: 43, text: " My,oh my,oh my,oh" }, 
             { time: 44, text: "Nae sarang be" }, 
