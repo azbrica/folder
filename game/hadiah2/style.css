@@ -1,41 +1,100 @@
 body {
   margin: 0;
-  background: #ffddc1;
+  padding: 0;
+  background: #ffecf2;
+  font-family: 'Poppins', sans-serif;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-family: sans-serif;
+  align-items: center;
   height: 100vh;
-  overflow: hidden;
 }
 
-.cake-container {
+.birthday-content {
+  text-align: center;
+}
+
+.title h1 {
+  color: #ff4e88;
+  font-size: 2rem;
+}
+
+.title p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Kue */
+.cake {
   position: relative;
+  width: 200px;
+  margin: 20px auto;
 }
 
-#cakeCanvas {
-  width: 300px;
-  height: 300px;
-  background: url('assets/cake-texture.png') no-repeat center/cover;
-  border-radius: 50%;
+.layer {
+  width: 200px;
+  height: 60px;
+  border-radius: 10px;
+  margin: 0 auto;
 }
 
-.candles {
+.layer-bottom {
+  background: #d2691e;
+}
+
+.layer-middle {
+  background: #f4a460;
+  margin-top: -10px;
+}
+
+.layer-top {
+  background: #fff0f5;
+  margin-top: -10px;
+}
+
+.candle-container {
   position: absolute;
-  top: 20px;
+  top: -60px;
   left: 50%;
   transform: translateX(-50%);
 }
 
-#flame {
-  width: 40px;
+.candle {
+  width: 20px;
   height: 60px;
+  background: #fff;
+  border-radius: 5px;
+  position: relative;
 }
 
+.flame {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  width: 14px;
+  height: 20px;
+  background: radial-gradient(circle, #ff0 0%, #ff4500 70%);
+  border-radius: 50% 50% 50% 50%;
+  transform: translateX(-50%);
+  animation: flicker 0.3s infinite;
+}
+
+@keyframes flicker {
+  0% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.2); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+
+/* Pesan */
 .message {
-  font-size: 2rem;
+  display: none;
+  font-size: 1.5rem;
+  color: #ff4e88;
   margin-top: 20px;
-  color: #ff4081;
-  text-shadow: 0 0 10px #ff80ab, 0 0 20px #f50057;
+}
+
+/* Status mic */
+.mic-status {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #777;
 }
