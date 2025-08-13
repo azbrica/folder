@@ -10,7 +10,7 @@ let flameOn = true;
 function blowCandle() {
   if (flameOn) {
     flame.style.display = 'none';
-    micStatus.textContent = "Candle blown! 🎂";
+    micStatus.textContent = "husssh 🎂";
     message.style.display = 'block';
     song.play();
     flameOn = false;
