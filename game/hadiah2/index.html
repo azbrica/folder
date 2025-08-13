@@ -2,24 +2,45 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Selamat Ulang Tahun 🎂</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="manifest" href="manifest.json"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kue Ulang Tahun Interaktif</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="cake-container">
-    <canvas id="cakeCanvas"></canvas>
-    <div class="candles">
-      <img src="assets/fire.gif" id="flame" alt="api lilin"/>
+
+  <div class="birthday-content">
+    <div class="cake-container">
+      <div class="title">
+        <h1>HAPPY BIRTHDAY <span class="name">My Love</span></h1>
+        <p>Make a wish and blow the candle 🎂 (use your voice!)</p>
+      </div>
+
+      <!-- Kue -->
+      <div class="cake">
+        <div class="layer layer-bottom"></div>
+        <div class="layer layer-middle"></div>
+        <div class="layer layer-top"></div>
+        <div class="candle-container">
+          <div class="candle"></div>
+          <div class="flame"></div>
+        </div>
+        <div class="cake-particles" id="fireParticles"></div>
+        <div class="smoke-puff" id="smokePuff"></div>
+      </div>
     </div>
   </div>
 
-  <div class="message">🎉 Selamat Ulang Tahun! 🎉</div>
+  <!-- Pesan Ulang Tahun -->
+  <div class="message" id="wishMessage" class="hidden">
+    Selamat Ulang Tahun! 🎉
+  </div>
 
-  <audio id="song" src="assets/happy-birthday.mp3"></audio>
+  <!-- Status Suara -->
+  <div class="mic-status" id="micStatus"></div>
 
-  <script src="assets/confetti.js"></script>
-  <script src="app.js"></script>
+  <!-- Lagu -->
+  <audio id="birthdaySong" src="happybirthday.mp3" preload="auto"></audio>
+
+  <script src="script.js"></script>
 </body>
 </html>
