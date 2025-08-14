@@ -3,100 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
   <title>Folder Hadiah</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: "Comic Sans MS", cursive;
-      text-align: center;
-    }
-
-    /* Video full background */
-    #bg-video {
-      position: fixed;
-      right: 0;
-      bottom: 0;
-      min-width: 100%;
-      min-height: 100%;
-      z-index: -1;
-    }
-
-    /* Password Screen */
-    #password-screen {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      backdrop-filter: blur(5px);
-      color: white;
-    }
-
-    #password-screen input {
-      padding: 10px;
-      border-radius: 10px;
-      border: none;
-      outline: none;
-      margin-top: 10px;
-    }
-
-    #password-screen button {
-      margin-top: 10px;
-      padding: 8px 15px;
-      border: none;
-      border-radius: 10px;
-      background: #66ff99;
-      box-shadow: 0 0 10px #66ff99;
-      cursor: pointer;
-    }
-
-    /* Pesan iya/ga */
-    #message-screen {
-      display: none; /* awalnya sembunyi */
-      height: 100vh;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      backdrop-filter: blur(5px);
-    }
-
-    .message-box {
-      background: rgba(255, 255, 255, 0.15);
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(255,255,255,0.3);
-    }
-
-    #btn-yes, #btn-no {
-      padding: 10px 20px;
-      font-size: 18px;
-      margin: 10px;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      color: white;
-    }
-
-    #btn-yes {
-      background-color: #66ff99;
-      box-shadow: 0 0 15px #66ff99;
-    }
-
-    #btn-no {
-      background-color: #ff4444;
-      position: absolute;
-    }
-
-    /* Container tombol hadiah */
-    .button-container {
-      display: none; /* disembunyikan awalnya */
-      position: relative;
-      z-index: 10;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 <body>
 
@@ -110,16 +19,22 @@
     <source src="about.mp3" type="audio/mpeg" />
   </audio>
 
-  <!-- PASSWORD SCREEN -->
+  <!-- PASSWORD SCREEN (Glowing Box) -->
   <div id="password-screen">
-    <h2>Masukkan Password</h2>
-    <input type="password" id="password-input" placeholder="Password">
-    <button id="password-btn">Login</button>
-    <p id="password-msg"></p>
+    <div class="box">
+      <div class="login">
+        <div class="loginBx">
+          <h2><i class="fa-solid fa-lock"></i> Masukkan Password</h2>
+          <input type="password" id="password-input" placeholder="Password" />
+          <input type="submit" id="password-btn" value="Login" />
+          <p id="password-msg" style="margin-top:10px;color:yellow;"></p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- PESAN IYA/GA -->
-  <div id="message-screen">
+  <div id="message-screen" style="display:none;">
     <div class="message-box">
       <h2>Barokallah fii umrik nilnaa..</h2>
       <p>Mau liat hadiah nya apa ga ni 😂?</p>
@@ -154,16 +69,16 @@
       const pass = passwordInput.value.trim();
       if (pass === correctPass) {
         passwordMsg.textContent = "✅ Password benar ✅";
+        audio.muted = false;
+        audio.play();
         setTimeout(() => {
           passwordScreen.style.display = 'none';
           messageScreen.style.display = 'flex';
-          audio.muted = false;
-          audio.play();
-        }, 800);
+        }, 1200);
       } else if (pass === "") {
         passwordMsg.textContent = "⚠️ Masukkan password ⚠️";
       } else {
-        passwordMsg.textContent = "❌ Password salah (tanggal ma bulan lahir :v) ❌";
+        passwordMsg.textContent = "❌ Password salah ❌";
       }
     });
 
@@ -177,7 +92,6 @@
     btnNo.addEventListener('mouseover', () => {
       const box = messageScreen.getBoundingClientRect();
       const yesBtnRect = btnYes.getBoundingClientRect();
-
       let randomX, randomY;
       let tries = 0;
       do {
@@ -191,11 +105,9 @@
         randomY > yesBtnRect.top - box.top - btnNo.offsetHeight &&
         randomY < yesBtnRect.bottom - box.top
       );
-
       btnNo.style.left = randomX + "px";
       btnNo.style.top = randomY + "px";
     });
   </script>
-
 </body>
 </html>
