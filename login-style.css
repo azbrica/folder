@@ -23,8 +23,8 @@ body {
 
 .box {
   position: relative;
-  width: 600px; /* diperbesar */
-  height: 300px; /* diperbesar */
+  width: 400px;
+  height: 200px;
   background: repeating-conic-gradient(
     from var(--a),
     #ff2770 0%,
@@ -43,8 +43,8 @@ body {
 }
 
 .box:hover {
-  width: 650px;
-  height: 600px;
+  width: 450px;
+  height: 500px;
 }
 
 @keyframes rotating {
@@ -86,7 +86,7 @@ body {
 
 .login {
   position: absolute;
-  inset: 40px;
+  inset: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -111,9 +111,9 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  transform: translateY(120px);
-  gap: 25px; /* diperbesar */
-  width: 90%; /* diperbesar */
+  transform: translateY(126px);
+  gap: 20px;
+  width: 70%;
   transition: 0.5s;
 }
 
@@ -125,7 +125,6 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-weight: 600;
-  font-size: 1.8em; /* diperbesar */
 }
 
 .loginBx h2 i {
@@ -135,9 +134,9 @@ body {
 
 .loginBx input {
   width: 100%;
-  padding: 15px 25px; /* diperbesar */
+  padding: 10px 20px;
   outline: none;
-  font-size: 1.3em; /* diperbesar */
+  font-size: 1em;
   color: #fff;
   background: rgba(0, 0, 0, 0.1);
   border: 2px solid #fff;
@@ -154,8 +153,6 @@ body {
   font-weight: 500;
   color: #111;
   cursor: pointer;
-  font-size: 1.3em; /* diperbesar */
-  padding: 12px 25px; /* diperbesar */
   transition: 0.5s;
 }
 
@@ -177,32 +174,4 @@ body {
 .group a:nth-child(2) {
   color: #ff2770;
   font-weight: 600;
-}
-
-/* Media query untuk Android / layar kecil */
-@media (max-width: 500px) {
-  .box {
-    width: 95%;
-    height: auto;
-    padding: 20px;
-  }
-
-  .loginBx {
-    width: 100%;
-    gap: 20px;
-  }
-
-  .loginBx input {
-    font-size: 1.2em;
-    padding: 12px 20px;
-  }
-
-  .loginBx input[type="submit"] {
-    font-size: 1.1em;
-    padding: 12px 20px;
-  }
-
-  .loginBx h2 {
-    font-size: 1.5em;
-  }
 }
