@@ -1,113 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Folder Hadiah</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Folder Hadiah</title>
+<style>
+/* ====== ANIMASI LOGIN BARU ====== */
+@import url("https://fonts.googleapis.com/css?family=Space%20Grotesk:700|Space%20Grotesk:400");
+:root {
+  --m: 3rem;
+  --red: #ff6565;
+  --pink: #ff64f9;
+  --purple: #6b5fff;
+  --blue: #4d8aff;
+  --green: #5bff89;
+  --yellow: #ffee55;
+  --orange: #ff6d1b;
+}
+body {
+  background-color: #141516;
+  margin: 0;
+  overflow: hidden;
+  font-family: "Comic Sans MS", cursive;
+  text-align: center;
+}
+#bg-video {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+body::before {
+  content: "";
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+
+/* Password Screen */
+#password-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  backdrop-filter: blur(5px);
+  color: white;
+}
+#password-screen input {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  margin-top: 10px;
+}
+#password-screen button {
+  border: calc(0.08 * var(--m)) solid transparent;
+  position: relative;
+  color: #f3f3f3;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: calc(0.8 * var(--m));
+  border-radius: calc(0.7 * var(--m));
+  padding: calc(0.4 * var(--m)) calc(1 * var(--m));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: linear-gradient(#121213, #121213),
+    linear-gradient(#121213 50%, rgba(18, 18, 19, 0.6) 80%, rgba(18, 18, 19, 0)),
+    linear-gradient(90deg,var(--orange),var(--yellow),var(--green),var(--blue),var(--purple),var(--pink),var(--red));
+  background-origin: border-box;
+  background-clip: padding-box, border-box, border-box;
+  background-size: 200%;
+  animation: animate 2s infinite linear;
+}
+#password-screen button::before {
+  content: "";
+  background: linear-gradient(90deg,var(--orange),var(--yellow),var(--green),var(--blue),var(--purple),var(--pink),var(--red));
+  height: 30%; width: 60%;
+  position: absolute; bottom: -20%;
+  z-index: -5;
+  background-size: 200%;
+  animation: animate 2s infinite linear;
+  filter: blur(calc(0.8 * var(--m)));
+}
+#password-screen button:hover,
+#password-screen button:hover::before {
+  animation: animate 0.5s infinite linear;
+}
+@keyframes animate {
+  0% { background-position: 0; }
+  100% { background-position: 200%; }
+}
+
+/* Pesan iya/ga */
+#message-screen {
+  display: none;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  backdrop-filter: blur(5px);
+}
+.message-box {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.3);
+}
+#btn-yes, #btn-no {
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 10px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  color: white;
+}
+#btn-yes {
+  background-color: #66ff99;
+  box-shadow: 0 0 15px #66ff99;
+}
+#btn-no {
+  background-color: #ff4444;
+  position: absolute;
+}
+
+/* Tombol hadiah */
+.button-container {
+  display: none;
+  position: relative;
+  z-index: 10;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+}
+.button-container button {
+  border: calc(0.08 * var(--m)) solid transparent;
+  color: #f3f3f3;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: calc(0.8 * var(--m));
+  border-radius: calc(0.7 * var(--m));
+  padding: calc(0.4 * var(--m)) calc(1 * var(--m));
+  background: linear-gradient(#121213, #121213),
+    linear-gradient(#121213 50%, rgba(18, 18, 19, 0.6) 80%, rgba(18, 18, 19, 0)),
+    linear-gradient(90deg,var(--orange),var(--yellow),var(--green),var(--blue),var(--purple),var(--pink),var(--red));
+  background-origin: border-box;
+  background-clip: padding-box, border-box, border-box;
+  background-size: 200%;
+  animation: animate 2s infinite linear;
+}
+.button-container button::before {
+  content: "";
+  background: linear-gradient(90deg,var(--orange),var(--yellow),var(--green),var(--blue),var(--purple),var(--pink),var(--red));
+  height: 30%; width: 60%;
+  position: absolute; bottom: -20%;
+  z-index: -5;
+  background-size: 200%;
+  animation: animate 2s infinite linear;
+  filter: blur(calc(0.8 * var(--m)));
+}
+</style>
 </head>
 <body>
 
-  <!-- VIDEO BACKGROUND -->
-  <video autoplay muted loop id="bg-video">
-    <source src="video.mp4" type="video/mp4" />
-  </video>
+<!-- VIDEO BACKGROUND -->
+<video autoplay muted loop id="bg-video">
+  <source src="video.mp4" type="video/mp4" />
+</video>
 
-  <!-- MUSIK BACKGROUND -->
-  <audio id="bgm" autoplay loop muted>
-    <source src="about.mp3" type="audio/mpeg" />
-  </audio>
+<!-- MUSIK BACKGROUND -->
+<audio id="bgm" autoplay loop muted>
+  <source src="about.mp3" type="audio/mpeg" />
+</audio>
 
-  <!-- PASSWORD SCREEN (Glowing Box) -->
-  <div id="password-screen">
-    <div class="box">
-      <div class="login">
-        <div class="loginBx">
-          <h2><i class="fa-solid fa-lock"></i> Masukkan Password</h2>
-          <input type="password" id="password-input" placeholder="Password" />
-          <input type="submit" id="password-btn" value="Login" />
-          <p id="password-msg" style="margin-top:10px;color:yellow;"></p>
-        </div>
-      </div>
-    </div>
+<!-- PASSWORD SCREEN -->
+<div id="password-screen">
+  <h2>Masukkan Password</h2>
+  <input type="password" id="password-input" placeholder="Password">
+  <button id="password-btn">Login</button>
+  <p id="password-msg"></p>
+</div>
+
+<!-- PESAN IYA/GA -->
+<div id="message-screen">
+  <div class="message-box">
+    <h2>Barokallah fii umrik nilnaa..</h2>
+    <p>Mau liat hadiah nya apa ga ni 😂?</p>
+    <button id="btn-yes">iya</button>
+    <button id="btn-no">ga</button>
   </div>
+</div>
 
-  <!-- PESAN IYA/GA -->
-  <div id="message-screen" style="display:none;">
-    <div class="message-box">
-      <h2>Barokallah fii umrik nilnaa..</h2>
-      <p>Mau liat hadiah nya apa ga ni 😂?</p>
-      <button id="btn-yes">iya</button>
-      <button id="btn-no">ga</button>
-    </div>
-  </div>
+<!-- KONTEN TOMBOL HADIAH -->
+<div class="button-container">
+  <button onclick="location.href='message.html'">MESSAGE</button>
+  <button onclick="location.href='gallery.html'">🎁</button>
+  <button onclick="location.href='music/index.html'">MUSIC</button>
+  <button onclick="location.href='game/index.html'">GAME</button>
+</div>
 
-  <!-- KONTEN TOMBOL HADIAH -->
-  <div class="button-container">
-    <button onclick="location.href='message.html'">MESSAGE</button>
-    <button onclick="location.href='gallery.html'">🎁</button>
-    <button onclick="location.href='music/index.html'">MUSIC</button>
-    <button onclick="location.href='game/index.html'">GAME</button>
-  </div>
+<script>
+const passwordScreen = document.getElementById('password-screen');
+const passwordBtn = document.getElementById('password-btn');
+const passwordMsg = document.getElementById('password-msg');
+const passwordInput = document.getElementById('password-input');
+const messageScreen = document.getElementById('message-screen');
+const btnYes = document.getElementById('btn-yes');
+const btnNo = document.getElementById('btn-no');
+const buttons = document.querySelector('.button-container');
+const audio = document.getElementById('bgm');
 
-  <script>
-    const passwordScreen = document.getElementById('password-screen');
-    const passwordBtn = document.getElementById('password-btn');
-    const passwordMsg = document.getElementById('password-msg');
-    const passwordInput = document.getElementById('password-input');
-    const messageScreen = document.getElementById('message-screen');
-    const btnYes = document.getElementById('btn-yes');
-    const btnNo = document.getElementById('btn-no');
-    const buttons = document.querySelector('.button-container');
-    const audio = document.getElementById('bgm');
+const correctPass = "1708";
 
-    const correctPass = "1708"; // Ganti sesuai keinginan
+// Cek password
+passwordBtn.addEventListener('click', () => {
+  const pass = passwordInput.value.trim();
+  if (pass === correctPass) {
+    passwordMsg.textContent = "✅ Password benar ✅";
+    setTimeout(() => {
+      passwordScreen.style.display = 'none';
+      messageScreen.style.display = 'flex';
+      audio.muted = false;
+      audio.play();
+    }, 1000);
+  } else if (pass === "") {
+    passwordMsg.textContent = "⚠️ Masukkan password ⚠️";
+  } else {
+    passwordMsg.textContent = "❌ Password salah (tanggal ma bulan lahir :v) ❌";
+  }
+});
 
-    // Cek password
-    passwordBtn.addEventListener('click', () => {
-      const pass = passwordInput.value.trim();
-      if (pass === correctPass) {
-        passwordMsg.textContent = "✅ Password benar ✅";
-        audio.muted = false;
-        audio.play();
-        setTimeout(() => {
-          passwordScreen.style.display = 'none';
-          messageScreen.style.display = 'flex';
-        }, 1200);
-      } else if (pass === "") {
-        passwordMsg.textContent = "⚠️ Masukkan password ⚠️";
-      } else {
-        passwordMsg.textContent = "❌ Password salah ❌";
-      }
-    });
+// Tombol iya
+btnYes.addEventListener('click', () => {
+  messageScreen.style.display = 'none';
+  buttons.style.display = 'flex';
+});
 
-    // Tombol iya
-    btnYes.addEventListener('click', () => {
-      messageScreen.style.display = 'none';
-      buttons.style.display = 'flex';
-    });
-
-    // Tombol ga lari-lari
-    btnNo.addEventListener('mouseover', () => {
-      const box = messageScreen.getBoundingClientRect();
-      const yesBtnRect = btnYes.getBoundingClientRect();
-      let randomX, randomY;
-      let tries = 0;
-      do {
-        randomX = Math.floor(Math.random() * (box.width - btnNo.offsetWidth - 20));
-        randomY = Math.floor(Math.random() * (box.height - btnNo.offsetHeight - 20));
-        tries++;
-        if (tries > 50) break;
-      } while (
-        randomX > yesBtnRect.left - box.left - btnNo.offsetWidth &&
-        randomX < yesBtnRect.right - box.left &&
-        randomY > yesBtnRect.top - box.top - btnNo.offsetHeight &&
-        randomY < yesBtnRect.bottom - box.top
-      );
-      btnNo.style.left = randomX + "px";
-      btnNo.style.top = randomY + "px";
-    });
-  </script>
+// Tombol ga lari-lari
+btnNo.addEventListener('mouseover', () => {
+  const box = messageScreen.getBoundingClientRect();
+  const yesBtnRect = btnYes.getBoundingClientRect();
+  let randomX, randomY, tries = 0;
+  do {
+    randomX = Math.floor(Math.random() * (box.width - btnNo.offsetWidth - 20));
+    randomY = Math.floor(Math.random() * (box.height - btnNo.offsetHeight - 20));
+    tries++;
+    if (tries > 50) break;
+  } while (
+    randomX > yesBtnRect.left - box.left - btnNo.offsetWidth &&
+    randomX < yesBtnRect.right - box.left &&
+    randomY > yesBtnRect.top - box.top - btnNo.offsetHeight &&
+    randomY < yesBtnRect.bottom - box.top
+  );
+  btnNo.style.left = randomX + "px";
+  btnNo.style.top = randomY + "px";
+});
+</script>
 </body>
 </html>
