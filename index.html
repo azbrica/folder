@@ -4,10 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Folder Hadiah</title>
-
-  <!-- Hubungkan ke CSS neon eksternal -->
   <link rel="stylesheet" href="style.css" />
-
   <style>
     body {
       margin: 0;
@@ -28,7 +25,7 @@
 
     /* Pesan iya/ga */
     #message-screen {
-      display: flex; /* langsung muncul */
+      display: flex;
       height: 100vh;
       flex-direction: column;
       justify-content: center;
@@ -64,7 +61,15 @@
       position: absolute;
     }
 
-    /* Hapus CSS polos tombol hadiah karena neon sudah ada di style.css */
+    /* tombol hadiah diatur via style.css neon */
+    .button-container {
+      display: none;
+      position: relative;
+      z-index: 10;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
@@ -104,25 +109,23 @@
     const buttons = document.querySelector('.button-container');
     const audio = document.getElementById('bgm');
 
-    // Nyalain musik langsung
+    // Musik langsung nyala
     window.addEventListener('load', () => {
       audio.muted = false;
       audio.play();
     });
 
-    // Tombol iya
+    // Tombol "iya" → munculin tombol hadiah
     btnYes.addEventListener('click', () => {
       messageScreen.style.display = 'none';
       buttons.style.display = 'flex';
     });
 
-    // Fungsi gerak tombol "ga"
+    // Tombol "ga" lari-lari
     function moveBtnNo() {
       const box = messageScreen.getBoundingClientRect();
       const yesBtnRect = btnYes.getBoundingClientRect();
-
-      let randomX, randomY;
-      let tries = 0;
+      let randomX, randomY, tries = 0;
       do {
         randomX = Math.floor(Math.random() * (box.width - btnNo.offsetWidth - 20));
         randomY = Math.floor(Math.random() * (box.height - btnNo.offsetHeight - 20));
@@ -134,18 +137,13 @@
         randomY > yesBtnRect.top - box.top - btnNo.offsetHeight &&
         randomY < yesBtnRect.bottom - box.top
       );
-
-      // Batasi agar tidak keluar layar (Android aman)
       randomX = Math.max(0, Math.min(randomX, box.width - btnNo.offsetWidth));
       randomY = Math.max(0, Math.min(randomY, box.height - btnNo.offsetHeight));
-
       btnNo.style.left = randomX + "px";
       btnNo.style.top = randomY + "px";
     }
 
-    // Desktop
     btnNo.addEventListener('mouseover', moveBtnNo);
-    // Android / touch
     btnNo.addEventListener('touchstart', moveBtnNo);
   </script>
 
