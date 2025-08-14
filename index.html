@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Folder Hadiah</title>
+
+  <!-- Hubungkan ke CSS neon eksternal -->
+  <link rel="stylesheet" href="style.css" />
+
   <style>
     body {
       margin: 0;
@@ -60,23 +64,7 @@
       position: absolute;
     }
 
-    /* Container tombol hadiah */
-    .button-container {
-      display: none; /* disembunyikan awalnya */
-      position: relative;
-      z-index: 10;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .button-container button {
-      padding: 10px 20px;
-      font-size: 18px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-    }
+    /* Hapus CSS polos tombol hadiah karena neon sudah ada di style.css */
   </style>
 </head>
 <body>
@@ -159,7 +147,6 @@
     btnNo.addEventListener('mouseover', moveBtnNo);
     // Android / touch
     btnNo.addEventListener('touchstart', moveBtnNo);
-
   </script>
 
 </body>
