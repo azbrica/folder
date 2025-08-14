@@ -26,6 +26,7 @@
       position: relative;
       z-index: 2;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
@@ -43,6 +44,25 @@
       width: 100%;
       z-index: 3;
       font-size: 1.5rem;
+      text-shadow: 0 0 10px #00ff99;
+    }
+    #hasilBtn {
+      margin-top: 20px;
+      padding: 10px 25px;
+      font-size: 1.3rem;
+      font-family: 'Courier New', monospace;
+      color: #00ff99;
+      background: transparent;
+      border: 2px solid #00ff99;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #00ff99;
+      transition: all 0.3s ease;
+    }
+    #hasilBtn:hover {
+      background-color: #00ff99;
+      color: black;
+      box-shadow: 0 0 25px #00ff99;
     }
   </style>
 </head>
@@ -51,6 +71,7 @@
   <h2>🎉 ciee...yang ulang tahun 📸😂</h2>
   <div id="cameraWrapper">
     <video id="video" autoplay playsinline muted></video>
+    <button id="hasilBtn">📽️ Hasilnya</button>
   </div>
 
   <script>
@@ -64,6 +85,11 @@
     }).catch(err => {
       alert("Gagal mengakses kamera 😢");
       console.error(err);
+    });
+
+    // Tombol ke halaman berikut
+    document.getElementById("hasilBtn").addEventListener("click", () => {
+      window.location.href = "video.html"; // ganti sesuai file video
     });
 
     // Fireworks
