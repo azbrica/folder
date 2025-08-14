@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Folder Hadiah</title>
   <link rel="stylesheet" href="style.css" />
+  <title>Folder Hadiah</title>
   <style>
     body {
       margin: 0;
@@ -23,9 +23,38 @@
       z-index: -1;
     }
 
+    /* Password Screen */
+    #password-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      backdrop-filter: blur(5px);
+      color: white;
+    }
+
+    #password-screen input {
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      margin-top: 10px;
+    }
+
+    #password-screen button {
+      margin-top: 10px;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 10px;
+      background: #66ff99;
+      box-shadow: 0 0 10px #66ff99;
+      cursor: pointer;
+    }
+
     /* Pesan iya/ga */
     #message-screen {
-      display: flex;
+      display: none; /* awalnya sembunyi */
       height: 100vh;
       flex-direction: column;
       justify-content: center;
@@ -61,14 +90,11 @@
       position: absolute;
     }
 
-    /* tombol hadiah diatur via style.css neon */
+    /* Container tombol hadiah */
     .button-container {
-      display: none;
+      display: none; /* disembunyikan awalnya */
       position: relative;
       z-index: 10;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 20px;
     }
   </style>
 </head>
@@ -83,6 +109,14 @@
   <audio id="bgm" autoplay loop muted>
     <source src="about.mp3" type="audio/mpeg" />
   </audio>
+
+  <!-- PASSWORD SCREEN -->
+  <div id="password-screen">
+    <h2>Masukkan Password</h2>
+    <input type="password" id="password-input" placeholder="Password">
+    <button id="password-btn">Login</button>
+    <p id="password-msg"></p>
+  </div>
 
   <!-- PESAN IYA/GA -->
   <div id="message-screen">
@@ -103,29 +137,49 @@
   </div>
 
   <script>
+    const passwordScreen = document.getElementById('password-screen');
+    const passwordBtn = document.getElementById('password-btn');
+    const passwordMsg = document.getElementById('password-msg');
+    const passwordInput = document.getElementById('password-input');
     const messageScreen = document.getElementById('message-screen');
     const btnYes = document.getElementById('btn-yes');
     const btnNo = document.getElementById('btn-no');
     const buttons = document.querySelector('.button-container');
     const audio = document.getElementById('bgm');
 
-    // Musik langsung nyala
-    window.addEventListener('load', () => {
-      audio.muted = false;
-      audio.play();
+    const correctPass = "1708"; // Ganti sesuai keinginan
+
+    // Cek password
+    passwordBtn.addEventListener('click', () => {
+      const pass = passwordInput.value.trim();
+      if (pass === correctPass) {
+        passwordMsg.textContent = "✅ Password benar ✅";
+        setTimeout(() => {
+          passwordScreen.style.display = 'none';
+          messageScreen.style.display = 'flex';
+          audio.muted = false;
+          audio.play();
+        }, 800);
+      } else if (pass === "") {
+        passwordMsg.textContent = "⚠️ Masukkan password ⚠️";
+      } else {
+        passwordMsg.textContent = "❌ Password salah (tanggal ma bulan lahir :v) ❌";
+      }
     });
 
-    // Tombol "iya" → munculin tombol hadiah
+    // Tombol iya
     btnYes.addEventListener('click', () => {
       messageScreen.style.display = 'none';
       buttons.style.display = 'flex';
     });
 
-    // Tombol "ga" lari-lari
-    function moveBtnNo() {
+    // Tombol ga lari-lari
+    btnNo.addEventListener('mouseover', () => {
       const box = messageScreen.getBoundingClientRect();
       const yesBtnRect = btnYes.getBoundingClientRect();
-      let randomX, randomY, tries = 0;
+
+      let randomX, randomY;
+      let tries = 0;
       do {
         randomX = Math.floor(Math.random() * (box.width - btnNo.offsetWidth - 20));
         randomY = Math.floor(Math.random() * (box.height - btnNo.offsetHeight - 20));
@@ -137,14 +191,10 @@
         randomY > yesBtnRect.top - box.top - btnNo.offsetHeight &&
         randomY < yesBtnRect.bottom - box.top
       );
-      randomX = Math.max(0, Math.min(randomX, box.width - btnNo.offsetWidth));
-      randomY = Math.max(0, Math.min(randomY, box.height - btnNo.offsetHeight));
+
       btnNo.style.left = randomX + "px";
       btnNo.style.top = randomY + "px";
-    }
-
-    btnNo.addEventListener('mouseover', moveBtnNo);
-    btnNo.addEventListener('touchstart', moveBtnNo);
+    });
   </script>
 
 </body>
