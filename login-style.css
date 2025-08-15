@@ -43,8 +43,8 @@ body {
 }
 
 .box:hover {
-  width: 450px;
-  height: 500px;
+  width: 650px;
+  height: 600px;
 }
 
 @keyframes rotating {
@@ -86,7 +86,7 @@ body {
 
 .login {
   position: absolute;
-  inset: 60px;
+  inset: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
