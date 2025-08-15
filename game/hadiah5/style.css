@@ -342,3 +342,28 @@ button:hover {
   font-size: 28px;
   text-align: center;
 }
+
+/* ===== INPUT NAMA AWAL ===== */
+#nama {
+  font-family: "Averia Libre", sans-serif;
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 2px solid #344793;
+  background-color: #f4faff;
+  color: #344793;
+  outline: none;
+  margin-top: 10px;
+  width: 100%;
+}
+
+#nama::placeholder {
+  color: #888;
+}
+
+@media screen and (max-width: 800px) {
+  #nama {
+    font-size: 14px;
+    padding: 6px;
+  }
+}
