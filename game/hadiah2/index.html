@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <meta name="Author" content="Dzarel Developer" />
+  <meta name="Author" content="zi_zie" />
   <title>Typing Speed</title>
 
   <!-- Google Fonts -->
@@ -200,10 +200,10 @@
           <h2 style="font-size: 20px;">About Game</h2>
           <h3>Name: Typing Speed</h3>
           <h3>Version: 1.0</h3>
-          <h3>Creator: Dzarel Developer</h3>
+          <h3>Creator: zi_zie</h3>
           <h3 style="font-size: 20px;">PETUNJUK</h3><hr width="200px">
           <p class="ins">
-            Cukup ketikkan kata pada kotak input untuk mencetak skor. Kamu akan mendapat 20 detik dan untuk setiap jawaban yang benar akan mendapat 6+ detik dan 5+ poin.<br>
+            Cukup ketikkan kata pada kotak input untuk mencetak skor. Kamu akan mendapat 20 detik dan untuk setiap jawaban yang benar akan mendapat 3+ detik dan 5+ poin.<br>
             Mari kita lihat keterampilan mengetik Kamu.
           </p>
           <button onclick="backButton()" class="back">Back</button>
@@ -320,7 +320,7 @@
         getWord();
         scoreUpdate();
         e.target.value = "";
-        time += 6; // <-- tambah waktu per jawaban benar
+        time += 3; // <-- tambah waktu per jawaban benar
         timeUpdate();
       }
     });
