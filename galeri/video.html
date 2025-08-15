@@ -17,27 +17,30 @@
       font-family: 'Courier New', monospace;
       text-align: center;
     }
+
     h1 {
       margin-bottom: 15px;
       text-shadow: 0 0 10px #00ff99;
+      font-size: clamp(10px, 2.5vw, 16px); /* otomatis menyesuaikan */
+      line-height: 1.4;
     }
+
     video {
       border: 2px solid #00ff99;
       border-radius: 10px;
       box-shadow: 0 0 15px #00ff99;
-      max-width: 100%;  /* Supaya di HP tetap muat */
-      height: auto;     /* Pertahankan rasio asli */
+      max-width: 100%;  /* supaya di HP muat */
+      height: auto;     /* pertahankan rasio */
     }
   </style>
 </head>
 <body>
-  <h1>𝒂𝒔𝒍𝒊𝒏𝒚𝒂 𝒌𝒂𝒍𝒐𝒌 𝒑𝒖𝒏𝒚𝒂 𝒑𝒐𝒕𝒐𝒏𝒚𝒂 (𝒚𝒈 𝒃𝒂𝒈𝒖𝒔) 𝒕𝒖 𝒃𝒊𝒏𝒈𝒌𝒂𝒊 𝒖𝒅𝒂𝒉 𝒌𝒆 𝒊𝒔𝒊 𝒔𝒂𝒎𝒂 𝒑𝒐𝒕𝒐 𝒏𝒅𝒂𝒌 𝒌𝒐𝒔𝒐𝒏𝒈 :) </h1>
+  <h1>𝒂𝒔𝒍𝒊𝒏𝒚𝒂 𝒌𝒂𝒍𝒐𝒌 𝒑𝒖𝒏𝒚𝒂 𝒑𝒐𝒕𝒐𝒏𝒚𝒂 (𝒚𝒈 𝒃𝒂𝒈𝒖𝒔) 𝒕𝒖 𝒃𝒊𝒏𝒈𝒌𝒂𝒊 𝒖𝒅𝒂𝒉 𝒌𝒆 𝒊𝒔𝒊 𝒔𝒂𝒎𝒂 𝒑𝒐𝒕𝒐 𝒏𝒅𝒂𝒌 𝒌𝒐𝒔𝒐𝒏𝒈 :)</h1>
 
-  <!-- Video asli -->
-  <video controls autoplay playsinline>
+  <!-- Video looping, autoplay, tetap ada control -->
+  <video controls autoplay loop playsinline>
     <source src="poto.mp4" type="video/mp4">
     Browser kamu tidak mendukung video.
   </video>
-
 </body>
 </html>
