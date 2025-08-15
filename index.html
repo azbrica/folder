@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Glowing Animated Login Form | @coding.stella</title>
-    <link rel="stylesheet" href="./login-style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    />
-  </head>
-  <body>
-    <div class="box">
-      <div class="login">
-        <div class="loginBx">
-          <h2>
-            <i class="fa-solid fa-right-to-bracket"></i>
-            Login
-          </h2>
-          <input type="text" placeholder="Username" id="username" />
-          <input type="password" placeholder="Password" id="password" />
-          <input type="submit" value="Sign in" onclick="checkLogin()" />
-          <div class="group">
-            <a href="#">Forgot Password</a>
-            <a href="#">Sign up</a>
-          </div>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Click Effect</title>
+  <link rel="stylesheet" href="login-style.css">
+</head>
+<body>
+
+  <div class="box" id="loginBox">
+    <h2 id="loginTitle">Login</h2>
+    <div class="form">
+      <input type="text" placeholder="Username" id="username"/>
+      <input type="password" placeholder="Password" id="password"/>
+      <input type="submit" value="Sign in" onclick="checkLogin()"/>
+      <div class="group">
+        <a href="#">Forgot Password</a>
+        <a href="#">Sign up</a>
       </div>
     </div>
+  </div>
 
-    <script>
-      function checkLogin() {
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
+  <script>
+    const loginBox = document.getElementById("loginBox");
+    const loginTitle = document.getElementById("loginTitle");
 
-        if (username === "zizah" && password === "1708") {
-          // jika benar, redirect ke halaman selanjutnya
-          window.location.href = "halamanberikutnya.html";
-        } else {
-          alert(`Nama: "zizah"\nPassword: "1708" :)`);
+    loginTitle.addEventListener("click", () => {
+      loginBox.classList.toggle("active");
+    });
+
+    function checkLogin() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      if (username === "zizah" && password === "1708") {
+        window.location.href = "halamanberikutnya.html";
+      } else {
+        alert(`nama : "${username}"\npassword : "${password}"`);
       }
-      }
-    </script>
-  </body>
+    }
+  </script>
+
+</body>
 </html>
