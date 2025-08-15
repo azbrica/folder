@@ -23,8 +23,8 @@ body {
 
 .box {
   position: relative;
-  width: 400px;
-  height: 200px;
+  width: 600px; /* ukuran awal diperbesar */
+  height: 300px; /* ukuran awal diperbesar */
   background: repeating-conic-gradient(
     from var(--a),
     #ff2770 0%,
@@ -43,7 +43,7 @@ body {
 }
 
 .box:hover {
-  width: 450px;
+  width: 700px; /* ukuran hover ikut diperbesar */
   height: 500px;
 }
 
@@ -125,6 +125,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-weight: 600;
+  font-size: 1.5em; /* supaya teks ikut besar */
 }
 
 .loginBx h2 i {
@@ -134,9 +135,9 @@ body {
 
 .loginBx input {
   width: 100%;
-  padding: 10px 20px;
+  padding: 15px 25px; /* diperbesar */
   outline: none;
-  font-size: 1em;
+  font-size: 1.2em;
   color: #fff;
   background: rgba(0, 0, 0, 0.1);
   border: 2px solid #fff;
@@ -169,6 +170,7 @@ body {
 .group a {
   color: #fff;
   text-decoration: none;
+  font-size: 1.1em;
 }
 
 .group a:nth-child(2) {
