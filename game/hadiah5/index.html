@@ -9,18 +9,17 @@
 </head>
 <body>
   <!-- Musik background loop -->
-<audio autoplay loop>
-  <source src="lagugame.mp3" type="audio/mpeg">
-</audio>
+  <audio autoplay loop>
+    <source src="lagugame.mp3" type="audio/mpeg">
+  </audio>
   
   <div class="wrapper">
     <div class="page">
-      <p>Pilih Tanggal & Bulan Lahir</p>
+      <p>Pilih Tanggal, Bulan Lahir, dan Nama</p>
       <div class="radio-wrapper">
         <label for="tanggal">Tanggal:</label>
         <select id="tanggal">
           <option value="">--</option>
-          <!-- 1 sampai 31 -->
           <script>
             for (let i = 1; i <= 31; i++) {
               document.write(`<option value="${i}">${i}</option>`);
@@ -38,6 +37,9 @@
             });
           </script>
         </select>
+
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" placeholder="Masukkan nama awal" maxlength="50">
 
         <button id="tembak">TEMBAK!</button>
       </div>
