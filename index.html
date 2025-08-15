@@ -1,45 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login Click Effect</title>
-  <link rel="stylesheet" href="login-style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Efek Klik</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="box" id="loginBox">
-    <h2 id="loginTitle">Login</h2>
-    <div class="form">
-      <input type="text" placeholder="Username" id="username"/>
-      <input type="password" placeholder="Password" id="password"/>
-      <input type="submit" value="Sign in" onclick="checkLogin()"/>
+<div class="box" id="loginBox">
+  <div class="login">
+    <div class="loginBx">
+      <h2><i>Login</i> Form</h2>
+      <input type="text" placeholder="Username">
+      <input type="password" placeholder="Password">
+      <input type="submit" value="Login">
       <div class="group">
-        <a href="#">Forgot Password</a>
-        <a href="#">Sign up</a>
+        <a href="#">Lupa Password?</a>
+        <a href="#">Daftar</a>
       </div>
     </div>
   </div>
+</div>
 
-  <script>
-    const loginBox = document.getElementById("loginBox");
-    const loginTitle = document.getElementById("loginTitle");
-
-    loginTitle.addEventListener("click", () => {
-      loginBox.classList.toggle("active");
-    });
-
-    function checkLogin() {
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
-
-      if (username === "zizah" && password === "1708") {
-        window.location.href = "halamanberikutnya.html";
-      } else {
-        alert(`nama : "${username}"\npassword : "${password}"`);
-      }
-    }
-  </script>
+<script>
+  const box = document.getElementById('loginBox');
+  box.addEventListener('click', () => {
+    box.classList.toggle('active');
+  });
+</script>
 
 </body>
 </html>
