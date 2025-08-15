@@ -7,18 +7,23 @@
   <style>
     body {
       flex-direction: column;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Arial', sans-serif;
+      background-color: #000;
+      color: #00ff88;
+      min-height: 100vh;
+      gap: 20px;
     }
 
     .info-box {
       border: 2px solid #00ff88;
       padding: 20px;
-      margin-bottom: 30px;
       max-width: 300px;
       text-align: center;
       background-color: rgba(0, 255, 136, 0.08);
       border-radius: 12px;
-      color: #00ff88;
-      font-family: 'Arial', sans-serif;
     }
 
     .info-box h2 {
@@ -29,6 +34,15 @@
     .info-box p {
       font-size: 15px;
       line-height: 1.4;
+    }
+
+    .reaction-box {
+      border: 2px dashed #00ff88;
+      padding: 15px;
+      border-radius: 12px;
+      width: 280px;
+      text-align: center;
+      min-height: 50px;
     }
   </style>
 </head>
@@ -42,6 +56,9 @@
     </p>
   </div>
 
+  <div class="reaction-box" id="reactionBox">Mochi menunggu suara kamu...</div>
+
+  <!-- Tombol tetap tidak diubah -->
   <button class="btn" onclick="window.location.href='index.html'">Mulai
     <div class="stars s1">
       <img src="https://i.ibb.co/r2Ys6q3s/star.png" alt="star">
@@ -65,6 +82,79 @@
       <img src="https://i.ibb.co/r2Ys6q3s/star.png" alt="star">
     </div>
   </button>
+
+  <script>
+    const kataMochi = {
+      "senang": "smile",
+      "bahagia": "smile",
+      "senyum": "smile",
+      "marah": "angry",
+      "bete": "angry",
+      "jelek": "angry",
+      "kesal": "angry",
+      "sedih": "crying",
+      "nangis": "crying",
+      "cinta": "love",
+      "sayang": "love",
+      "ganteng": "love",
+      "cantik": "love",
+      "musik": "music",
+      "lagu": "music",
+      "ngantuk": "sleepy",
+      "malas": "sleepy",
+      "polisi": "police",
+      "pelangi": "rainbow",
+      "tertawa": "laugh",
+      "ngakak": "laugh",
+      "ketawa": "laugh",
+      "nakal": "look_down",
+      "liat kiri": "look_left",
+      "liat kanan": "look_right",
+      "cium": "raspberry",
+      "lampu nyala": "headlights",
+      "fokus": "distracted",
+      "lag": "glitch",
+      "eror": "glitch",
+      "lucu": "uwu",
+      "smirk": "smirk",
+      "gaspol": "revs",
+      "mini": "shrink",
+      "achoo": "sneeze",
+      "julit": "smirk",
+      "turbo": "turbo",
+      "terbalik": "upside_down",
+      "bintang": "stars",
+      "sakura": "sakura"
+    };
+
+    const reactionBox = document.getElementById("reactionBox");
+
+    // Cek browser support
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      reactionBox.textContent = "Browsermu tidak mendukung voice recognition 😅";
+    } else {
+      const recognition = new SpeechRecognition();
+      recognition.lang = 'id-ID';
+      recognition.interimResults = false;
+      recognition.continuous = true; // terus dengar
+
+      recognition.onresult = function(event) {
+        const spokenWord = event.results[event.results.length - 1][0].transcript.toLowerCase().trim();
+        if (kataMochi[spokenWord]) {
+          reactionBox.textContent = "Mochi bereaksi: " + kataMochi[spokenWord];
+        } else {
+          reactionBox.textContent = "Mochi bingung 😅";
+        }
+      };
+
+      recognition.onerror = function(event) {
+        reactionBox.textContent = "Error: " + event.error;
+      };
+
+      recognition.start();
+    }
+  </script>
 
 </body>
 </html>
