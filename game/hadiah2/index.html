@@ -539,7 +539,7 @@ small {
 
           <small>Ketikkan kata berikut::</small>
 
-          <h1 id="word">AlsaCantik</h1>
+          <h1 id="word">CantikSekali</h1>
 
           <input type="text" id="input" autocomplete="off" placeholder="Ketik Kata Disini..." />
 
@@ -603,7 +603,7 @@ small {
 
           <p class="ins">
 
-             Cukup ketikkan kata pada kotak input untuk mencetak skor. Kamu akan mendapat 15 detik dan untuk setiap jawaban yang benar akan mendapat 3+ detik dan 5+ poin.<br>Mari kita lihat keterampilan mengetik Kamu.
+             Cukup ketikkan kata pada kotak input untuk mencetak skor. Kamu akan mendapat 15 detik dan untuk setiap jawaban yang benar akan mendapat 5+ detik dan 5+ poin.<br>Mari kita lihat keterampilan mengetik Kamu.
 
           </p>
 
@@ -755,7 +755,7 @@ function tryAgain() {
 
   startGame();
 
-  time = 15;
+  time = 20;
 
   score = 0;
 
@@ -768,85 +768,55 @@ function tryAgain() {
 var words = [
 
   "hanger",
-  
+  "jangnanhae", 
+  "jamkkanman", 
+  "eotteoke", 
+  "museun soriya ige", 
+  "jinjja", 
+  "bogo sipeosseoyo"
+  "still with you", 
+  "kamsahamnida", 
   "storage",
-    
   "flower", 
- 
   "kartu",    
-  
   "handphone",  
-  
   "keyboard",
-  
   "google translate",
-  
   "hebat",
-  
-  "crhome",
-  
-  "heaven",
-
+  "crhome", 
+  "heaven", 
   "selir",
-
   "pegunungan",
-
   "backpack",
-
   "smurf",
-
   "capybara",
-
   "squidward",
-
   "someone",
-
   "to be honest",
-
   "as soon as possible",
-
   "paper",
-
   "stamp",
-
   "place",
-
   "question",
-
   "country",
-
   "mixed",
-
   "animal",
-
   "grass",
-
   "yesterday",
-  
   "bath",
-
   "current",
-
   "street",
-
   "glove",
-
   "mark",
-
   "discovery",
-
   "learning",
-
   "famale",
-
   "south",
-
   "short",
-
   "still",
-
   "pocket",
-
+  "so hard to say", 
+  "eight letters"
   "heart",
 
 ];
@@ -939,7 +909,7 @@ inputArea.addEventListener("input", (e) => {
 
     // }
 
-    time += 3;
+    time += 5;
 
     timeUpdate();
 
