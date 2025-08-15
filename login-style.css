@@ -86,7 +86,7 @@ body {
 
 .login {
   position: absolute;
-  inset: 100px;
+  inset: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
