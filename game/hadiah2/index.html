@@ -198,7 +198,7 @@
           <h3>Creator: Dzarel Developer</h3>
           <h3 style="font-size: 20px;">PETUNJUK</h3><hr width="200px">
           <p class="ins">
-            Cukup ketikkan kata pada kotak input untuk mencetak skor. Kamu akan mendapat 15 detik dan untuk setiap jawaban yang benar akan mendapat 3+ detik dan 5+ poin.<br>
+            Cukup ketikkan kata pada kotak input untuk mencetak skor. Kamu akan mendapat 20 detik dan untuk setiap jawaban yang benar akan mendapat 6+ detik dan 5+ poin.<br>
             Mari kita lihat keterampilan mengetik Kamu.
           </p>
           <button onclick="backButton()" class="back">Back</button>
@@ -249,7 +249,7 @@
 
     var randomWord;
     var score = 0;
-    var time = 15; // <-- ubah durasi awal di sini
+    var time = 20; // <-- ubah durasi awal di sini
     var timeInterval;
 
     // =================== Fungsi Game ===================
@@ -274,7 +274,7 @@
     }
 
     function resetButton() {
-      time = 15; // <-- durasi restart
+      time = 20; // <-- durasi restart
       score = 0;
       setScore.innerHTML = score;
       inputArea.value = "";
@@ -287,7 +287,7 @@
       gameover.style.display = "none";
       gameArea.style.display = "block";
       startGame();
-      time = 15; // <-- durasi coba lagi
+      time = 20; // <-- durasi coba lagi
       score = 0;
       setScore.innerHTML = score;
       inputArea.value = "";
@@ -315,7 +315,7 @@
         getWord();
         scoreUpdate();
         e.target.value = "";
-        time += 3; // <-- tambah waktu per jawaban benar
+        time += 6; // <-- tambah waktu per jawaban benar
         timeUpdate();
       }
     });
