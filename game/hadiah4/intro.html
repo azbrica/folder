@@ -21,19 +21,14 @@
       border: 2px solid #00ff88;
       padding: 20px;
       max-width: 300px;
-      text-align: center;
+      text-align: left;
       background-color: rgba(0, 255, 136, 0.08);
       border-radius: 12px;
-    }
-
-    .info-box h2 {
-      margin-top: 0;
-      font-size: 20px;
-    }
-
-    .info-box p {
-      font-size: 15px;
-      line-height: 1.4;
+      font-family: monospace;
+      font-size: 14px;
+      line-height: 1.3;
+      overflow-y: auto;
+      max-height: 300px;
     }
 
     .reaction-box {
@@ -49,14 +44,40 @@
 <body>
 
   <div class="info-box">
-    <h2>👀 Dasai Mochi bisa dengar suara kamu!</h2>
-    <p>
-      Ucapkan kata seperti <b>"senyum"</b>, <b>"marah"</b>, <b>"musik"</b>, atau <b>"pelangi"</b><br>
-      dan Mochi akan bereaksi sesuai ekspresi kamu!
-    </p>
+"senang": "smile",<br>
+"bahagia": "smile",<br>
+"senyum": "smile",<br>
+"marah": "angry",<br>
+"bete": "angry",<br>
+"jelek": "angry",<br>
+"kesal": "angry",<br>
+"sedih": "crying",<br>
+"nangis": "crying",<br>
+"cinta": "love",<br>
+"sayang": "love",<br>
+"ganteng": "love",<br>
+"cantik": "love",<br>
+"musik": "music",<br>
+"lagu": "music",<br>
+"ngantuk": "sleepy",<br>
+"malas": "sleepy",<br>
+"polisi": "police",<br>
+"pelangi": "rainbow",<br>
+"tertawa": "laugh",<br>
+"ngakak": "laugh",<br>
+"ketawa": "laugh",<br>
+"nakal": "look_down",<br>
+"liat kiri": "look_left",<br>
+"liat kanan": "look_right",<br>
+"cium": "raspberry",<br>
+"lampu nyala": "headlights",<br>
+"fokus": "distracted",<br>
+"lag": "glitch",<br>
+"eror": "glitch",<br>
+"lucu": "uwu"
   </div>
 
-  <div class="reaction-box" id="reactionBox">Mochi menunggu suara kamu...</div>
+  <div class="reaction-box">Mochi menunggu suara kamu...</div>
 
   <!-- Tombol tetap tidak diubah -->
   <button class="btn" onclick="window.location.href='index.html'">Mulai
@@ -82,79 +103,6 @@
       <img src="https://i.ibb.co/r2Ys6q3s/star.png" alt="star">
     </div>
   </button>
-
-  <script>
-    const kataMochi = {
-      "senang": "smile",
-      "bahagia": "smile",
-      "senyum": "smile",
-      "marah": "angry",
-      "bete": "angry",
-      "jelek": "angry",
-      "kesal": "angry",
-      "sedih": "crying",
-      "nangis": "crying",
-      "cinta": "love",
-      "sayang": "love",
-      "ganteng": "love",
-      "cantik": "love",
-      "musik": "music",
-      "lagu": "music",
-      "ngantuk": "sleepy",
-      "malas": "sleepy",
-      "polisi": "police",
-      "pelangi": "rainbow",
-      "tertawa": "laugh",
-      "ngakak": "laugh",
-      "ketawa": "laugh",
-      "nakal": "look_down",
-      "liat kiri": "look_left",
-      "liat kanan": "look_right",
-      "cium": "raspberry",
-      "lampu nyala": "headlights",
-      "fokus": "distracted",
-      "lag": "glitch",
-      "eror": "glitch",
-      "lucu": "uwu",
-      "smirk": "smirk",
-      "gaspol": "revs",
-      "mini": "shrink",
-      "achoo": "sneeze",
-      "julit": "smirk",
-      "turbo": "turbo",
-      "terbalik": "upside_down",
-      "bintang": "stars",
-      "sakura": "sakura"
-    };
-
-    const reactionBox = document.getElementById("reactionBox");
-
-    // Cek browser support
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if (!SpeechRecognition) {
-      reactionBox.textContent = "Browsermu tidak mendukung voice recognition 😅";
-    } else {
-      const recognition = new SpeechRecognition();
-      recognition.lang = 'id-ID';
-      recognition.interimResults = false;
-      recognition.continuous = true; // terus dengar
-
-      recognition.onresult = function(event) {
-        const spokenWord = event.results[event.results.length - 1][0].transcript.toLowerCase().trim();
-        if (kataMochi[spokenWord]) {
-          reactionBox.textContent = "Mochi bereaksi: " + kataMochi[spokenWord];
-        } else {
-          reactionBox.textContent = "Mochi bingung 😅";
-        }
-      };
-
-      recognition.onerror = function(event) {
-        reactionBox.textContent = "Error: " + event.error;
-      };
-
-      recognition.start();
-    }
-  </script>
 
 </body>
 </html>
