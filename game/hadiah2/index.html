@@ -603,7 +603,7 @@ small {
 
           <p class="ins">
 
-             Cukup ketikkan kata pada kotak input untuk mencetak skor. Kamu akan mendapat 20 detik dan untuk setiap jawaban yang benar akan mendapat 5+ detik dan 5+ poin.<br>Mari kita lihat keterampilan mengetik Kamu.
+             Cukup ketikkan kata pada kotak input untuk mencetak skor. Kamu akan mendapat 15 detik dan untuk setiap jawaban yang benar akan mendapat 3+ detik dan 5+ poin.<br>Mari kita lihat keterampilan mengetik Kamu.
 
           </p>
 
@@ -723,7 +723,7 @@ function backButton() {
 
 function resetButton() {
 
-  time = 20;
+  time = 15;
 
   getWord();
 
@@ -755,7 +755,7 @@ function tryAgain() {
 
   startGame();
 
-  time = 20;
+  time = 15;
 
   score = 0;
 
@@ -827,7 +827,7 @@ var randomWord;
 
 var score = 0;
 
-var time = 20;
+var time = 15;
 
 
 
@@ -909,7 +909,7 @@ inputArea.addEventListener("input", (e) => {
 
     // }
 
-    time += 5;
+    time += 3;
 
     timeUpdate();
 
