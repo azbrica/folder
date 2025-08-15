@@ -1,52 +1,30 @@
-// script.js baru
-const kataTanggal = [
-  "", // dummy index 0
-  "Jangan hilang harapan",
-  "Selalu ingat",
-  "Pegang teguh imanmu",
-  "Tetap bertahan karena",
-  "Jangan lupa bahwa",
-  "Tetap Berusaha karena",
-  "Perhatikan itu",
-  "Ingatkan dirimu bahwa",
-  "Menjadi kuat karena",
-  "Hidup tidak adil tapi",
-  "Ketika orang menghakimi mu",
-  "Bahkan ketika tidak ada yang percaya",
-  "Kamu mungkin sedih dan khawatir",
-  "Tidak peduli seberapa lelahnya kamu",
-  "Orang lain mungkin menjatuhkan mu",
-  "Ketika setiap orang meninggalkan mu",
-  "Bahkan jika kamu gagal berkali kali",
-  "Ketika segala sesuatu tidak berjalan sesuai rencana",
-  "Kamu mungkin terjebak sekarang",
-  "Ketika kamu merasa putus asa",
-  "Aku tau kamu sedang berjuang sekarang",
-  "Selalu bersyukur",
-  "Tetap semangat",
-  "Percaya pada proses",
-  "Jangan takut mencoba",
-  "Terus melangkah",
-  "Tetap rendah hati",
-  "Jangan mudah menyerah",
-  "Terus berjuang",
-  "Jadilah dirimu sendiri"
-];
-
 const kataBulan = [
   "", // dummy index 0
-  "Hidup tidak adil tapi",
-  "Ketika orang menghakimi mu",
-  "Bahkan ketika tidak ada yang percaya",
-  "Kamu mungkin sedih dan khawatir",
-  "Tidak peduli seberapa lelahnya kamu",
-  "Orang lain mungkin menjatuhkan mu",
-  "Ketika setiap orang meninggalkan mu",
-  "Bahkan jika kamu gagal berkali kali",
-  "Ketika segala sesuatu tidak berjalan sesuai rencana",
-  "Kamu mungkin terjebak sekarang",
-  "Ketika kamu merasa putus asa",
-  "Aku tau kamu sedang berjuang sekarang"
+  "Hidup tidak adil tapi",                // Jan
+  "Ketika orang menghakimi mu",           // Feb
+  "Bahkan ketika tidak ada yang percaya", // Mar
+  "Kamu mungkin sedih dan khawatir",      // Apr
+  "Tidak peduli seberapa lelahnya kamu",  // Mei
+  "Orang lain mungkin menjatuhkan mu",    // Jun
+  "Ketika setiap orang meninggalkan mu",  // Jul
+  "Bahkan jika kamu gagal berkali kali",  // Agu
+  "Ketika segala sesuatu tidak berjalan sesuai rencana", // Sep
+  "Kamu mungkin terjebak sekarang",       // Okt
+  "Ketika kamu merasa putus asa",         // Nov
+  "Aku tau kamu sedang berjuang sekarang" // Des
+];
+
+const kataTanggal = [
+  "", // dummy index 0
+  "Jangan hilang harapan",  // 1
+  "Selalu ingat",           // 2
+  "Pegang teguh imanmu",    // 3
+  "Tetap bertahan karena",  // 4
+  "Jangan lupa bahwa",      // 5
+  "Tetap Berusaha karena",  // 6
+  "Perhatikan itu",         // 7
+  "Ingatkan dirimu bahwa",  // 8
+  "Menjadi kuat karena"     // 9
 ];
 
 const kataNama = {
@@ -79,16 +57,17 @@ const kataNama = {
 };
 
 $("#tembak").on("click", function () {
-  const tanggal = parseInt($("#tanggal").val());
+  const tanggalPenuh = $("#tanggal").val().trim();
   const bulan = parseInt($("#bulan").val());
   const nama = $("#nama").val().trim();
 
-  if (!tanggal || !bulan || !nama) {
+  if (!tanggalPenuh || !bulan || !nama) {
     alert("Pilih tanggal, bulan, dan masukkan nama!");
     return;
   }
 
-  const awalan = nama.charAt(0).toUpperCase();
+  const tanggalPertama = parseInt(tanggalPenuh.charAt(0)); // ambil digit pertama
+  const hurufAwal = nama.charAt(0).toUpperCase();
 
   const position = $(this).position();
   $(".wrapper").addClass("active");
@@ -102,7 +81,7 @@ $("#tembak").on("click", function () {
       transform: "translateY(1000px)"
     });
 
-    const hasil = `${kataBulan[bulan]} ${kataTanggal[tanggal]} ${kataNama[awalan] || ""}`;
+    const hasil = `${kataBulan[bulan]} ${kataTanggal[tanggalPertama]} ${kataNama[hurufAwal] || ""}`;
     $(".result").text(hasil);
   }, 2000);
 });
