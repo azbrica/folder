@@ -1,5 +1,5 @@
 const title = document.querySelector('.title')
-const text = `open dulu gasi :v`.split('')
+const text = `open :v`.split('')
 
 // Create container for better responsive layout
 title.style.display = 'flex'
