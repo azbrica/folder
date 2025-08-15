@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
 * {
   margin: 0;
@@ -12,166 +12,122 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #252432;
+  background: #223243;
 }
 
-@property --a {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 0deg;
-}
-
-.box {
-  position: relative;
-  width: 600px;
-  height: 300px;
-  background: repeating-conic-gradient(
-    from var(--a),
-    #ff2770 0%,
-    #ff2770 5%,
-    transparent 5%,
-    transparent 40%,
-    #ff2770 50%
-  );
-  filter: drop-shadow(0 15px 50px #000);
-  animation: rotating 4s linear infinite;
+.container {
+  padding: 40px;
   border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.5s;
+  border: 8px solid #223243;
+  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.35),
+    inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+    inset 5px 5px 15px rgba(0, 0, 0, 0.35);
 }
 
-.box:hover {
-  width: 650px;
-  height: 600px;
-}
-
-@keyframes rotating {
-  0% {
-    --a: 0deg;
-  }
-  100% {
-    --a: 360deg;
-  }
-}
-
-.box::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: repeating-conic-gradient(
-    from var(--a),
-    #45f3ff 0%,
-    #45f3ff 5%,
-    transparent 5%,
-    transparent 40%,
-    #45f3ff 50%
-  );
-  filter: drop-shadow(0 15px 50px #000);
-  border-radius: 20px;
-  animation: rotating 4s linear infinite;
-  animation-delay: -1s;
-}
-
-.box::after {
-  content: "";
-  position: absolute;
-  inset: 4px;
-  background: #2d2d39;
-  border-radius: 15px;
-  border: 8px solid #25252b;
-}
-
-.login {
-  position: absolute;
-  inset: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  flex-direction: column;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.5);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-  transition: 0.5s;
-  color: #fff;
-  overflow: hidden;
-}
-
-.box:hover .login {
-  inset: 40px;
-}
-
-.loginBx {
-  position: relative;
+.container .form {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  transform: translateY(126px);
-  gap: 20px;
-  width: 70%;
-  transition: 0.5s;
+  gap: 25px;
 }
 
-.box:hover .loginBx {
-  transform: translateY(0px);
+.container .form.signin,
+.container.signinForm .form.signup {
+  display: none;
 }
 
-.loginBx h2 {
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-weight: 600;
+.container.signinForm .form.signin {
+  display: flex;
 }
 
-.loginBx h2 i {
-  color: #ff2770;
-  text-shadow: 0 0 5px #ff2770, 0 0 30px #ff2770;
-}
-
-.loginBx input {
-  width: 100%;
-  padding: 10px 20px;
-  outline: none;
-  font-size: 1em;
+.container .form h2 {
   color: #fff;
-  background: rgba(0, 0, 0, 0.1);
-  border: 2px solid #fff;
-  border-radius: 30px;
-}
-
-.loginBx input::placeholder {
-  color: #999;
-}
-
-.loginBx input[type="submit"] {
-  background: #45f3ff;
-  border: none;
   font-weight: 500;
-  color: #111;
-  cursor: pointer;
-  transition: 0.5s;
+  letter-spacing: 0.1em;
 }
 
-.loginBx input[type="submit"]:hover {
-  box-shadow: 0 0 10px #45f3ff, 0 0 60px #45f3ff;
+.container .form .inputBox {
+  position: relative;
+  width: 300px;
 }
 
-.group {
-  display: flex;
+.container .form .inputBox input {
+  padding: 12px 10px 12px 48px;
+  border: none;
   width: 100%;
-  justify-content: space-between;
-}
-
-.group a {
+  background: #223243;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   color: #fff;
-  text-decoration: none;
+  font-weight: 300;
+  border-radius: 25px;
+  font-size: 1em;
+  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.35);
+  transition: 0.5s;
+  outline: none;
 }
 
-.group a:nth-child(2) {
-  color: #ff2770;
-  font-weight: 600;
+.container .form .inputBox span {
+  position: absolute;
+  left: 0;
+  padding: 12px 10px 12px 48px;
+  pointer-events: none;
+  font-size: 1em;
+  font-weight: 300;
+  transition: 0.5s;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.container .form .inputBox input:valid ~ span,
+.container .form .inputBox input:focus ~ span {
+  color: #00dfc4;
+  border: 1px solid #00dfc4;
+  background: #223243;
+  transform: translateX(25px) translateY(-7px);
+  font-size: 0.6em;
+  padding: 0 8px;
+  border-radius: 10px;
+  letter-spacing: 0.1em;
+}
+
+.container .form .inputBox input:valid,
+.container .form .inputBox input:focus {
+  border: 1px solid #00dfc4;
+}
+
+.container .form .inputBox i {
+  position: absolute;
+  top: 15px;
+  left: 16px;
+  width: 25px;
+  padding: 2px 0;
+  padding-right: 8px;
+  color: #00dfc4;
+  border-right: 1px solid #00dfc4;
+}
+
+.container .form .inputBox input[type="submit"] {
+  background: #00dfc4;
+  color: #223243;
+  padding: 10px 0;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.35),
+    inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+    inset 5px 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+.container .form p {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.75em;
+  font-weight: 300;
+}
+
+.container .form p a {
+  font-weight: 500;
+  color: #fff;
 }
