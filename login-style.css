@@ -60,6 +60,12 @@ body {
   outline: none;
 }
 
+/* fake password field -> tetap bintang */
+.fake-password {
+  -webkit-text-security: disc;
+  text-security: disc;
+}
+
 .container .form .inputBox span {
   position: absolute;
   left: 0;
