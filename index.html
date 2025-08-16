@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="login-style.css" />
   <!-- CSS animasi loader -->
   <link rel="stylesheet" href="loader.css" />
+  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -16,12 +17,13 @@
     <div class="form signin">
       <h2>Sign In</h2>
       <div class="inputBox">
-        <input type="text" id="username" autocomplete="off" required />
+        <input type="text" id="username" required autocomplete="off"/>
         <i class="fa-regular fa-user"></i>
         <span>username</span>
       </div>
       <div class="inputBox">
-        <input type="password" id="password" autocomplete="new-password" required />
+        <!-- ⚡ fake password field -->
+        <input type="text" id="password" class="fake-password" required autocomplete="off"/>
         <i class="fa-solid fa-lock"></i>
         <span>password</span>
       </div>
@@ -76,7 +78,7 @@
       });
     });
 
-    // 🔥 fix: pastikan loader mati ketika halaman dimuat ulang/back
+    // Pastikan loader mati ketika halaman dimuat ulang/back
     window.addEventListener("pageshow", () => {
       document.getElementById("loader-overlay").style.display = "none";
     });
