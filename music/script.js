@@ -510,6 +510,28 @@ let songs = [
     { time: 1000, text: "Still with you" }
 ]
  }, 
+    {
+    id: 15,
+    title: "Eight Letters",
+    artist: "Why Don't We",
+    album: "Eight Letters",
+    albumArtUrl: "https://i.ytimg.com/vi/8yamg7y-Jv0/hqdefault.jpg",
+    audioSrc: "audio/8.mp3",
+    videoBgSrc: "videos/8.mp4",
+    lyrics: [
+        { time: 1000, text: "When I close my eyes" },
+        { time: 1000, text: "It's you there in my mind" },
+        { time: 1000, text: "When I close my eyes" },
+        { time: 1000, text: "If all it is is eight letters" },
+        { time: 1000, text: "Why is it so hard to say?" },
+        { time: 1000, text: "If all it is is eight letters" },
+        { time: 1000, text: "Why am I in my own way?" },
+        { time: 1000, text: "Why do I pull you close?" },
+        { time: 1000, text: "And then ask you for space" },
+        { time: 1000, text: "If all it is is eight letters" },
+        { time: 1000, text: "Why is it so hard to say?" }
+    ]
+},
 ];
 let currentSongIndex = 0;
 let isPlaying = false;
