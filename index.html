@@ -4,10 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login</title>
+  <!-- CSS halaman login -->
   <link rel="stylesheet" href="login-style.css" />
+  <!-- CSS animasi loader -->
+  <link rel="stylesheet" href="loader.css" />
 </head>
 <body>
 
+  <!-- Form Login -->
   <div class="container">
     <div class="form signin">
       <h2>Sign In</h2>
@@ -27,6 +31,14 @@
     </div>
   </div>
 
+  <!-- Loader Overlay -->
+  <div id="loader-overlay">
+    <div class="loader">
+      <div class="face"><div class="circle"></div></div>
+      <div class="face"><div class="circle"></div></div>
+    </div>
+  </div>
+
   <script>
     const loginBtn = document.getElementById("loginBtn");
     const inputs = document.querySelectorAll("#username, #password");
@@ -36,7 +48,13 @@
       const pass = document.getElementById("password").value.trim();
 
       if (user === "zizah" && pass === "1708") {
-        window.location.href = "halamanberikutnya.html";
+        // tampilkan loader
+        document.getElementById("loader-overlay").style.display = "flex";
+
+        // delay 2 detik sebelum redirect
+        setTimeout(() => {
+          window.location.href = "halamanberikutnya.html";
+        }, 2000);
       } else {
         alert('Username: "zizah" dan Password: "1708" :)');
       }
@@ -48,7 +66,7 @@
       checkLogin();
     });
 
-    // Tekan Enter di keyboard HP
+    // Tekan Enter di keyboard
     inputs.forEach(input => {
       input.addEventListener("keydown", function (e) {
         if (e.key === "Enter") {
