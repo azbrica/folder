@@ -430,10 +430,10 @@ let songs = [
    },
    {
         id: 14,
-        title: "Bolbbalgan4",
-        artist: "You (=i)",
+        title: "You (=i)",
+        artist: "Bolbbalgan4",
         album: "Single",
-        albumArtUrl: "https://example.com/albumArt.jpg",
+        albumArtUrl: "https://i.ytimg.com/vi/B6mI1mVMAB4/hqdefault.jpg",
         audioSrc: "audio/bol4.mp3",
         videoBgSrc: "videos/bol4.mp4",
         lyrics: [
