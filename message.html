@@ -184,6 +184,27 @@ kamsahamnida nilnaa 🥀 `;
     });
 
     typeText();
-  </script>
+</script>
+
+<!-- Tambahan sinkronisasi -->
+<script>
+  // Pastikan video mulai dari awal saat audio diputar
+  audio.addEventListener("play", () => {
+    video.currentTime = 0;
+    video.play();
+  });
+
+  // Pause video kalau audio dipause
+  audio.addEventListener("pause", () => {
+    video.pause();
+  });
+
+  // Sinkronisasi tiap detik biar ga telat
+  audio.addEventListener("timeupdate", () => {
+    if (Math.abs(video.currentTime - audio.currentTime) > 0.3) {
+      video.currentTime = audio.currentTime;
+    }
+  });
+</script>
 </body>
 </html>
