@@ -967,3 +967,17 @@ audioPlayer.addEventListener("ended", () => {
         videoPlayer.currentTime = 0;
     }
 });
+
+// Kalau audio selesai → video juga berhenti
+audioPlayer.addEventListener('ended', () => {
+    backgroundVideo.pause();
+    backgroundVideo.currentTime = 0; // balik ke awal biar berhenti di frame pertama
+});
+
+// Kalau video selesai → cek apakah audio masih jalan
+backgroundVideo.addEventListener('ended', () => {
+    if (!audioPlayer.paused) {
+        backgroundVideo.currentTime = 0;
+        backgroundVideo.play();
+    }
+});
