@@ -940,3 +940,30 @@ function init() {
 }
 
 init();
+
+// Sinkronisasi video dengan audio
+audioPlayer.addEventListener("play", () => {
+    if (videoPlayer) {
+        videoPlayer.currentTime = audioPlayer.currentTime;
+        videoPlayer.play();
+    }
+});
+
+audioPlayer.addEventListener("pause", () => {
+    if (videoPlayer) {
+        videoPlayer.pause();
+    }
+});
+
+audioPlayer.addEventListener("timeupdate", () => {
+    if (videoPlayer && Math.abs(videoPlayer.currentTime - audioPlayer.currentTime) > 0.3) {
+        videoPlayer.currentTime = audioPlayer.currentTime;
+    }
+});
+
+audioPlayer.addEventListener("ended", () => {
+    if (videoPlayer) {
+        videoPlayer.pause();
+        videoPlayer.currentTime = 0;
+    }
+});
