@@ -981,3 +981,11 @@ backgroundVideo.addEventListener('ended', () => {
         backgroundVideo.play();
     }
 });
+
+// Kalau video selesai → cek apakah audio masih jalan
+backgroundVideo.addEventListener('ended', () => {
+    if (!audioPlayer.paused) {
+        backgroundVideo.currentTime = 0;
+        backgroundVideo.play();
+    }
+});
